@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
+import { ConnectMark } from "./connect-mark";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import barber from "@/assets/concept-barber.jpg";
@@ -169,7 +170,9 @@ export function EcosistemaSection() {
             <circle cx="160" cy="300" r="5" fill="var(--primary)" fillOpacity=".7" />
             <circle cx="840" cy="300" r="5" fill="var(--primary)" fillOpacity=".7" />
           </svg>
-          <Link to="/maya-connect" className="absolute left-1/2 top-[34%] -translate-x-1/2 font-display text-lg font-semibold uppercase tracking-[0.18em] text-primary md:text-2xl">Maya Connect</Link>
+          <Link to="/maya-connect" aria-label="Maya Connect" className="absolute left-1/2 top-[34%] -translate-x-1/2">
+            <ConnectMark variant="static" className="connect-mark--ecosystem" />
+          </Link>
           <Link to="/maya-web" className="absolute left-[16%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg">Maya Web</Link>
           <Link to="/maya-app" className="absolute left-[84%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg">Maya App</Link>
         </div>

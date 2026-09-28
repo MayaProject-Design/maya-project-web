@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ConnectMark } from "@/components/maya/connect-mark";
 import { CONTACT, SiteHeader } from "@/components/maya/page-kit";
 import { Reveal } from "@/components/maya/home";
 import barber from "@/assets/concept-barber.jpg";
@@ -134,7 +135,7 @@ function MayaWebPage() {
       </section>
 
       {/* 5. Concept applicati */}
-      <section id="concept-web" className="bg-deep px-6 py-28 md:px-12 md:py-40 lg:px-16">
+      <section id="concept-web" className="bg-deep px-6 pb-24 pt-28 md:px-12 md:pb-32 md:pt-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
           <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
             Una stessa tecnologia. <span className="text-chrome">Identità completamente diverse.</span>
@@ -163,7 +164,7 @@ function MayaWebPage() {
       </section>
 
       {/* 6. Ponte verso Maya Connect */}
-      <section className="px-6 py-28 md:px-12 md:py-40 lg:px-16">
+      <section className="px-6 pb-28 pt-24 md:px-12 md:pb-40 md:pt-28 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
           <h2 className="max-w-3xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
             Un sito può diventare <span className="text-primary">un sistema.</span>
@@ -173,7 +174,13 @@ function MayaWebPage() {
             <p>Quando l'attività cresce, il sito può collegarsi a strumenti, dati, automazioni e nuovi servizi attraverso Maya Connect.</p>
           </div>
           <Button asChild variant="maya" size="lg" className="mt-10 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
-            <Link to="/maya-connect">Scopri Maya Connect <ArrowUpRight aria-hidden="true" /></Link>
+            <Link to="/maya-connect" aria-label="Scopri Maya Connect" className="connect-mark-trigger">
+              <span>Scopri</span>
+              <span className="connect-mark-interaction inline-flex">
+                <ConnectMark variant="button" />
+              </span>
+              <ArrowUpRight aria-hidden="true" />
+            </Link>
           </Button>
           <div className="relative mt-20 md:mt-24">
             <div aria-hidden="true" className="absolute left-0 right-0 top-[7px] hidden h-px thread-line md:block" />

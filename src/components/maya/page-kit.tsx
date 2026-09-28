@@ -1,32 +1,68 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ConnectMark } from "./connect-mark";
 import { ThreadConnector } from "./sections";
 
 export const CONTACT = "https://www.maya-project.it/contatti/";
 
-export function SiteHeader() {
+export function SiteHeader({ home = false }: { home?: boolean }) {
+  const [menuOpen, setMenuOpen] = useState(false);
   const nav = [
-    { to: "/maya-web", label: "Web" },
-    { to: "/maya-connect", label: "Connect" },
-    { to: "/maya-app", label: "App" },
+    { to: "/maya-web", label: "MAYA WEB" },
+    { to: "/maya-connect", label: "MAYA CONNECT" },
+    { to: "/maya-app", label: "MAYA APP" },
   ] as const;
-  return (
-    <header className="relative z-20 mx-auto flex w-full max-w-[1600px] items-center justify-between gap-4 px-6 py-6 md:px-12 md:py-9 lg:px-16">
-      <Link to="/" aria-label="Maya Project, homepage" className="group inline-flex items-center gap-3 font-display text-sm font-semibold tracking-[0.12em] md:text-base">
-        <span className="inline-block size-2 rotate-45 border border-primary bg-primary transition-transform group-hover:rotate-[135deg]" />
-        MAYA<span className="text-muted-foreground">/</span>PROJECT
+  const brandContents = (
+    <>
+      <span className="inline-block size-2 shrink-0 rotate-45 border border-primary bg-primary transition-transform group-hover:rotate-[135deg]" />
+      MAYA<span className="text-muted-foreground">/</span>PROJECT
+    </>
+  );
+  const brandClass = home
+    ? "group inline-flex min-w-0 items-center gap-2 font-display text-[13px] font-semibold tracking-[0.1em] sm:gap-3 sm:text-sm sm:tracking-[0.12em] md:text-base"
+    : "group inline-flex items-center gap-3 font-display text-sm font-semibold tracking-[0.12em] md:text-base";
+  const renderNavLinks = (variant: "nav" | "mobile") =>
+    nav.map((item) => (
+      <Link
+        key={item.to}
+        to={item.to}
+        aria-label={item.to === "/maya-connect" ? "MAYA CONNECT" : undefined}
+        onClick={variant === "mobile" ? () => setMenuOpen(false) : undefined}
+        className={`text-muted-foreground transition-colors hover:text-foreground ${variant === "mobile" ? "py-3" : "whitespace-nowrap"}`}
+        activeProps={{ className: "!text-primary" }}
+      >
+        {item.to === "/maya-connect" ? <ConnectMark variant={variant} /> : item.label}
       </Link>
-      <nav className="flex items-center gap-4 font-sans text-[11px] font-semibold uppercase tracking-[0.14em] md:gap-8 md:text-xs">
-        {nav.map((n) => (
-          <Link key={n.to} to={n.to} className="text-muted-foreground transition-colors hover:text-foreground" activeProps={{ className: "!text-primary" }}>
-            {n.label}
-          </Link>
-        ))}
-        <a href={CONTACT} className="hidden items-center gap-2 border-b border-border pb-1 transition-colors hover:border-primary hover:text-primary sm:inline-flex">
-          Contatti <ArrowUpRight aria-hidden="true" className="size-3.5" />
-        </a>
+    ));
+
+  return (
+    <header className={`relative z-20 mx-auto grid w-full max-w-[1600px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 md:px-12 lg:px-16 ${home ? "px-5 py-5 sm:px-6 md:py-6" : "px-6 py-6 md:py-9"}`}>
+      {home ? (
+        <a href="#inizio" aria-label="Maya Project, torna all'inizio" className={brandClass}>{brandContents}</a>
+      ) : (
+        <Link to="/" aria-label="Maya Project, homepage" className={brandClass}>{brandContents}</Link>
+      )}
+      <nav aria-label="Navigazione principale" className="hidden items-center gap-4 font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground lg:flex xl:gap-6 xl:text-[11px]">
+        {renderNavLinks("nav")}
+        <a href={CONTACT} className="whitespace-nowrap transition-colors hover:text-foreground">CONTATTI</a>
+        <Button asChild variant="link" className="group h-auto shrink-0 rounded-none border-b border-border p-0 pb-1 font-sans text-[10px] font-semibold uppercase text-foreground no-underline hover:border-primary hover:text-primary hover:no-underline xl:text-[11px]">
+          <a href={CONTACT}>INIZIA UN PROGETTO <ArrowUpRight aria-hidden="true" className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a>
+        </Button>
       </nav>
+      <Button type="button" variant="ghost" size="icon" aria-label={menuOpen ? "Chiudi menu" : "Apri menu"} aria-expanded={menuOpen} aria-controls="home-mobile-nav" onClick={() => setMenuOpen((open) => !open)} className="shrink-0 text-foreground hover:text-primary lg:hidden">
+        {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+      </Button>
+      {menuOpen && (
+        <nav id="home-mobile-nav" aria-label="Navigazione mobile" className="absolute inset-x-0 top-full z-20 grid gap-1 border-b border-border bg-background px-6 py-5 font-sans text-xs font-semibold uppercase text-muted-foreground shadow-lg lg:hidden">
+          {renderNavLinks("mobile")}
+          <a href={CONTACT} onClick={() => setMenuOpen(false)} className="py-3 transition-colors hover:text-foreground">CONTATTI</a>
+          <Button asChild variant="link" className="h-auto justify-start rounded-none p-0 py-3 text-xs font-semibold uppercase text-primary no-underline hover:no-underline">
+            <a href={CONTACT} onClick={() => setMenuOpen(false)}>INIZIA UN PROGETTO <ArrowUpRight aria-hidden="true" /></a>
+          </Button>
+        </nav>
+      )}
     </header>
   );
 }
@@ -43,7 +79,7 @@ export function Label({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function PageHero({ kicker, title, subtitle, children }: { kicker: string; title: React.ReactNode; subtitle: React.ReactNode; children?: React.ReactNode }) {
+export function PageHero({ kicker, title, subtitle, children }: { kicker: React.ReactNode; title: React.ReactNode; subtitle: React.ReactNode; children?: React.ReactNode }) {
   return (
     <section className="relative isolate overflow-hidden border-b border-border">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hero-ambient" />
