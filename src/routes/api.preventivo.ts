@@ -95,9 +95,16 @@ export const Route = createFileRoute("/api/preventivo")({
         if (!EMAIL_PATTERN.test(data.email)) {
           return Response.json({ error: "Controlla l'indirizzo email." }, { status: 400 });
         }
+const runtime = (request as CloudflareRequest).runtime;
 
-        const runtime = (request as CloudflareRequest).runtime;
-        const apiKey = runtime?.cloudflare?.env?.RESEND_API_KEY;
+const cloudflareApiKey = runtime?.cloudflare?.env?.RESEND_API_KEY;
+
+const localApiKey =
+  typeof process !== "undefined"
+    ? process.env.RESEND_API_KEY
+    : undefined;
+
+const apiKey = cloudflareApiKey ?? localApiKey;
         if (typeof apiKey !== "string" || !apiKey) {
           console.error("[api/preventivo] Resend API binding unavailable");
           return Response.json(genericError, { status: 500 });
