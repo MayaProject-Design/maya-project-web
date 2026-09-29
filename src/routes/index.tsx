@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowUpRight, MoveDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SiteHeader } from "@/components/maya/page-kit";
+import { CONTACT, SiteHeader } from "@/components/maya/page-kit";
 import { ShowroomSection, ManifestoSection, MetodoSection, EcosistemaSection, SoluzioniSection, FinalCta } from "@/components/maya/home";
 
 export const Route = createFileRoute("/")({
@@ -40,7 +40,7 @@ function Index() {
                 <a href="#concept">Esplora i concept <ArrowDownRight aria-hidden="true" /></a>
               </Button>
               <Button asChild variant="mayaOutline" size="lg" className="h-12 px-6 text-xs font-bold uppercase tracking-[0.1em] md:h-13 md:px-8">
-                <a href="https://www.maya-project.it/contatti/">Parla con noi <ArrowUpRight aria-hidden="true" /></a>
+                <Link to={CONTACT}>Parla con noi <ArrowUpRight aria-hidden="true" /></Link>
               </Button>
             </div>
           </div>

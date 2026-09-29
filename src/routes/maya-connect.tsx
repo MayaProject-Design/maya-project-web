@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ConnectMark } from "@/components/maya/connect-mark";
-import { CONTACT, Closing, PageHero, Section, ThreadRow } from "@/components/maya/page-kit";
+import { Closing, PageHero, QUOTE, Section, ThreadRow } from "@/components/maya/page-kit";
 
 const TITLE = "Maya Connect — Il filo che unisce il tuo ecosistema digitale | Maya Project";
 const DESC = "Colleghiamo strumenti, dati e processi per creare un sistema digitale unico intorno al tuo business.";
@@ -63,7 +62,8 @@ function ConnectDiagram() {
         })}
         <circle cx={cx} cy={cy} r="46" fill="var(--background)" stroke="var(--primary)" strokeWidth="1.5" />
         <circle cx={cx} cy={cy} r="62" fill="none" stroke="var(--primary)" strokeOpacity=".25" className="node-ring" />
-        <ConnectMark variant="static" className="connect-mark--diagram" x={cx - 58} y={cy - 18} width={116} height={36} />
+        <text x={cx} y={cy - 2} textAnchor="middle" fill="var(--foreground)" style={{ font: "600 10px var(--font-display)", letterSpacing: "0.18em" }}>MAYA</text>
+        <text x={cx} y={cy + 14} textAnchor="middle" fill="var(--primary)" style={{ font: "600 11px var(--font-display)", letterSpacing: "0.14em" }}>CONNECT</text>
       </svg>
     </div>
   );
@@ -93,12 +93,7 @@ function MayaConnectPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <PageHero
-        kicker={
-          <>
-            <span className="sr-only">Maya Connect</span>
-            <ConnectMark variant="static" className="connect-mark--kicker" />
-          </>
-        }
+        kicker="MAYA CONNECT"
         title={<>Il filo che unisce il tuo <span className="text-primary">ecosistema digitale.</span></>}
         subtitle={
           <>
@@ -109,7 +104,7 @@ function MayaConnectPage() {
         }
       >
         <Button asChild variant="maya" size="lg" className="reveal-in mt-12 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em] [animation-delay:300ms]">
-          <a href={CONTACT}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></a>
+            <Link to={QUOTE}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></Link>
         </Button>
       </PageHero>
 
@@ -197,16 +192,7 @@ function MayaConnectPage() {
                 {p.to ? (
                   <Link to={p.to} className="inline-flex items-center gap-2 font-display text-2xl transition-colors hover:text-primary">{p.n} <ArrowUpRight aria-hidden="true" className="size-4" /></Link>
                 ) : (
-                  <p className="font-display text-3xl text-primary md:text-4xl">
-                    {p.n === "Maya Connect" ? (
-                      <>
-                        <span className="sr-only">Maya Connect</span>
-                        <ConnectMark variant="static" className="connect-mark--ecosystem" />
-                      </>
-                    ) : (
-                      p.n
-                    )}
-                  </p>
+                  <p className="font-display text-3xl text-primary md:text-4xl">{p.n}</p>
                 )}
                 <p className="mt-2 text-[15px] text-muted-foreground">{p.d}</p>
               </li>
@@ -219,6 +205,7 @@ function MayaConnectPage() {
         title={<>Costruiamo connessioni che fanno crescere <span className="text-primary">il tuo business.</span></>}
         text={<><p>Raccontaci come lavori oggi.</p><p>Progettiamo il sistema digitale più adatto alla tua realtà.</p></>}
         cta="Inizia il progetto"
+        to={QUOTE}
       />
     </main>
   );

@@ -4,7 +4,8 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThreadConnector } from "./sections";
 
-export const CONTACT = "https://www.maya-project.it/contatti/";
+export const CONTACT = "/contatti";
+export const QUOTE = "/preventivo" as const;
 
 export function SiteHeader({ home = false }: { home?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,9 +47,9 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
       )}
       <nav aria-label="Navigazione principale" className="hidden items-center gap-4 font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground lg:flex xl:gap-6 xl:text-[11px]">
         {renderNavLinks("nav")}
-        <a href={CONTACT} className="site-nav-link whitespace-nowrap">CONTATTI</a>
+        <Link to={CONTACT} className="site-nav-link whitespace-nowrap">CONTATTI</Link>
         <Button asChild variant="link" className="group h-auto shrink-0 rounded-none border-b border-border p-0 pb-1 font-sans text-[10px] font-semibold uppercase text-foreground no-underline hover:border-primary hover:text-primary hover:no-underline xl:text-[11px]">
-          <a href={CONTACT}>INIZIA UN PROGETTO <ArrowUpRight aria-hidden="true" className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a>
+              <Link to={QUOTE}>INIZIA UN PROGETTO <ArrowUpRight aria-hidden="true" className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></Link>
         </Button>
       </nav>
       <Button type="button" variant="ghost" size="icon" aria-label={menuOpen ? "Chiudi menu" : "Apri menu"} aria-expanded={menuOpen} aria-controls="home-mobile-nav" onClick={() => setMenuOpen((open) => !open)} className="shrink-0 text-foreground hover:text-primary lg:hidden">
@@ -57,9 +58,9 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
       {menuOpen && (
         <nav id="home-mobile-nav" aria-label="Navigazione mobile" className="absolute inset-x-0 top-full z-20 grid gap-1 border-b border-border bg-background px-6 py-5 font-sans text-xs font-semibold uppercase text-muted-foreground shadow-lg lg:hidden">
           {renderNavLinks("mobile")}
-          <a href={CONTACT} onClick={() => setMenuOpen(false)} className="py-3 transition-colors hover:text-foreground">CONTATTI</a>
+          <Link to={CONTACT} onClick={() => setMenuOpen(false)} className="py-3 transition-colors hover:text-foreground">CONTATTI</Link>
           <Button asChild variant="link" className="h-auto justify-start rounded-none p-0 py-3 text-xs font-semibold uppercase text-primary no-underline hover:no-underline">
-            <a href={CONTACT} onClick={() => setMenuOpen(false)}>INIZIA UN PROGETTO <ArrowUpRight aria-hidden="true" /></a>
+            <Link to={QUOTE} onClick={() => setMenuOpen(false)}>INIZIA UN PROGETTO <ArrowUpRight aria-hidden="true" /></Link>
           </Button>
         </nav>
       )}
@@ -132,7 +133,7 @@ export function ThreadRow({ items }: { items: { t: string; d: string }[] }) {
   );
 }
 
-export function Closing({ title, cta, text }: { title: React.ReactNode; cta: string; text?: React.ReactNode }) {
+export function Closing({ title, cta, text, to }: { title: React.ReactNode; cta: string; text?: React.ReactNode; to?: typeof QUOTE }) {
   return (
     <>
       <ThreadConnector />
@@ -142,7 +143,7 @@ export function Closing({ title, cta, text }: { title: React.ReactNode; cta: str
           <h2 className="font-display text-[clamp(2.1rem,4.8vw,4.5rem)] font-medium leading-[1.08]">{title}</h2>
           {text && <div className="mx-auto mt-8 max-w-xl text-lg leading-[1.9] text-muted-foreground">{text}</div>}
           <Button asChild variant="maya" size="lg" className="mt-12 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
-            <a href={CONTACT}>{cta} <ArrowUpRight aria-hidden="true" /></a>
+            {to ? <Link to={to}>{cta} <ArrowUpRight aria-hidden="true" /></Link> : <Link to={CONTACT}>{cta} <ArrowUpRight aria-hidden="true" /></Link>}
           </Button>
         </div>
         <p className="relative mt-24 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">© Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al tuo brand</p>

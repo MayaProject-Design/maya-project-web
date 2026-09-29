@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 
-const CONTACT = "https://www.maya-project.it/contatti/";
+const QUOTE = "/preventivo";
 
 function SectionLabel({ index, children }: { index: string; children: React.ReactNode }) {
   return (
@@ -198,7 +198,7 @@ export function FinalCta() {
         <div className="relative mt-14 inline-block">
           <div aria-hidden="true" className="absolute -inset-6 rounded-full bg-primary/20 blur-2xl thread-pulse" />
           <Button asChild variant="maya" size="lg" className="relative h-16 px-10 text-sm font-bold uppercase tracking-[0.14em] md:h-[4.5rem] md:px-14 md:text-base">
-            <a href={CONTACT}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></a>
+            <Link to={QUOTE}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></Link>
           </Button>
         </div>
       </div>

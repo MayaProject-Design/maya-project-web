@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ConnectMark } from "@/components/maya/connect-mark";
-import { CONTACT, SiteHeader } from "@/components/maya/page-kit";
+import { CONTACT, QUOTE, SiteHeader } from "@/components/maya/page-kit";
 import { Reveal } from "@/components/maya/home";
 import barber from "@/assets/concept-barber.jpg";
 import medical from "@/assets/concept-medical.jpg";
@@ -68,7 +67,7 @@ function MayaWebPage() {
           </p>
           <div className="reveal-in mt-9 flex flex-wrap items-center gap-4 [animation-delay:300ms]">
             <Button asChild variant="maya" size="lg" className="h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
-              <a href={CONTACT}>Parla con noi <ArrowUpRight aria-hidden="true" /></a>
+              <Link to={CONTACT}>Parla con noi <ArrowUpRight aria-hidden="true" /></Link>
             </Button>
             <Button variant="mayaOutline" size="lg" onClick={scrollToConcepts} className="h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
               Scopri i concept
@@ -174,13 +173,7 @@ function MayaWebPage() {
             <p>Quando l'attività cresce, il sito può collegarsi a strumenti, dati, automazioni e nuovi servizi attraverso Maya Connect.</p>
           </div>
           <Button asChild variant="maya" size="lg" className="mt-10 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
-            <Link to="/maya-connect" aria-label="Scopri Maya Connect" className="connect-mark-trigger">
-              <span>Scopri</span>
-              <span className="connect-mark-interaction inline-flex">
-                <ConnectMark variant="button" />
-              </span>
-              <ArrowUpRight aria-hidden="true" />
-            </Link>
+            <Link to="/maya-connect">Scopri Maya Connect <ArrowUpRight aria-hidden="true" /></Link>
           </Button>
           <div className="relative mt-20 md:mt-24">
             <div aria-hidden="true" className="absolute left-0 right-0 top-[7px] hidden h-px thread-line md:block" />
@@ -219,7 +212,7 @@ function MayaWebPage() {
             <p>Progettiamo insieme uno spazio digitale costruito intorno al tuo brand.</p>
           </div>
           <Button asChild variant="maya" size="lg" className="mt-12 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
-            <a href={CONTACT}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></a>
+            <Link to={QUOTE}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></Link>
           </Button>
         </Reveal>
         <div aria-hidden="true" className="mx-auto mt-24 h-px w-[min(82vw,820px)] thread-line" />

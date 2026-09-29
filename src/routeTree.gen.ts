@@ -10,13 +10,27 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as GraziePreventivoRouteImport } from './routes/grazie-preventivo'
 import { Route as MayaAppRouteImport } from './routes/maya-app'
 import { Route as MayaConnectRouteImport } from './routes/maya-connect'
 import { Route as MayaWebRouteImport } from './routes/maya-web'
+import { Route as PreventivoRouteImport } from './routes/preventivo'
+import { Route as ApiPreventivoRouteImport } from './routes/api.preventivo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContattiRoute = ContattiRouteImport.update({
+  id: '/contatti',
+  path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GraziePreventivoRoute = GraziePreventivoRouteImport.update({
+  id: '/grazie-preventivo',
+  path: '/grazie-preventivo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MayaAppRoute = MayaAppRouteImport.update({
@@ -34,39 +48,90 @@ const MayaWebRoute = MayaWebRouteImport.update({
   path: '/maya-web',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PreventivoRoute = PreventivoRouteImport.update({
+  id: '/preventivo',
+  path: '/preventivo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPreventivoRoute = ApiPreventivoRouteImport.update({
+  id: '/api/preventivo',
+  path: '/api/preventivo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contatti': typeof ContattiRoute
+  '/grazie-preventivo': typeof GraziePreventivoRoute
   '/maya-app': typeof MayaAppRoute
   '/maya-connect': typeof MayaConnectRoute
   '/maya-web': typeof MayaWebRoute
+  '/preventivo': typeof PreventivoRoute
+  '/api/preventivo': typeof ApiPreventivoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contatti': typeof ContattiRoute
+  '/grazie-preventivo': typeof GraziePreventivoRoute
   '/maya-app': typeof MayaAppRoute
   '/maya-connect': typeof MayaConnectRoute
   '/maya-web': typeof MayaWebRoute
+  '/preventivo': typeof PreventivoRoute
+  '/api/preventivo': typeof ApiPreventivoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contatti': typeof ContattiRoute
+  '/grazie-preventivo': typeof GraziePreventivoRoute
   '/maya-app': typeof MayaAppRoute
   '/maya-connect': typeof MayaConnectRoute
   '/maya-web': typeof MayaWebRoute
+  '/preventivo': typeof PreventivoRoute
+  '/api/preventivo': typeof ApiPreventivoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/maya-app' | '/maya-connect' | '/maya-web'
+  fullPaths:
+    | '/'
+    | '/contatti'
+    | '/grazie-preventivo'
+    | '/maya-app'
+    | '/maya-connect'
+    | '/maya-web'
+    | '/preventivo'
+    | '/api/preventivo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/maya-app' | '/maya-connect' | '/maya-web'
-  id: '__root__' | '/' | '/maya-app' | '/maya-connect' | '/maya-web'
+  to:
+    | '/'
+    | '/contatti'
+    | '/grazie-preventivo'
+    | '/maya-app'
+    | '/maya-connect'
+    | '/maya-web'
+    | '/preventivo'
+    | '/api/preventivo'
+  id:
+    | '__root__'
+    | '/'
+    | '/contatti'
+    | '/grazie-preventivo'
+    | '/maya-app'
+    | '/maya-connect'
+    | '/maya-web'
+    | '/preventivo'
+    | '/api/preventivo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContattiRoute: typeof ContattiRoute
+  GraziePreventivoRoute: typeof GraziePreventivoRoute
   MayaAppRoute: typeof MayaAppRoute
   MayaConnectRoute: typeof MayaConnectRoute
   MayaWebRoute: typeof MayaWebRoute
+  PreventivoRoute: typeof PreventivoRoute
+  ApiPreventivoRoute: typeof ApiPreventivoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -76,6 +141,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contatti': {
+      id: '/contatti'
+      path: '/contatti'
+      fullPath: '/contatti'
+      preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grazie-preventivo': {
+      id: '/grazie-preventivo'
+      path: '/grazie-preventivo'
+      fullPath: '/grazie-preventivo'
+      preLoaderRoute: typeof GraziePreventivoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/maya-app': {
@@ -99,14 +178,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MayaWebRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/preventivo': {
+      id: '/preventivo'
+      path: '/preventivo'
+      fullPath: '/preventivo'
+      preLoaderRoute: typeof PreventivoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/preventivo': {
+      id: '/api/preventivo'
+      path: '/api/preventivo'
+      fullPath: '/api/preventivo'
+      preLoaderRoute: typeof ApiPreventivoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContattiRoute: ContattiRoute,
+  GraziePreventivoRoute: GraziePreventivoRoute,
   MayaAppRoute: MayaAppRoute,
   MayaConnectRoute: MayaConnectRoute,
   MayaWebRoute: MayaWebRoute,
+  PreventivoRoute: PreventivoRoute,
+  ApiPreventivoRoute: ApiPreventivoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ConnectMark } from "./connect-mark";
+import { CONTACT, QUOTE } from "./page-kit";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import barber from "@/assets/concept-barber.jpg";
@@ -8,7 +8,6 @@ import medical from "@/assets/concept-medical.jpg";
 import beauty from "@/assets/concept-beauty.jpg";
 import corporate from "@/assets/concept-corporate.jpg";
 
-const CONTACT = "https://www.maya-project.it/contatti/";
 const EASE = "cubic-bezier(.45,0,.55,1)";
 
 /* Fade ingresso sezioni, una sola volta */
@@ -109,7 +108,7 @@ export function ShowroomSection() {
           <h3 className="font-display text-2xl font-medium md:text-3xl">{c.name}</h3>
           <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">{c.cat}</p>
           <p className="mt-4 text-base leading-[1.95] text-muted-foreground md:text-lg">{c.d}</p>
-          <a href={CONTACT} className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground">Scopri il concept <ArrowUpRight aria-hidden="true" className="size-3.5" /></a>
+          <Link to={CONTACT} className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground">Scopri il concept <ArrowUpRight aria-hidden="true" className="size-3.5" /></Link>
         </div>
       </div>
     </section>
@@ -170,8 +169,8 @@ export function EcosistemaSection() {
             <circle cx="160" cy="300" r="5" fill="var(--primary)" fillOpacity=".7" />
             <circle cx="840" cy="300" r="5" fill="var(--primary)" fillOpacity=".7" />
           </svg>
-          <Link to="/maya-connect" aria-label="Maya Connect" className="absolute left-1/2 top-[34%] -translate-x-1/2">
-            <ConnectMark variant="static" className="connect-mark--ecosystem" />
+          <Link to="/maya-connect" className="absolute left-1/2 top-[34%] -translate-x-1/2 font-display text-lg font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:text-primary/80 md:text-2xl">
+            MAYA CONNECT
           </Link>
           <Link to="/maya-web" className="absolute left-[16%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg">Maya Web</Link>
           <Link to="/maya-app" className="absolute left-[84%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg">Maya App</Link>
@@ -224,7 +223,7 @@ export function FinalCta() {
         <div className="relative mt-14 inline-block">
           <div aria-hidden="true" className="absolute -inset-6 rounded-full bg-primary/15 blur-2xl" />
           <Button asChild variant="maya" size="lg" className="relative h-16 px-10 text-sm font-bold uppercase tracking-[0.14em] md:h-[4.5rem] md:px-14 md:text-base">
-            <a href={CONTACT}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></a>
+            <Link to={QUOTE}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></Link>
           </Button>
         </div>
       </Reveal>
