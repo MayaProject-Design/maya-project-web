@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ConnectMark } from "./connect-mark";
 import { ThreadConnector } from "./sections";
 
 export const CONTACT = "https://www.maya-project.it/contatti/";
@@ -16,24 +15,25 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
   ] as const;
   const brandContents = (
     <>
-      <span className="inline-block size-2 shrink-0 rotate-45 border border-primary bg-primary transition-transform group-hover:rotate-[135deg]" />
-      MAYA<span className="text-muted-foreground">/</span>PROJECT
+      <span aria-hidden="true" className="relative inline-flex h-px w-4 shrink-0 bg-foreground/60 transition-colors duration-300 group-hover:bg-foreground/80 sm:w-5">
+        <span className="absolute -right-px top-1/2 size-[3px] -translate-y-1/2 rounded-full bg-primary" />
+      </span>
+      <span className="font-display text-xs font-medium uppercase tracking-[0.18em] text-foreground md:text-[13px]">
+        MAYA <span className="text-foreground/75">PROJECT</span>
+      </span>
     </>
   );
-  const brandClass = home
-    ? "group inline-flex min-w-0 items-center gap-2 font-display text-[13px] font-semibold tracking-[0.1em] sm:gap-3 sm:text-sm sm:tracking-[0.12em] md:text-base"
-    : "group inline-flex items-center gap-3 font-display text-sm font-semibold tracking-[0.12em] md:text-base";
+  const brandClass = "group inline-flex min-w-0 items-center gap-2.5";
   const renderNavLinks = (variant: "nav" | "mobile") =>
     nav.map((item) => (
       <Link
         key={item.to}
         to={item.to}
-        aria-label={item.to === "/maya-connect" ? "MAYA CONNECT" : undefined}
         onClick={variant === "mobile" ? () => setMenuOpen(false) : undefined}
-        className={`text-muted-foreground transition-colors hover:text-foreground ${variant === "mobile" ? "py-3" : "whitespace-nowrap"}`}
-        activeProps={{ className: "!text-primary" }}
+        className={`site-nav-link ${variant === "mobile" ? "py-3" : "whitespace-nowrap"}`}
+        activeProps={{ className: "site-nav-link-active" }}
       >
-        {item.to === "/maya-connect" ? <ConnectMark variant={variant} /> : item.label}
+        {item.label}
       </Link>
     ));
 
@@ -46,7 +46,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
       )}
       <nav aria-label="Navigazione principale" className="hidden items-center gap-4 font-sans text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground lg:flex xl:gap-6 xl:text-[11px]">
         {renderNavLinks("nav")}
-        <a href={CONTACT} className="whitespace-nowrap transition-colors hover:text-foreground">CONTATTI</a>
+        <a href={CONTACT} className="site-nav-link whitespace-nowrap">CONTATTI</a>
         <Button asChild variant="link" className="group h-auto shrink-0 rounded-none border-b border-border p-0 pb-1 font-sans text-[10px] font-semibold uppercase text-foreground no-underline hover:border-primary hover:text-primary hover:no-underline xl:text-[11px]">
           <a href={CONTACT}>INIZIA UN PROGETTO <ArrowUpRight aria-hidden="true" className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a>
         </Button>

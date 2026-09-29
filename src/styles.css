@@ -205,6 +205,8 @@
 
 @utility concept-glow {
   animation: concept-glow-breathe 18s cubic-bezier(.45,0,.55,1) infinite;
+}
+
 .connect-mark {
   display: block;
   width: 168px;
@@ -213,9 +215,6 @@
   overflow: visible;
   pointer-events: none;
   vertical-align: middle;
-}
-.connect-mark[data-variant="nav"] {
-  width: 108px;
 }
 .connect-mark[data-variant="button"] {
   width: 124px;
@@ -233,19 +232,64 @@
 .connect-mark[data-variant="static"].connect-mark--diagram {
   width: 116px;
 }
+
+:root {
+  --connect-accent: color-mix(in oklab, var(--primary) 78%, white 22%);
+}
+
+.site-nav-link {
+  color: var(--muted-foreground);
+  transition: color 280ms ease;
+}
+
+.site-nav-link:hover,
+.site-nav-link:focus-visible {
+  color: var(--connect-accent);
+}
+
+.site-nav-link-active {
+  color: var(--connect-accent);
+}
+
+
+@media (min-width: 64rem) {
+  .site-nav-link {
+    position: relative;
+    display: inline-flex;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .site-nav-link-active::after {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--connect-accent);
+    box-shadow: 0 0 6px color-mix(in oklab, var(--connect-accent) 60%, transparent);
+    content: "";
+    transform: translateX(-50%);
+  }
+
+}
+
 .connect-mark__arc {
   fill: none;
-  stroke: var(--primary);
-  stroke-width: .75;
+  stroke: var(--connect-accent);
+  stroke-width: .9;
   stroke-linecap: round;
-  opacity: .26;
+  opacity: .30;
   vector-effect: non-scaling-stroke;
 }
 .connect-mark__arc--inner {
-  stroke-width: .85;
+  stroke-width: 1;
 }
 .connect-mark__arc--outer {
-  stroke-width: .65;
+  stroke-width: .8;
 }
 .connect-mark__word {
   fill: var(--foreground);
@@ -254,24 +298,11 @@
   font-weight: 600;
   letter-spacing: 1.2px;
 }
-.connect-mark[data-variant="nav"] .connect-mark__arc,
 .connect-mark[data-variant="button"] .connect-mark__arc {
-  opacity: .12;
-}
-.connect-mark[data-variant="nav"] .connect-mark__arc {
-  animation: connect-nav-pulse 10s ease-in-out infinite;
-}
-.connect-mark[data-variant="nav"] .connect-mark__arc--inner {
-  animation-delay: 0s;
-}
-.connect-mark[data-variant="nav"] .connect-mark__arc--middle {
-  animation-delay: 1.1s;
-}
-.connect-mark[data-variant="nav"] .connect-mark__arc--outer {
-  animation-delay: 2.2s;
+  opacity: .18;
 }
 .connect-mark[data-variant="mobile"] .connect-mark__arc {
-  opacity: .22;
+  opacity: .24;
 }
 .connect-mark[data-variant="mobile"] .connect-mark__arc--middle,
 .connect-mark[data-variant="mobile"] .connect-mark__arc--outer {
@@ -289,14 +320,13 @@
   animation: connect-button-pulse 1.2s ease-out 1 both;
   animation-delay: 1.8s;
 }
-@keyframes connect-nav-pulse {
-  0%, 100% { opacity: .12; }
-  7% { opacity: .44; }
-  17% { opacity: .12; }
-}
 @keyframes connect-button-pulse {
-  0%, 100% { opacity: .12; }
-  35% { opacity: .44; }
+  0%, 100% { opacity: .18; }
+  35% { opacity: .36; }
 }
-  .connect-mark__arc { animation: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .connect-mark__arc {
+    animation: none !important;
+  }
 }

@@ -29,13 +29,13 @@ export function ConnectMark({
       width={width}
       height={height}
     >
-      <path className="connect-mark__arc connect-mark__arc--inner" d="M41 18 Q110 0 179 18" />
-      <path className="connect-mark__arc connect-mark__arc--middle" d="M28 14 Q110 -2 192 14" />
-      <path className="connect-mark__arc connect-mark__arc--outer" d="M15 10 Q110 -6 205 10" />
-      <path className="connect-mark__arc connect-mark__arc--inner" d="M41 45 Q110 63 179 45" />
-      <path className="connect-mark__arc connect-mark__arc--middle" d="M28 49 Q110 65 192 49" />
-      <path className="connect-mark__arc connect-mark__arc--outer" d="M15 53 Q110 69 205 53" />
-      <text className="connect-mark__word" x="110" y="36" textAnchor="middle">
+      <path className="connect-mark__arc connect-mark__arc--inner" d="M82 22 Q110 10 138 22" />
+      <path className="connect-mark__arc connect-mark__arc--middle" d="M46 13 Q110 -10 174 13" />
+      <path className="connect-mark__arc connect-mark__arc--outer" d="M6 3 Q110 -30 214 3" />
+      <path className="connect-mark__arc connect-mark__arc--inner" d="M82 22 Q110 10 138 22" transform="translate(0 66) scale(1 -1)" />
+      <path className="connect-mark__arc connect-mark__arc--middle" d="M46 13 Q110 -10 174 13" transform="translate(0 66) scale(1 -1)" />
+      <path className="connect-mark__arc connect-mark__arc--outer" d="M6 3 Q110 -30 214 3" transform="translate(0 66) scale(1 -1)" />
+      <text className="connect-mark__word" x="110" y="40" textAnchor="middle">
         MAYA CONNECT
       </text>
     </svg>

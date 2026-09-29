@@ -3,7 +3,6 @@ import { ArrowDownRight, ArrowUpRight, MoveDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/maya/page-kit";
 import { ShowroomSection, ManifestoSection, MetodoSection, EcosistemaSection, SoluzioniSection, FinalCta } from "@/components/maya/home";
-import mayaLogo from "@/assets/maya-logo-hero.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,11 +28,7 @@ function Index() {
 
         <div id="inizio" className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col items-center justify-center px-6 pb-16 pt-2 text-center md:px-12 md:pb-10 lg:px-16">
           <p className="reveal-in font-sans text-[10px] font-semibold uppercase tracking-[0.28em] text-primary md:text-xs">Studio digitale indipendente <span className="mx-2 text-muted-foreground">/</span> Italia</p>
-          <div className="reveal-in logo-integrated relative mt-4 w-full max-w-[1000px] [animation-delay:100ms] md:mt-4 md:max-w-[min(700px,62vw)] md:[@media(max-height:750px)]:max-w-[min(550px,50vw)]">
-            <div aria-hidden="true" className="logo-halo absolute inset-[-14%]" />
-            <img src={mayaLogo.url} alt="Logo Maya Project cromato con ago e filo digitale blu" className="mx-auto w-full object-contain" fetchPriority="high" />
-          </div>
-          <div className="reveal-in mt-6 max-w-[1000px] [animation-delay:210ms] md:mt-2">
+          <div className="reveal-in mt-8 max-w-[1000px] [animation-delay:210ms]">
             <h1 className="font-display text-[clamp(2.15rem,4.1vw,3.8rem)] font-medium leading-[1.08] text-foreground">
               Trasformiamo la tua attività<br className="hidden sm:block" /> in un <span className="text-primary">ecosistema digitale.</span>
             </h1>
