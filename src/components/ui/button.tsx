@@ -17,7 +17,8 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         maya: "rounded-sm bg-primary text-primary-foreground hover:bg-primary/85 focus-visible:ring-primary",
-        mayaOutline: "rounded-sm border border-border bg-transparent text-foreground hover:border-primary hover:text-primary focus-visible:ring-primary",
+        mayaOutline:
+          "rounded-sm border border-border bg-transparent text-foreground hover:border-primary hover:text-primary focus-visible:ring-primary",
       },
       size: {
         default: "h-9 px-4 py-2",

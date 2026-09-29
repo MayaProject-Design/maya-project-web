@@ -1,4 +1,13 @@
-import { ArrowRight, Bell, CalendarDays, Check, ChevronRight, Clock3, House, UserRound } from "lucide-react";
+import {
+  ArrowRight,
+  Bell,
+  CalendarDays,
+  Check,
+  ChevronRight,
+  Clock3,
+  House,
+  UserRound,
+} from "lucide-react";
 
 type AppScreen = "home" | "booking" | "account";
 
@@ -32,7 +41,10 @@ function AppNavigation({ active }: { active: AppScreen }) {
   return (
     <div aria-hidden="true" className="mt-3 grid grid-cols-3 border-t border-border/70 pt-3">
       {items.map(({ key, label, Icon }) => (
-        <div key={key} className={`flex flex-col items-center gap-1 text-[9px] ${active === key ? "text-primary" : "text-muted-foreground"}`}>
+        <div
+          key={key}
+          className={`flex flex-col items-center gap-1 text-[9px] ${active === key ? "text-primary" : "text-muted-foreground"}`}
+        >
           <Icon className="size-3.5" strokeWidth={1.6} />
           {label}
         </div>
@@ -67,11 +79,15 @@ function HomeScreen() {
       </div>
       <div className="mt-4">
         <div className="flex items-center justify-between">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">I tuoi servizi</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+            I tuoi servizi
+          </p>
           <span className="text-[9px] text-primary">Scopri tutti</span>
         </div>
         <div className="mt-1">
-          {SERVICES.map((service) => <ServiceRow key={service} name={service} />)}
+          {SERVICES.map((service) => (
+            <ServiceRow key={service} name={service} />
+          ))}
         </div>
       </div>
       <div className="mt-auto flex items-center justify-between bg-primary px-3.5 py-3 text-[10px] font-bold uppercase tracking-[0.12em] text-primary-foreground">
@@ -85,10 +101,14 @@ function HomeScreen() {
 function BookingScreen() {
   return (
     <div className="flex min-h-0 flex-1 flex-col">
-      <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-primary">Prenotazione</p>
+      <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-primary">
+        Prenotazione
+      </p>
       <h2 className="mt-1 font-display text-[19px] font-medium leading-tight">Scegli il momento</h2>
       <div className="mt-4 border-l border-primary pl-3">
-        <p className="text-[9px] uppercase tracking-[0.14em] text-muted-foreground">Servizio selezionato</p>
+        <p className="text-[9px] uppercase tracking-[0.14em] text-muted-foreground">
+          Servizio selezionato
+        </p>
         <p className="mt-1 font-display text-[13px]">Trattamento viso</p>
       </div>
       <div className="mt-4 border-t border-border/70 pt-3">
@@ -97,19 +117,31 @@ function BookingScreen() {
           <CalendarDays aria-hidden="true" className="size-4 text-primary" />
         </div>
         <div className="mt-3 grid grid-cols-7 gap-y-2 text-center">
-          {WEEKDAYS.map((day, index) => <span key={`${day}-${index}`} className="text-[9px] text-muted-foreground">{day}</span>)}
+          {WEEKDAYS.map((day, index) => (
+            <span key={`${day}-${index}`} className="text-[9px] text-muted-foreground">
+              {day}
+            </span>
+          ))}
           {DATES.map((date, index) => (
-            <span key={`${date}-${index}`} className={`mx-auto flex size-6 items-center justify-center rounded-full text-[9px] ${date === "18" ? "border border-primary text-primary" : date ? "text-foreground/80" : ""}`}>
+            <span
+              key={`${date}-${index}`}
+              className={`mx-auto flex size-6 items-center justify-center rounded-full text-[9px] ${date === "18" ? "border border-primary text-primary" : date ? "text-foreground/80" : ""}`}
+            >
               {date}
             </span>
           ))}
         </div>
       </div>
       <div className="mt-3">
-        <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Orari disponibili</p>
+        <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+          Orari disponibili
+        </p>
         <div className="mt-2 grid grid-cols-3 gap-1.5">
           {["09:30", "11:00", "14:30"].map((time) => (
-            <span key={time} className={`py-2 text-center text-[9px] ${time === "11:00" ? "bg-primary text-primary-foreground" : "border border-border text-foreground/80"}`}>
+            <span
+              key={time}
+              className={`py-2 text-center text-[9px] ${time === "11:00" ? "bg-primary text-primary-foreground" : "border border-border text-foreground/80"}`}
+            >
               {time}
             </span>
           ))}
@@ -126,9 +158,14 @@ function BookingScreen() {
 function AccountScreen() {
   return (
     <div className="flex min-h-0 flex-1 flex-col">
-      <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-primary">Area cliente</p>
+      <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-primary">
+        Area cliente
+      </p>
       <div className="mt-3 flex items-center gap-3">
-        <span aria-hidden="true" className="flex size-10 items-center justify-center rounded-full border border-primary/40 bg-primary/5">
+        <span
+          aria-hidden="true"
+          className="flex size-10 items-center justify-center rounded-full border border-primary/40 bg-primary/5"
+        >
           <UserRound className="size-5 text-primary" strokeWidth={1.4} />
         </span>
         <div>
@@ -138,11 +175,15 @@ function AccountScreen() {
       </div>
       <div className="mt-5 border-t border-border/70">
         <div className="border-b border-border/70 py-3">
-          <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Prossimo appuntamento</p>
+          <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+            Prossimo appuntamento
+          </p>
           <p className="mt-1.5 font-display text-[13px]">Trattamento viso</p>
           <p className="mt-1 text-[10px] text-muted-foreground">18 giugno · 10:30</p>
         </div>
-        {["Storico servizi", "Preferenze", "Comunicazioni"].map((item) => <ServiceRow key={item} name={item} />)}
+        {["Storico servizi", "Preferenze", "Comunicazioni"].map((item) => (
+          <ServiceRow key={item} name={item} />
+        ))}
       </div>
       <div className="mt-auto flex items-center justify-between border border-border px-3.5 py-3 text-[10px] font-semibold uppercase tracking-[0.1em] text-foreground/90">
         Gestisci il profilo
@@ -159,7 +200,9 @@ export function AppPhone({ screen, caption }: { screen: AppScreen; caption: stri
         <div className="flex aspect-[9/18] flex-col overflow-hidden rounded-[1.85rem] border border-white/5 bg-background px-4 pb-3 pt-3">
           <StatusBar />
           <div className="mt-4 flex items-center justify-between border-b border-border/70 pb-2.5">
-            <span className="font-display text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground/90">MAYA APP</span>
+            <span className="font-display text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground/90">
+              MAYA APP
+            </span>
             <Bell aria-hidden="true" className="size-3.5 text-muted-foreground" strokeWidth={1.6} />
           </div>
           <div className="mt-4 flex min-h-0 flex-1 flex-col">
@@ -186,7 +229,9 @@ const SHOWCASE_SCREENS = [
 export function AppShowcase() {
   return (
     <div className="grid grid-cols-1 items-start justify-items-center gap-12 md:grid-cols-3 md:gap-6 lg:gap-10">
-      {SHOWCASE_SCREENS.map(({ screen, caption }) => <AppPhone key={screen} screen={screen} caption={caption} />)}
+      {SHOWCASE_SCREENS.map(({ screen, caption }) => (
+        <AppPhone key={screen} screen={screen} caption={caption} />
+      ))}
     </div>
   );
 }

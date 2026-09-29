@@ -8,7 +8,7 @@
   --font-sans: "Manrope", sans-serif;
   --font-display: "Space Grotesk", sans-serif;
   --default-transition-duration: 500ms;
-  --default-transition-timing-function: cubic-bezier(.45,0,.55,1);
+  --default-transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -61,10 +61,21 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
-  body { background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
-  ::selection { background: var(--primary); color: var(--primary-foreground); }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
 }
 
 @utility hero-ambient {
@@ -72,75 +83,135 @@
     radial-gradient(ellipse 45% 36% at 50% 34%, oklch(0.22 0.053 222 / 26%), transparent 82%),
     radial-gradient(ellipse 30% 40% at 12% 78%, oklch(0.18 0.04 225 / 18%), transparent 80%),
     radial-gradient(ellipse 28% 34% at 88% 18%, oklch(0.16 0.03 220 / 16%), transparent 80%);
-  animation: ambient-drift 42s cubic-bezier(.45,0,.55,1) infinite alternate;
+  animation: ambient-drift 42s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
 }
 
 @utility hero-vignette {
-  background: radial-gradient(ellipse 75% 70% at 50% 42%, transparent 55%, oklch(0.03 0.004 230 / 85%) 100%);
+  background: radial-gradient(
+    ellipse 75% 70% at 50% 42%,
+    transparent 55%,
+    oklch(0.03 0.004 230 / 85%) 100%
+  );
 }
 
 @utility hero-grain {
   background-image: radial-gradient(oklch(0.9 0.01 220 / 5%) 1px, transparent 1px);
   background-size: 3px 3px;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 @keyframes ambient-drift {
-  from { opacity: .82; transform: scale(1) translateY(0); }
-  to { opacity: .92; transform: scale(1.03) translateY(-.75%); }
+  from {
+    opacity: 0.82;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0.92;
+    transform: scale(1.03) translateY(-0.75%);
+  }
 }
 
 @keyframes node-glow {
-  0%, 100% { opacity: .7; }
-  50% { opacity: .95; }
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.95;
+  }
 }
 
 @keyframes ring-breathe {
-  0%, 100% { opacity: .45; transform: scale(1); }
-  50% { opacity: .75; transform: scale(1.08); }
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
 }
 
 @utility node-ring {
-  animation: ring-breathe 20s cubic-bezier(.45,0,.55,1) infinite;
+  animation: ring-breathe 20s cubic-bezier(0.45, 0, 0.55, 1) infinite;
   transform-box: fill-box;
   transform-origin: center;
 }
 
 @utility node-pulse {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 @keyframes thread-flow {
-  from { background-position: 0 0, 0 -120%; }
-  to { background-position: 0 0, 0 220%; }
+  from {
+    background-position:
+      0 0,
+      0 -120%;
+  }
+  to {
+    background-position:
+      0 0,
+      0 220%;
+  }
 }
 
 @utility thread-vertical {
   background:
-    linear-gradient(180deg, transparent, color-mix(in oklab, var(--primary) 55%, transparent), transparent),
-    linear-gradient(180deg, transparent, color-mix(in oklab, var(--primary) 45%, transparent), transparent);
-  background-size: 100% 100%, 100% 35%;
+    linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in oklab, var(--primary) 55%, transparent),
+      transparent
+    ),
+    linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in oklab, var(--primary) 45%, transparent),
+      transparent
+    );
+  background-size:
+    100% 100%,
+    100% 35%;
   background-repeat: no-repeat;
-  animation: thread-flow 20s cubic-bezier(.45,0,.55,1) infinite;
+  animation: thread-flow 20s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 @utility solutions-glow {
-  background: radial-gradient(ellipse 40% 35% at 70% 50%, oklch(0.22 0.053 222 / 20%), transparent 80%);
+  background: radial-gradient(
+    ellipse 40% 35% at 70% 50%,
+    oklch(0.22 0.053 222 / 20%),
+    transparent 80%
+  );
 }
 
 @utility solution-core {
-  background: radial-gradient(ellipse 60% 70% at 40% 50%, color-mix(in oklab, var(--primary) 11%, transparent), transparent 75%);
+  background: radial-gradient(
+    ellipse 60% 70% at 40% 50%,
+    color-mix(in oklab, var(--primary) 11%, transparent),
+    transparent 75%
+  );
 }
 
 @keyframes travel-down {
-  0% { top: 0%; opacity: 0; }
-  15% { opacity: .9; }
-  85% { opacity: .9; }
-  100% { top: 100%; opacity: 0; }
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
 }
 
 @utility thread-travel {
-  animation: travel-down 24s cubic-bezier(.65,0,.35,1) infinite;
+  animation: travel-down 24s cubic-bezier(0.65, 0, 0.35, 1) infinite;
   box-shadow: 0 0 10px color-mix(in oklab, var(--primary) 70%, transparent);
 }
 
@@ -149,13 +220,24 @@
 }
 
 @keyframes entrance {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes thread-glow {
-  0%, 100% { opacity: .6; }
-  50% { opacity: .78; }
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.78;
+  }
 }
 
 @utility logo-integrated {
@@ -164,34 +246,56 @@
 }
 
 @utility logo-halo {
-  background: radial-gradient(ellipse 52% 46% at 50% 52%, oklch(0.78 0.16 210 / 13%), transparent 72%);
+  background: radial-gradient(
+    ellipse 52% 46% at 50% 52%,
+    oklch(0.78 0.16 210 / 13%),
+    transparent 72%
+  );
   filter: blur(10px);
 }
 
 @utility reveal-in {
-  animation: entrance 1000ms cubic-bezier(.22,1,.36,1) both;
+  animation: entrance 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @utility thread-pulse {
-  animation: thread-glow 18s cubic-bezier(.45,0,.55,1) infinite;
+  animation: thread-glow 18s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 @keyframes circle-reveal {
-  from { clip-path: circle(0% at 50% 50%); opacity: .4; }
-  to { clip-path: circle(75% at 50% 50%); opacity: 1; }
+  from {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0.4;
+  }
+  to {
+    clip-path: circle(75% at 50% 50%);
+    opacity: 1;
+  }
 }
 
 @utility concept-reveal {
-  animation: circle-reveal 1100ms cubic-bezier(.45,0,.55,1) both;
+  animation: circle-reveal 1100ms cubic-bezier(0.45, 0, 0.55, 1) both;
 }
 
 @keyframes concept-breathe {
-  0%, 100% { transform: translateX(-2px); }
-  50% { transform: translateX(2px); }
+  0%,
+  100% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
 }
 
 @utility concept-drift {
@@ -199,12 +303,21 @@
 }
 
 @keyframes concept-glow-breathe {
-  0%, 100% { box-shadow: 0 40px 110px -60px color-mix(in oklab, var(--primary) 55%, transparent), 0 20px 60px -30px var(--background); }
-  50% { box-shadow: 0 40px 115px -58px color-mix(in oklab, var(--primary) 65%, transparent), 0 20px 60px -30px var(--background); }
+  0%,
+  100% {
+    box-shadow:
+      0 40px 110px -60px color-mix(in oklab, var(--primary) 55%, transparent),
+      0 20px 60px -30px var(--background);
+  }
+  50% {
+    box-shadow:
+      0 40px 115px -58px color-mix(in oklab, var(--primary) 65%, transparent),
+      0 20px 60px -30px var(--background);
+  }
 }
 
 @utility concept-glow {
-  animation: concept-glow-breathe 18s cubic-bezier(.45,0,.55,1) infinite;
+  animation: concept-glow-breathe 18s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 .connect-mark {
@@ -251,7 +364,6 @@
   color: var(--connect-accent);
 }
 
-
 @media (min-width: 64rem) {
   .site-nav-link {
     position: relative;
@@ -274,22 +386,21 @@
     content: "";
     transform: translateX(-50%);
   }
-
 }
 
 .connect-mark__arc {
   fill: none;
   stroke: var(--connect-accent);
-  stroke-width: .9;
+  stroke-width: 0.9;
   stroke-linecap: round;
-  opacity: .30;
+  opacity: 0.3;
   vector-effect: non-scaling-stroke;
 }
 .connect-mark__arc--inner {
   stroke-width: 1;
 }
 .connect-mark__arc--outer {
-  stroke-width: .8;
+  stroke-width: 0.8;
 }
 .connect-mark__word {
   fill: var(--foreground);
@@ -299,30 +410,41 @@
   letter-spacing: 1.2px;
 }
 .connect-mark[data-variant="button"] .connect-mark__arc {
-  opacity: .18;
+  opacity: 0.18;
 }
 .connect-mark[data-variant="mobile"] .connect-mark__arc {
-  opacity: .24;
+  opacity: 0.24;
 }
 .connect-mark[data-variant="mobile"] .connect-mark__arc--middle,
 .connect-mark[data-variant="mobile"] .connect-mark__arc--outer {
   display: none;
 }
-.connect-mark-trigger:is(:hover, :focus-visible) .connect-mark-interaction .connect-mark__arc--inner {
+.connect-mark-trigger:is(:hover, :focus-visible)
+  .connect-mark-interaction
+  .connect-mark__arc--inner {
   animation: connect-button-pulse 1.2s ease-out 1 both;
   animation-delay: 0s;
 }
-.connect-mark-trigger:is(:hover, :focus-visible) .connect-mark-interaction .connect-mark__arc--middle {
+.connect-mark-trigger:is(:hover, :focus-visible)
+  .connect-mark-interaction
+  .connect-mark__arc--middle {
   animation: connect-button-pulse 1.2s ease-out 1 both;
-  animation-delay: .9s;
+  animation-delay: 0.9s;
 }
-.connect-mark-trigger:is(:hover, :focus-visible) .connect-mark-interaction .connect-mark__arc--outer {
+.connect-mark-trigger:is(:hover, :focus-visible)
+  .connect-mark-interaction
+  .connect-mark__arc--outer {
   animation: connect-button-pulse 1.2s ease-out 1 both;
   animation-delay: 1.8s;
 }
 @keyframes connect-button-pulse {
-  0%, 100% { opacity: .18; }
-  35% { opacity: .36; }
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+  35% {
+    opacity: 0.36;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

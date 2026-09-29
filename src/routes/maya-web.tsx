@@ -9,7 +9,8 @@ import beauty from "@/assets/concept-beauty.jpg";
 import corporate from "@/assets/concept-corporate.jpg";
 
 const TITLE = "Maya Web — Siti web progettati intorno al tuo brand | Maya Project";
-const DESC = "Siti web progettati per raccontare il valore del tuo brand. Un percorso di progettazione digitale su misura, primo filo del tuo ecosistema.";
+const DESC =
+  "Siti web progettati per raccontare il valore del tuo brand. Un percorso di progettazione digitale su misura, primo filo del tuo ecosistema.";
 
 export const Route = createFileRoute("/maya-web")({
   head: () => ({
@@ -36,7 +37,11 @@ const WHATS = [
   { n: "01", t: "Identità digitale", d: "Una direzione visiva coerente con il tuo brand." },
   { n: "02", t: "Esperienza utente", d: "Percorsi semplici, chiari e progettati per le persone." },
   { n: "03", t: "Performance", d: "Esperienze veloci, responsive e curate su ogni dispositivo." },
-  { n: "04", t: "Integrazioni", d: "Il sito può collegarsi agli strumenti e ai servizi che utilizzi già." },
+  {
+    n: "04",
+    t: "Integrazioni",
+    d: "Il sito può collegarsi agli strumenti e ai servizi che utilizzi già.",
+  },
 ];
 
 const STEPS = [
@@ -54,38 +59,64 @@ function MayaWebPage() {
     <main className="min-h-screen bg-background text-foreground">
       {/* 1. Apertura */}
       <section className="relative isolate overflow-hidden border-b border-border">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hero-ambient" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hero-vignette" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 hero-ambient"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 hero-vignette"
+        />
         <SiteHeader />
         <div className="mx-auto max-w-[1390px] px-6 pb-16 pt-8 md:px-12 md:pb-20 md:pt-10 lg:px-16">
-          <p className="reveal-in font-display text-sm font-semibold uppercase tracking-[0.4em] text-primary">Maya Web</p>
+          <p className="reveal-in font-display text-sm font-semibold uppercase tracking-[0.4em] text-primary">
+            Maya Web
+          </p>
           <h1 className="reveal-in mt-5 max-w-5xl font-display text-[clamp(2.4rem,5.4vw,5.1rem)] font-medium leading-[1.04] [animation-delay:100ms]">
             Costruiamo la presenza digitale del <span className="text-primary">tuo brand.</span>
           </h1>
           <p className="reveal-in mt-6 max-w-2xl text-lg leading-[1.85] text-muted-foreground [animation-delay:200ms] md:text-xl">
-            Progettiamo siti web su misura, costruiti per raccontare la tua identità e creare connessioni reali con le persone.
+            Progettiamo siti web su misura, costruiti per raccontare la tua identità e creare
+            connessioni reali con le persone.
           </p>
           <div className="reveal-in mt-9 flex flex-wrap items-center gap-4 [animation-delay:300ms]">
-            <Button asChild variant="maya" size="lg" className="h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
-              <Link to={CONTACT}>Parla con noi <ArrowUpRight aria-hidden="true" /></Link>
+            <Button
+              asChild
+              variant="maya"
+              size="lg"
+              className="h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]"
+            >
+              <Link to={CONTACT}>
+                Parla con noi <ArrowUpRight aria-hidden="true" />
+              </Link>
             </Button>
-            <Button variant="mayaOutline" size="lg" onClick={scrollToConcepts} className="h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
+            <Button
+              variant="mayaOutline"
+              size="lg"
+              onClick={scrollToConcepts}
+              className="h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]"
+            >
               Scopri i concept
             </Button>
           </div>
         </div>
-        <div aria-hidden="true" className="absolute bottom-0 left-1/2 h-px w-[min(82vw,820px)] -translate-x-1/2 thread-line opacity-70" />
+        <div
+          aria-hidden="true"
+          className="absolute bottom-0 left-1/2 h-px w-[min(82vw,820px)] -translate-x-1/2 thread-line opacity-70"
+        />
       </section>
 
       {/* 2. Manifesto */}
       <section className="bg-deep px-6 py-28 md:px-12 md:py-44 lg:px-16">
         <Reveal className="mx-auto max-w-4xl text-center">
           <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-medium leading-[1.12]">
-            Ogni brand ha una propria identità.<br />
+            Ogni brand ha una propria identità.
+            <br />
             <span className="text-chrome">Il digitale dovrebbe raccontarla.</span>
           </h2>
           <p className="mx-auto mt-12 max-w-2xl text-base leading-[1.95] text-muted-foreground md:text-lg">
-            Un sito non dovrebbe essere soltanto bello. Deve rappresentare il brand, guidare le persone e diventare il punto di partenza di un ecosistema digitale.
+            Un sito non dovrebbe essere soltanto bello. Deve rappresentare il brand, guidare le
+            persone e diventare il punto di partenza di un ecosistema digitale.
           </p>
         </Reveal>
       </section>
@@ -94,20 +125,30 @@ function MayaWebPage() {
       <section className="px-6 py-28 md:px-12 md:py-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
           <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
-            Una presenza digitale costruita intorno <span className="text-chrome">alla tua attività.</span>
+            Una presenza digitale costruita intorno{" "}
+            <span className="text-chrome">alla tua attività.</span>
           </h2>
           <div className="mt-16 grid gap-14 md:mt-20 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
             <div>
               <span className="font-display text-sm text-primary">{WHATS[0]!.n}</span>
-              <h3 className="mt-4 font-display text-[clamp(2rem,3.2vw,3rem)] font-medium leading-[1.08]">{WHATS[0]!.t}</h3>
-              <p className="mt-5 max-w-md text-base leading-[1.95] text-muted-foreground md:text-lg">{WHATS[0]!.d}</p>
+              <h3 className="mt-4 font-display text-[clamp(2rem,3.2vw,3rem)] font-medium leading-[1.08]">
+                {WHATS[0]!.t}
+              </h3>
+              <p className="mt-5 max-w-md text-base leading-[1.95] text-muted-foreground md:text-lg">
+                {WHATS[0]!.d}
+              </p>
             </div>
             <div>
               {WHATS.slice(1).map((w, i) => (
-                <div key={w.n} className={`border-t border-border py-9 md:py-10 ${i === 0 ? "pt-0 md:border-t-0" : ""}`}>
+                <div
+                  key={w.n}
+                  className={`border-t border-border py-9 md:py-10 ${i === 0 ? "pt-0 md:border-t-0" : ""}`}
+                >
                   <span className="font-display text-sm text-primary">{w.n}</span>
                   <h3 className="mt-3 font-display text-2xl font-medium md:text-[1.7rem]">{w.t}</h3>
-                  <p className="mt-3 max-w-md text-base leading-[1.9] text-muted-foreground md:text-[17px]">{w.d}</p>
+                  <p className="mt-3 max-w-md text-base leading-[1.9] text-muted-foreground md:text-[17px]">
+                    {w.d}
+                  </p>
                 </div>
               ))}
             </div>
@@ -126,7 +167,9 @@ function MayaWebPage() {
               <li key={s.n} className="border-t border-border pt-8">
                 <span className="font-display text-sm text-primary">{s.n}</span>
                 <h3 className="mt-3 font-display text-2xl font-medium md:text-[1.7rem]">{s.t}</h3>
-                <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">{s.d}</p>
+                <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">
+                  {s.d}
+                </p>
               </li>
             ))}
           </ol>
@@ -134,10 +177,14 @@ function MayaWebPage() {
       </section>
 
       {/* 5. Concept applicati */}
-      <section id="concept-web" className="bg-deep px-6 pb-24 pt-28 md:px-12 md:pb-32 md:pt-40 lg:px-16">
+      <section
+        id="concept-web"
+        className="bg-deep px-6 pb-24 pt-28 md:px-12 md:pb-32 md:pt-40 lg:px-16"
+      >
         <Reveal className="mx-auto max-w-[1390px]">
           <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
-            Una stessa tecnologia. <span className="text-chrome">Identità completamente diverse.</span>
+            Una stessa tecnologia.{" "}
+            <span className="text-chrome">Identità completamente diverse.</span>
           </h2>
           <ul className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-10 lg:gap-12">
             {CONCEPTS.map((c) => (
@@ -153,7 +200,9 @@ function MayaWebPage() {
                   />
                 </div>
                 <div className="mt-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">Direzioni progettuali</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+                    Direzioni progettuali
+                  </p>
                   <h3 className="mt-2 font-display text-2xl font-medium md:text-3xl">{c.name}</h3>
                 </div>
               </li>
@@ -170,14 +219,30 @@ function MayaWebPage() {
           </h2>
           <div className="mt-8 max-w-2xl space-y-5 text-base leading-[1.95] text-muted-foreground md:text-lg">
             <p>Maya Web è il primo livello dell'ecosistema.</p>
-            <p>Quando l'attività cresce, il sito può collegarsi a strumenti, dati, automazioni e nuovi servizi attraverso Maya Connect.</p>
+            <p>
+              Quando l'attività cresce, il sito può collegarsi a strumenti, dati, automazioni e
+              nuovi servizi attraverso Maya Connect.
+            </p>
           </div>
-          <Button asChild variant="maya" size="lg" className="mt-10 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
-            <Link to="/maya-connect">Scopri Maya Connect <ArrowUpRight aria-hidden="true" /></Link>
+          <Button
+            asChild
+            variant="maya"
+            size="lg"
+            className="mt-10 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]"
+          >
+            <Link to="/maya-connect">
+              Scopri Maya Connect <ArrowUpRight aria-hidden="true" />
+            </Link>
           </Button>
           <div className="relative mt-20 md:mt-24">
-            <div aria-hidden="true" className="absolute left-0 right-0 top-[7px] hidden h-px thread-line md:block" />
-            <div aria-hidden="true" className="absolute bottom-0 left-[7px] top-0 w-px thread-vertical md:hidden" />
+            <div
+              aria-hidden="true"
+              className="absolute left-0 right-0 top-[7px] hidden h-px thread-line md:block"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute bottom-0 left-[7px] top-0 w-px thread-vertical md:hidden"
+            />
             <ol className="grid gap-10 md:grid-cols-3">
               {[
                 { n: "Maya Web", to: null },
@@ -185,11 +250,19 @@ function MayaWebPage() {
                 { n: "Maya App", to: "/maya-app" as const },
               ].map((p) => (
                 <li key={p.n} className="relative pl-10 md:pl-0 md:pt-12 md:text-center">
-                  <span aria-hidden="true" className="absolute left-0 top-0 flex size-[15px] items-center justify-center rounded-full border border-primary/60 bg-background md:left-1/2 md:-translate-x-1/2">
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-0 top-0 flex size-[15px] items-center justify-center rounded-full border border-primary/60 bg-background md:left-1/2 md:-translate-x-1/2"
+                  >
                     <span className="size-[5px] rounded-full bg-primary" />
                   </span>
                   {p.to ? (
-                    <Link to={p.to} className="group inline-flex items-center gap-2 font-display text-2xl transition-colors hover:text-primary">{p.n} <ArrowUpRight aria-hidden="true" className="size-4" /></Link>
+                    <Link
+                      to={p.to}
+                      className="group inline-flex items-center gap-2 font-display text-2xl transition-colors hover:text-primary"
+                    >
+                      {p.n} <ArrowUpRight aria-hidden="true" className="size-4" />
+                    </Link>
                   ) : (
                     <p className="font-display text-2xl text-primary">{p.n}</p>
                   )}
@@ -202,7 +275,10 @@ function MayaWebPage() {
 
       {/* 7. Chiusura */}
       <section className="relative isolate overflow-hidden px-6 pb-16 pt-24 text-center md:px-12 md:pt-36 lg:px-16">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hero-ambient" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 hero-ambient"
+        />
         <Reveal className="relative mx-auto max-w-4xl">
           <h2 className="font-display text-[clamp(2.4rem,5.4vw,5rem)] font-medium leading-[1.05]">
             Costruiamo la tua <span className="text-chrome">presenza digitale.</span>
@@ -211,12 +287,22 @@ function MayaWebPage() {
             <p className="text-foreground">Raccontaci la tua attività.</p>
             <p>Progettiamo insieme uno spazio digitale costruito intorno al tuo brand.</p>
           </div>
-          <Button asChild variant="maya" size="lg" className="mt-12 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]">
-            <Link to={QUOTE}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></Link>
+          <Button
+            asChild
+            variant="maya"
+            size="lg"
+            className="mt-12 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]"
+          >
+            <Link to={QUOTE}>
+              Inizia il progetto <ArrowUpRight aria-hidden="true" />
+            </Link>
           </Button>
         </Reveal>
         <div aria-hidden="true" className="mx-auto mt-24 h-px w-[min(82vw,820px)] thread-line" />
-        <p className="relative mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">© Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al tuo brand</p>
+        <p className="relative mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
+          tuo brand
+        </p>
       </section>
     </main>
   );

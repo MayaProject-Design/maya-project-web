@@ -21,7 +21,9 @@ type QuoteData = {
   businessName: string;
 };
 
-const genericError = { error: "Non siamo riusciti a inviare la richiesta. Riprova tra qualche istante." };
+const genericError = {
+  error: "Non siamo riusciti a inviare la richiesta. Riprova tra qualche istante.",
+};
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -33,13 +35,17 @@ function readString(value: unknown): string {
 }
 
 function escapeHtml(value: string): string {
-  return value.replace(/[&<>"']/g, (character) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  })[character] ?? character);
+  return value.replace(
+    /[&<>"']/g,
+    (character) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[character] ?? character,
+  );
 }
 
 function emailRow(label: string, value: string): string {
@@ -71,40 +77,45 @@ export const Route = createFileRoute("/api/preventivo")({
           return Response.json({ error: "Richiesta non valida." }, { status: 400 });
         }
 
-        if (readString(body.website)) {
+        if (readString(body["website"])) {
           return Response.json({ ok: true });
         }
 
         const data: QuoteData = {
-          project: readString(body.project),
-          activity: readString(body.activity),
-          objective: readString(body.objective),
-          digitalTools: readString(body.digitalTools),
-          timing: readString(body.timing),
-          budget: readString(body.budget),
-          name: readString(body.name),
-          email: readString(body.email),
-          phone: readString(body.phone),
-          businessName: readString(body.businessName),
+          project: readString(body["project"]),
+          activity: readString(body["activity"]),
+          objective: readString(body["objective"]),
+          digitalTools: readString(body["digitalTools"]),
+          timing: readString(body["timing"]),
+          budget: readString(body["budget"]),
+          name: readString(body["name"]),
+          email: readString(body["email"]),
+          phone: readString(body["phone"]),
+          businessName: readString(body["businessName"]),
         };
 
-        if (!data.project || !data.activity || !data.objective || !data.name || !data.email || body.privacy !== true) {
+        if (
+          !data.project ||
+          !data.activity ||
+          !data.objective ||
+          !data.name ||
+          !data.email ||
+          body["privacy"] !== true
+        ) {
           return Response.json({ error: "Controlla i campi obbligatori." }, { status: 400 });
         }
 
         if (!EMAIL_PATTERN.test(data.email)) {
           return Response.json({ error: "Controlla l'indirizzo email." }, { status: 400 });
         }
-const runtime = (request as CloudflareRequest).runtime;
+        const runtime = (request as CloudflareRequest).runtime;
 
-const cloudflareApiKey = runtime?.cloudflare?.env?.RESEND_API_KEY;
+        const cloudflareApiKey = runtime?.cloudflare?.env?.["RESEND_API_KEY"];
 
-const localApiKey =
-  typeof process !== "undefined"
-    ? process.env.RESEND_API_KEY
-    : undefined;
+        const localApiKey =
+          typeof process !== "undefined" ? process.env["RESEND_API_KEY"] : undefined;
 
-const apiKey = cloudflareApiKey ?? localApiKey;
+        const apiKey = cloudflareApiKey ?? localApiKey;
         if (typeof apiKey !== "string" || !apiKey) {
           console.error("[api/preventivo] Resend API binding unavailable");
           return Response.json(genericError, { status: 500 });
@@ -132,13 +143,15 @@ const apiKey = cloudflareApiKey ?? localApiKey;
             let resendMessage = "No additional details";
             try {
               const responseBody: unknown = await resendResponse.json();
-              if (isRecord(responseBody) && typeof responseBody.message === "string") {
-                resendMessage = responseBody.message.slice(0, 500);
+              if (isRecord(responseBody) && typeof responseBody["message"] === "string") {
+                resendMessage = responseBody["message"].slice(0, 500);
               }
             } catch {
               // The status remains useful if Resend returns a non-JSON error body.
             }
-            console.error(`[api/preventivo] Resend returned ${resendResponse.status}: ${resendMessage}`);
+            console.error(
+              `[api/preventivo] Resend returned ${resendResponse.status}: ${resendMessage}`,
+            );
             return Response.json(genericError, { status: 502 });
           }
 

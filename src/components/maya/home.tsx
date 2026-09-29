@@ -17,12 +17,28 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => { if (e?.isIntersecting) { setOn(true); io.disconnect(); } }, { threshold: 0.12 });
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e?.isIntersecting) {
+          setOn(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.12 },
+    );
     io.observe(el);
     return () => io.disconnect();
   }, []);
   return (
-    <div ref={ref} className={className} style={{ opacity: on ? 1 : 0, transform: on ? "none" : "translateY(24px)", transition: `opacity 1200ms ${EASE}, transform 1200ms ${EASE}` }}>
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: on ? 1 : 0,
+        transform: on ? "none" : "translateY(24px)",
+        transition: `opacity 1200ms ${EASE}, transform 1200ms ${EASE}`,
+      }}
+    >
       {children}
     </div>
   );
@@ -37,10 +53,34 @@ function Kicker({ children }: { children: ReactNode }) {
 }
 
 const CONCEPTS = [
-  { n: "01", name: "Barber Noir", cat: "Luxury Barber Experience", img: barber, d: "Un concept digitale progettato per trasformare un servizio premium in un'esperienza online." },
-  { n: "02", name: "Medical Premium", cat: "Professional & Healthcare", img: medical, d: "Un concept digitale progettato per trasformare competenza e fiducia in un'esperienza online." },
-  { n: "03", name: "Beauty Luxury", cat: "Beauty & Wellness", img: beauty, d: "Un concept digitale progettato per trasformare cura e bellezza in un'esperienza online." },
-  { n: "04", name: "Corporate System", cat: "Business & Companies", img: corporate, d: "Un concept digitale progettato per trasformare una realtà aziendale complessa in una presenza digitale organizzata." },
+  {
+    n: "01",
+    name: "Barber Noir",
+    cat: "Luxury Barber Experience",
+    img: barber,
+    d: "Un concept digitale progettato per trasformare un servizio premium in un'esperienza online.",
+  },
+  {
+    n: "02",
+    name: "Medical Premium",
+    cat: "Professional & Healthcare",
+    img: medical,
+    d: "Un concept digitale progettato per trasformare competenza e fiducia in un'esperienza online.",
+  },
+  {
+    n: "03",
+    name: "Beauty Luxury",
+    cat: "Beauty & Wellness",
+    img: beauty,
+    d: "Un concept digitale progettato per trasformare cura e bellezza in un'esperienza online.",
+  },
+  {
+    n: "04",
+    name: "Corporate System",
+    cat: "Business & Companies",
+    img: corporate,
+    d: "Un concept digitale progettato per trasformare una realtà aziendale complessa in una presenza digitale organizzata.",
+  },
 ];
 
 /* 2. Showroom: cambio solo su click, nessun hover/parallax/drift */
@@ -49,11 +89,18 @@ export function ShowroomSection() {
   const c = CONCEPTS[active]!;
   const L = CONCEPTS.length;
   return (
-    <section id="concept" className="relative overflow-hidden px-6 py-28 md:px-12 md:py-44 lg:px-16">
+    <section
+      id="concept"
+      className="relative overflow-hidden px-6 py-28 md:px-12 md:py-44 lg:px-16"
+    >
       <div className="relative mx-auto max-w-[1390px]">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">Alcune possibili forme del tuo <span className="text-chrome">futuro digitale.</span></h2>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">Concept progettati per mostrare possibili evoluzioni digitali.</p>
+          <h2 className="font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">
+            Alcune possibili forme del tuo <span className="text-chrome">futuro digitale.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">
+            Concept progettati per mostrare possibili evoluzioni digitali.
+          </p>
         </Reveal>
 
         <div className="relative mx-auto mt-16 aspect-[16/9] w-full md:mt-24 lg:aspect-[12/5.5]">
@@ -86,10 +133,26 @@ export function ShowroomSection() {
               >
                 <div
                   className="relative overflow-hidden rounded-2xl bg-deep ring-1 ring-primary/15 md:rounded-3xl"
-                  style={{ boxShadow: d === 0 ? "0 40px 110px -60px var(--background)" : "0 20px 60px -40px var(--background)", transition: `box-shadow 1200ms ${EASE}` }}
+                  style={{
+                    boxShadow:
+                      d === 0
+                        ? "0 40px 110px -60px var(--background)"
+                        : "0 20px 60px -40px var(--background)",
+                    transition: `box-shadow 1200ms ${EASE}`,
+                  }}
                 >
-                  <img src={k.img} alt={`Anteprima del concept digitale ${k.name}`} width={1600} height={1008} loading={i === 0 ? "eager" : "lazy"} className="block w-full" />
-                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
+                  <img
+                    src={k.img}
+                    alt={`Anteprima del concept digitale ${k.name}`}
+                    width={1600}
+                    height={1008}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    className="block w-full"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent"
+                  />
                 </div>
               </button>
             );
@@ -98,7 +161,13 @@ export function ShowroomSection() {
 
         <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3">
           {CONCEPTS.map((k, i) => (
-            <button key={k.n} type="button" onClick={() => setActive(i)} aria-pressed={i === active} className={`py-1 font-display text-sm uppercase tracking-[0.1em] transition-colors duration-700 md:text-base ${i === active ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}>
+            <button
+              key={k.n}
+              type="button"
+              onClick={() => setActive(i)}
+              aria-pressed={i === active}
+              className={`py-1 font-display text-sm uppercase tracking-[0.1em] transition-colors duration-700 md:text-base ${i === active ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+            >
               <span className={i === active ? "text-primary" : ""}>{k.n}</span> {k.name}
             </button>
           ))}
@@ -106,9 +175,16 @@ export function ShowroomSection() {
 
         <div key={c.n} className="reveal-in mx-auto mt-12 max-w-2xl text-center">
           <h3 className="font-display text-2xl font-medium md:text-3xl">{c.name}</h3>
-          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">{c.cat}</p>
+          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            {c.cat}
+          </p>
           <p className="mt-4 text-base leading-[1.95] text-muted-foreground md:text-lg">{c.d}</p>
-          <Link to={CONTACT} className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground">Scopri il concept <ArrowUpRight aria-hidden="true" className="size-3.5" /></Link>
+          <Link
+            to={CONTACT}
+            className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground"
+          >
+            Scopri il concept <ArrowUpRight aria-hidden="true" className="size-3.5" />
+          </Link>
         </div>
       </div>
     </section>
@@ -120,8 +196,14 @@ export function ManifestoSection() {
   return (
     <section id="manifesto" className="bg-deep px-6 py-32 md:px-12 md:py-52 lg:px-16">
       <Reveal className="mx-auto max-w-4xl text-center">
-        <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-medium leading-[1.12]">Ogni attività ha una propria identità.<br /><span className="text-chrome">Il digitale dovrebbe raccontarla.</span></h2>
-        <p className="mx-auto mt-10 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">Costruiamo esperienze digitali progettate intorno al tuo brand.</p>
+        <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-medium leading-[1.12]">
+          Ogni attività ha una propria identità.
+          <br />
+          <span className="text-chrome">Il digitale dovrebbe raccontarla.</span>
+        </h2>
+        <p className="mx-auto mt-10 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">
+          Costruiamo esperienze digitali progettate intorno al tuo brand.
+        </p>
       </Reveal>
     </section>
   );
@@ -129,9 +211,21 @@ export function ManifestoSection() {
 
 /* 4. Metodo: solo tipografia */
 const STEPS = [
-  { n: "01", t: "Analizziamo", d: "Studiamo la tua attività, i tuoi clienti e gli obiettivi da raggiungere." },
-  { n: "02", t: "Progettiamo", d: "Trasformiamo le esigenze in una soluzione digitale concreta e su misura." },
-  { n: "03", t: "Costruiamo", d: "Sviluppiamo e colleghiamo ogni elemento in un sistema pronto a crescere." },
+  {
+    n: "01",
+    t: "Analizziamo",
+    d: "Studiamo la tua attività, i tuoi clienti e gli obiettivi da raggiungere.",
+  },
+  {
+    n: "02",
+    t: "Progettiamo",
+    d: "Trasformiamo le esigenze in una soluzione digitale concreta e su misura.",
+  },
+  {
+    n: "03",
+    t: "Costruiamo",
+    d: "Sviluppiamo e colleghiamo ogni elemento in un sistema pronto a crescere.",
+  },
 ];
 
 export function MetodoSection() {
@@ -139,13 +233,19 @@ export function MetodoSection() {
     <section id="metodo" className="px-6 py-24 md:px-12 md:py-36 lg:px-16">
       <Reveal className="mx-auto max-w-[1390px]">
         <Kicker>Metodo</Kicker>
-        <h2 className="mt-8 font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">Il nostro <span className="text-chrome">metodo</span></h2>
+        <h2 className="mt-8 font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">
+          Il nostro <span className="text-chrome">metodo</span>
+        </h2>
         <ol className="mt-16 grid gap-12 md:mt-20 md:grid-cols-3 md:gap-12">
           {STEPS.map((s) => (
             <li key={s.n} className="border-t border-border pt-8">
               <span className="font-display text-sm text-primary">{s.n}</span>
-              <h3 className="mt-3 font-display text-2xl font-medium uppercase tracking-[0.04em] md:text-[1.7rem]">{s.t}</h3>
-              <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">{s.d}</p>
+              <h3 className="mt-3 font-display text-2xl font-medium uppercase tracking-[0.04em] md:text-[1.7rem]">
+                {s.t}
+              </h3>
+              <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">
+                {s.d}
+              </p>
             </li>
           ))}
         </ol>
@@ -160,22 +260,48 @@ export function EcosistemaSection() {
   return (
     <section id="ecosistema" className="bg-deep px-6 py-24 md:px-12 md:py-36 lg:px-16">
       <Reveal className="mx-auto max-w-[1100px] text-center">
-        <div className="flex justify-center"><Kicker>Ecosistema Maya</Kicker></div>
-        <h2 className="mt-8 font-display text-[clamp(2.2rem,4.4vw,4rem)] font-medium leading-[1.08]">Un unico sistema, <span className="text-chrome">tre elementi connessi.</span></h2>
+        <div className="flex justify-center">
+          <Kicker>Ecosistema Maya</Kicker>
+        </div>
+        <h2 className="mt-8 font-display text-[clamp(2.2rem,4.4vw,4rem)] font-medium leading-[1.08]">
+          Un unico sistema, <span className="text-chrome">tre elementi connessi.</span>
+        </h2>
         <div className="relative mx-auto mt-16 w-full max-w-[900px]">
           <svg viewBox="0 0 1000 380" className="w-full" aria-hidden="true">
-            <path id="eco-path" d={path} fill="none" stroke="var(--primary)" strokeOpacity=".35" strokeWidth="1" />
+            <path
+              id="eco-path"
+              d={path}
+              fill="none"
+              stroke="var(--primary)"
+              strokeOpacity=".35"
+              strokeWidth="1"
+            />
             <circle cx="500" cy="90" r="8" fill="var(--primary)" />
             <circle cx="160" cy="300" r="5" fill="var(--primary)" fillOpacity=".7" />
             <circle cx="840" cy="300" r="5" fill="var(--primary)" fillOpacity=".7" />
           </svg>
-          <Link to="/maya-connect" className="absolute left-1/2 top-[34%] -translate-x-1/2 font-display text-lg font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:text-primary/80 md:text-2xl">
+          <Link
+            to="/maya-connect"
+            className="absolute left-1/2 top-[34%] -translate-x-1/2 font-display text-lg font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:text-primary/80 md:text-2xl"
+          >
             MAYA CONNECT
           </Link>
-          <Link to="/maya-web" className="absolute left-[16%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg">Maya Web</Link>
-          <Link to="/maya-app" className="absolute left-[84%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg">Maya App</Link>
+          <Link
+            to="/maya-web"
+            className="absolute left-[16%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg"
+          >
+            Maya Web
+          </Link>
+          <Link
+            to="/maya-app"
+            className="absolute left-[84%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg"
+          >
+            Maya App
+          </Link>
         </div>
-        <p className="mt-10 text-base leading-[1.95] text-muted-foreground md:text-lg">Maya Connect collega presenza digitale, strumenti operativi e nuovi servizi.</p>
+        <p className="mt-10 text-base leading-[1.95] text-muted-foreground md:text-lg">
+          Maya Connect collega presenza digitale, strumenti operativi e nuovi servizi.
+        </p>
       </Reveal>
     </section>
   );
@@ -184,7 +310,12 @@ export function EcosistemaSection() {
 /* 6. Soluzioni */
 const SOLUTIONS = [
   { to: "/maya-web" as const, k: "Maya Web", d: "Siti web premium." },
-  { to: "/maya-connect" as const, k: "Maya Connect", d: "Connessioni tra strumenti e processi.", core: true },
+  {
+    to: "/maya-connect" as const,
+    k: "Maya Connect",
+    d: "Connessioni tra strumenti e processi.",
+    core: true,
+  },
   { to: "/maya-app" as const, k: "Maya App", d: "Applicazioni proprietarie." },
 ];
 
@@ -193,13 +324,27 @@ export function SoluzioniSection() {
     <section id="soluzioni" className="px-6 py-24 md:px-12 md:py-36 lg:px-16">
       <Reveal className="mx-auto max-w-[1390px]">
         <Kicker>Soluzioni</Kicker>
-        <h2 className="mt-8 max-w-3xl font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">Costruiamo strumenti digitali <span className="text-chrome">su misura.</span></h2>
+        <h2 className="mt-8 max-w-3xl font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">
+          Costruiamo strumenti digitali <span className="text-chrome">su misura.</span>
+        </h2>
         <div className="mt-16 grid gap-0 md:mt-20 md:grid-cols-3">
           {SOLUTIONS.map((s) => (
-            <Link key={s.k} to={s.to} className={`group border-t py-10 md:px-8 md:first:pl-0 ${s.core ? "border-primary" : "border-border"}`}>
-              <p className={`font-display text-xl font-semibold uppercase tracking-[0.16em] md:text-2xl ${s.core ? "text-primary" : ""}`}>{s.k}</p>
-              <p className="mt-4 max-w-xs text-base leading-[1.9] text-muted-foreground md:text-lg">{s.d}</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-colors group-hover:text-primary">Scopri <ArrowUpRight aria-hidden="true" className="size-3.5" /></span>
+            <Link
+              key={s.k}
+              to={s.to}
+              className={`group border-t py-10 md:px-8 md:first:pl-0 ${s.core ? "border-primary" : "border-border"}`}
+            >
+              <p
+                className={`font-display text-xl font-semibold uppercase tracking-[0.16em] md:text-2xl ${s.core ? "text-primary" : ""}`}
+              >
+                {s.k}
+              </p>
+              <p className="mt-4 max-w-xs text-base leading-[1.9] text-muted-foreground md:text-lg">
+                {s.d}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-colors group-hover:text-primary">
+                Scopri <ArrowUpRight aria-hidden="true" className="size-3.5" />
+              </span>
             </Link>
           ))}
         </div>
@@ -208,27 +353,47 @@ export function SoluzioniSection() {
   );
 }
 
-
 /* 8. CTA finale */
 export function FinalCta() {
   return (
-    <section id="contatti" className="relative isolate overflow-hidden px-6 pb-16 pt-32 text-center md:px-12 md:pt-48 lg:px-16">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hero-vignette" />
+    <section
+      id="contatti"
+      className="relative isolate overflow-hidden px-6 pb-16 pt-32 text-center md:px-12 md:pt-48 lg:px-16"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 hero-vignette"
+      />
       <Reveal className="relative mx-auto max-w-5xl">
-        <h2 className="font-display text-[clamp(2.6rem,6.4vw,6rem)] font-medium leading-[1.04]">Costruiamo insieme il tuo prossimo <span className="text-chrome">spazio digitale.</span></h2>
+        <h2 className="font-display text-[clamp(2.6rem,6.4vw,6rem)] font-medium leading-[1.04]">
+          Costruiamo insieme il tuo prossimo <span className="text-chrome">spazio digitale.</span>
+        </h2>
         <div className="mx-auto mt-10 max-w-xl space-y-2 text-lg leading-[1.9] text-muted-foreground md:text-xl">
           <p className="text-foreground">Raccontaci la tua idea.</p>
           <p>Creiamo una soluzione digitale costruita intorno alla tua crescita.</p>
         </div>
         <div className="relative mt-14 inline-block">
-          <div aria-hidden="true" className="absolute -inset-6 rounded-full bg-primary/15 blur-2xl" />
-          <Button asChild variant="maya" size="lg" className="relative h-16 px-10 text-sm font-bold uppercase tracking-[0.14em] md:h-[4.5rem] md:px-14 md:text-base">
-            <Link to={QUOTE}>Inizia il progetto <ArrowUpRight aria-hidden="true" /></Link>
+          <div
+            aria-hidden="true"
+            className="absolute -inset-6 rounded-full bg-primary/15 blur-2xl"
+          />
+          <Button
+            asChild
+            variant="maya"
+            size="lg"
+            className="relative h-16 px-10 text-sm font-bold uppercase tracking-[0.14em] md:h-[4.5rem] md:px-14 md:text-base"
+          >
+            <Link to={QUOTE}>
+              Inizia il progetto <ArrowUpRight aria-hidden="true" />
+            </Link>
           </Button>
         </div>
       </Reveal>
       <div aria-hidden="true" className="mx-auto mt-28 h-px w-[min(82vw,820px)] thread-line" />
-      <p className="relative mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">© Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al tuo brand</p>
+      <p className="relative mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
+        tuo brand
+      </p>
     </section>
   );
 }
