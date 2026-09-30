@@ -76,7 +76,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <section className="relative isolate flex min-h-[min(980px,94svh)] flex-col overflow-hidden border-b border-border bg-background max-md:min-h-[min(710px,80svh)]">
+      <section className="relative isolate flex min-h-svh flex-col overflow-hidden border-b border-border bg-background max-md:min-h-[min(710px,80svh)]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 hero-ambient [animation:none]"
