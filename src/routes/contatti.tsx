@@ -87,8 +87,29 @@ function ContattiPage() {
               Contattaci direttamente
             </h2>
             <p className="mt-4 max-w-md text-base leading-[1.9] text-muted-foreground md:text-lg">
-              Stiamo configurando i nuovi canali di contatto.
+              Scrivici e ti rispondiamo il prima possibile.
             </p>
+            <ul className="mt-6 space-y-2 text-base leading-[1.9] md:text-lg">
+              <li>
+                <a
+                  href="mailto:info@maya-project.it"
+                  className="text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+                >
+                  info@maya-project.it
+                </a>
+              </li>
+              <li className="text-muted-foreground">Portici (NA)</li>
+              <li>
+                <a
+                  href="https://www.instagram.com/_maya_project_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+                >
+                  Instagram @_maya_project_
+                </a>
+              </li>
+            </ul>
           </article>
         </div>
       </section>

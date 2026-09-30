@@ -48,6 +48,14 @@ export const Route = createFileRoute("/")({
               name: "Maya Project",
               url: SITE,
               slogan: "Cuciamo il digitale intorno al tuo brand",
+              email: "info@maya-project.it",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Portici",
+                addressRegion: "NA",
+                addressCountry: "IT",
+              },
+              sameAs: ["https://www.instagram.com/_maya_project_/"],
             },
             {
               "@type": "WebSite",
