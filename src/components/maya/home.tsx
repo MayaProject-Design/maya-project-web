@@ -60,6 +60,10 @@ const CONCEPTS = [
     cat: "Luxury Barber Experience",
     img: barber,
     d: "Un concept digitale progettato per trasformare un servizio premium in un'esperienza online.",
+    /* Unico concept già navigabile. Gli altri sono anteprime: senza `url` il
+       pulsante cambia parola e porta ai contatti, invece di promettere una
+       demo che non esiste. */
+    url: "https://barbernoir.maya-project.it",
   },
   {
     n: "02",
@@ -180,12 +184,23 @@ export function ShowroomSection() {
             {c.cat}
           </p>
           <p className="mt-4 text-base leading-[1.95] text-muted-foreground md:text-lg">{c.d}</p>
-          <Link
-            to={CONTACT}
-            className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground"
-          >
-            Scopri il concept <ArrowUpRight aria-hidden="true" className="size-3.5" />
-          </Link>
+          {"url" in c && c.url ? (
+            <a
+              href={c.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground"
+            >
+              Apri il concept <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            </a>
+          ) : (
+            <Link
+              to={CONTACT}
+              className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground"
+            >
+              Parlane con noi <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            </Link>
+          )}
         </div>
       </div>
     </section>

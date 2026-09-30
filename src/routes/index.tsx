@@ -16,20 +16,20 @@ const SITE = "https://maya-project.it/";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maya Project | Siti web e applicazioni su misura" },
+      { title: "Maya Project — Cuciamo il digitale intorno al tuo brand" },
       {
         name: "description",
         content:
-          "Maya Project progetta siti web, applicazioni e sistemi digitali su misura. Cuciamo il digitale intorno al tuo brand.",
+          "Studio digitale indipendente a Napoli. Progettiamo esperienze e sistemi digitali su misura, costruiti intorno al tuo brand e agli strumenti che usi già.",
       },
       {
         property: "og:title",
-        content: "Maya Project | Siti web e applicazioni su misura",
+        content: "Maya Project — Cuciamo il digitale intorno al tuo brand",
       },
       {
         property: "og:description",
         content:
-          "Cuciamo il digitale intorno al tuo brand. Siti web, applicazioni e sistemi digitali su misura.",
+          "Progettiamo esperienze e sistemi digitali su misura, costruiti intorno al tuo brand e agli strumenti che usi già.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE },
