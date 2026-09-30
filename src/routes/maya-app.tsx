@@ -12,7 +12,8 @@ import {
   ThreadRow,
 } from "@/components/maya/page-kit";
 
-const TITLE = "Maya App — Applicazioni dedicate | Maya Project";
+const TITLE = "Maya App | Applicazioni web e mobile su misura";
+const URL_CANONICAL = "https://maya-project.it/maya-app";
 const DESC =
   "La tua esperienza digitale proprietaria. Applicazioni dedicate per offrire servizi più semplici, veloci e personalizzati.";
 
@@ -23,9 +24,11 @@ export const Route = createFileRoute("/maya-app")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: URL_CANONICAL },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: URL_CANONICAL }],
   }),
   component: MayaAppPage,
 });

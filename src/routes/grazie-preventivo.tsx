@@ -8,6 +8,7 @@ export const Route = createFileRoute("/grazie-preventivo")({
     meta: [
       { title: "Richiesta ricevuta | Maya Project" },
       { name: "description", content: "Abbiamo ricevuto la tua richiesta di preventivo." },
+      { name: "robots", content: "noindex, follow" },
     ],
   }),
   component: GraziePreventivoPage,

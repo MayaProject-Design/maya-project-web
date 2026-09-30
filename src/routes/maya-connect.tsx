@@ -3,7 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Closing, PageHero, QUOTE, Section, ThreadRow } from "@/components/maya/page-kit";
 
-const TITLE = "Maya Connect — Il filo che unisce il tuo ecosistema digitale | Maya Project";
+const TITLE = "Maya Connect | Integrazioni e automazioni digitali";
+const URL_CANONICAL = "https://maya-project.it/maya-connect";
 const DESC =
   "Colleghiamo strumenti, dati e processi per creare un sistema digitale unico intorno al tuo business.";
 
@@ -14,9 +15,11 @@ export const Route = createFileRoute("/maya-connect")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: URL_CANONICAL },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: URL_CANONICAL }],
   }),
   component: MayaConnectPage,
 });

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { QuoteForm } from "@/components/maya/quote-form";
 import { SiteHeader } from "@/components/maya/page-kit";
 
+const URL_CANONICAL = "https://maya-project.it/preventivo";
 const TITLE = "Richiedi un preventivo | Maya Project";
 const DESCRIPTION =
   "Raccontaci cosa vuoi costruire. Partiamo dalla tua attività, dai tuoi obiettivi e dagli strumenti che utilizzi già.";
@@ -13,9 +14,11 @@ export const Route = createFileRoute("/preventivo")({
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
+      { property: "og:url", content: URL_CANONICAL },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: URL_CANONICAL }],
   }),
   component: PreventivoPage,
 });

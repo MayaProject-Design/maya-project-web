@@ -11,10 +11,12 @@ import {
   FinalCta,
 } from "@/components/maya/home";
 
+const SITE = "https://maya-project.it/";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maya Project — Trasformiamo la tua attività in un ecosistema digitale" },
+      { title: "Maya Project | Siti web e applicazioni su misura" },
       {
         name: "description",
         content:
@@ -22,7 +24,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "Maya Project — Trasformiamo la tua attività in un ecosistema digitale",
+        content: "Maya Project | Siti web e applicazioni su misura",
       },
       {
         property: "og:description",
@@ -30,7 +32,34 @@ export const Route = createFileRoute("/")({
           "Cuciamo il digitale intorno al tuo brand. Siti web, applicazioni e sistemi digitali su misura.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: SITE }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${SITE}#organization`,
+              name: "Maya Project",
+              url: SITE,
+              slogan: "Cuciamo il digitale intorno al tuo brand",
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${SITE}#website`,
+              url: SITE,
+              name: "Maya Project",
+              inLanguage: "it-IT",
+              publisher: { "@id": `${SITE}#organization` },
+            },
+          ],
+        }),
+      },
     ],
   }),
   component: Index,

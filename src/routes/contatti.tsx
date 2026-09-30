@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { QUOTE, SiteHeader } from "@/components/maya/page-kit";
 
+const URL_CANONICAL = "https://maya-project.it/contatti";
 const TITLE = "Contatti | Maya Project";
 const DESCRIPTION =
   "Parliamo del tuo prossimo progetto. Raccontaci la tua attività e troviamo insieme il punto da cui partire.";
@@ -14,9 +15,11 @@ export const Route = createFileRoute("/contatti")({
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
+      { property: "og:url", content: URL_CANONICAL },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: URL_CANONICAL }],
   }),
   component: ContattiPage,
 });

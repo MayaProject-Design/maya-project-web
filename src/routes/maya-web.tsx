@@ -8,7 +8,8 @@ import medical from "@/assets/concept-medical.jpg";
 import beauty from "@/assets/concept-beauty.jpg";
 import corporate from "@/assets/concept-corporate.jpg";
 
-const TITLE = "Maya Web — Siti web progettati intorno al tuo brand | Maya Project";
+const TITLE = "Maya Web | Realizzazione siti web su misura";
+const URL_CANONICAL = "https://maya-project.it/maya-web";
 const DESC =
   "Siti web progettati per raccontare il valore del tuo brand. Un percorso di progettazione digitale su misura, primo filo del tuo ecosistema.";
 
@@ -19,9 +20,11 @@ export const Route = createFileRoute("/maya-web")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: URL_CANONICAL },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: URL_CANONICAL }],
   }),
   component: MayaWebPage,
 });
