@@ -47,9 +47,9 @@ function NoteLegaliPage() {
         <p>
           Testi, immagini, elementi grafici, interfacce, concept, codice sorgente e struttura di
           questo sito sono opera di Maya Project e sono protetti dalla normativa italiana ed
-          europea sul diritto d'autore. Ne è consentita la consultazione personale; non sono
-          consentite la riproduzione, la modifica, la ridistribuzione o il riutilizzo a fini
-          commerciali senza autorizzazione scritta.
+          europea sul diritto d'autore. Ne è consentita la consultazione personale; non sono consentiti il riutilizzo, la
+          riproduzione, la modifica o la ridistribuzione a fini commerciali senza
+          autorizzazione scritta.
         </p>
         <p>
           I marchi, i nomi commerciali e i loghi eventualmente citati o rappresentati all'interno
@@ -60,18 +60,18 @@ function NoteLegaliPage() {
 
       <LegalBlock title="3. Natura dei progetti mostrati">
         <p>
-          Una parte dei lavori presentati sul sito sono{" "}
+          Alcuni dei lavori presentati sul sito sono{" "}
           <strong className="font-medium text-foreground">
             concept e progetti dimostrativi
           </strong>{" "}
-          realizzati da Maya Project per illustrare il proprio metodo di lavoro. Dove un progetto
-          non deriva da un incarico effettivamente conferito da un committente, questo è indicato:
-          la loro presenza non implica alcun rapporto commerciale in corso o passato con le
-          attività o i marchi eventualmente richiamati.
+          realizzati da Maya Project per illustrare il proprio metodo di lavoro. Quando un progetto
+          non deriva da un incarico realmente conferito da un committente, lo indichiamo: la sua
+          presenza non implica alcun rapporto commerciale, in corso o passato, con le attività o
+          i marchi eventualmente richiamati.
         </p>
         <p>
-          Le funzionalità visibili nelle dimostrazioni interattive, compresi eventuali listini,
-          orari, servizi o dati anagrafici, sono contenuti di esempio inseriti per rendere
+          I contenuti che compaiono nelle dimostrazioni interattive, compresi eventuali listini,
+          orari, servizi o dati anagrafici, sono inventati a titolo di esempio per rendere
           leggibile il progetto e non costituiscono informazioni reali su alcuna attività.
         </p>
       </LegalBlock>

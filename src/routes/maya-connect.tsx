@@ -283,7 +283,7 @@ function MayaConnectPage() {
 
       <Section
         deep
-        label="02 / Cosa è Maya Connect"
+        label="02 / Cos'è Maya Connect"
         title={
           <>
             Non sostituiamo <span className="text-primary">ciò che utilizzi.</span>

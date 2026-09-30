@@ -43,7 +43,7 @@ function PrivacyPolicyPage() {
         </p>
         <p>
           Maya Project non ha nominato un Responsabile della protezione dei dati (DPO), non
-          essendone obbligata ai sensi dell'art. 37 del Regolamento (UE) 2016/679.
+          essendo tenuta a farlo ai sensi dell'art. 37 del Regolamento (UE) 2016/679.
         </p>
       </LegalBlock>
 
@@ -198,7 +198,7 @@ function PrivacyPolicyPage() {
           questo pregiudichi la liceità di quanto trattato prima.
         </p>
         <p>
-          Per esercitare questi diritti è sufficiente una email a <Mail />: rispondiamo entro
+          Per esercitare questi diritti è sufficiente un'email a <Mail />: rispondiamo entro
           trenta giorni e la richiesta è gratuita. Se ritieni che la risposta non sia
           soddisfacente, puoi proporre reclamo al Garante per la protezione dei dati personali
           (
