@@ -106,7 +106,7 @@ function MayaWebPage() {
         </div>
         <div
           aria-hidden="true"
-          className="absolute bottom-0 left-1/2 h-px w-[min(82vw,820px)] -translate-x-1/2 thread-line opacity-70"
+          className="absolute bottom-0 left-1/2 h-0.5 w-[min(82vw,820px)] -translate-x-1/2 thread-line opacity-70"
         />
       </section>
 
@@ -302,7 +302,7 @@ function MayaWebPage() {
             </Link>
           </Button>
         </Reveal>
-        <div aria-hidden="true" className="mx-auto mt-24 h-px w-[min(82vw,820px)] thread-line" />
+        <div aria-hidden="true" className="mx-auto mt-24 h-0.5 w-[min(82vw,820px)] thread-line" />
         <p className="relative mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
           © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
           tuo brand

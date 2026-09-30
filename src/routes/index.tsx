@@ -144,7 +144,7 @@ function Index() {
         </div>
         <div
           aria-hidden="true"
-          className="absolute bottom-0 left-1/2 h-px w-[min(82vw,820px)] -translate-x-1/2 thread-line opacity-70"
+          className="absolute bottom-0 left-1/2 h-0.5 w-[min(82vw,820px)] -translate-x-1/2 thread-line opacity-70"
         />
       </section>
 

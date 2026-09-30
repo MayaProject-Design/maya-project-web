@@ -44,7 +44,7 @@ export function LegalPage({
         </div>
         <div
           aria-hidden="true"
-          className="absolute bottom-0 left-1/2 h-px w-[min(82vw,820px)] -translate-x-1/2 thread-line opacity-70"
+          className="absolute bottom-0 left-1/2 h-0.5 w-[min(82vw,820px)] -translate-x-1/2 thread-line opacity-70"
         />
       </section>
 
@@ -57,7 +57,7 @@ export function LegalPage({
 
           <div
             aria-hidden="true"
-            className="mt-20 h-px w-full thread-line opacity-70"
+            className="mt-20 h-0.5 w-full thread-line opacity-70"
           />
 
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">

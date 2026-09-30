@@ -389,7 +389,7 @@ export function FinalCta() {
           </Button>
         </div>
       </div>
-      <div aria-hidden="true" className="mx-auto mt-28 h-px w-[min(82vw,820px)] thread-line" />
+      <div aria-hidden="true" className="mx-auto mt-28 h-0.5 w-[min(82vw,820px)] thread-line" />
       <p className="relative mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
         tuo brand
