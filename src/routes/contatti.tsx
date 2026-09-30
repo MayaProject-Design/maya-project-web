@@ -99,7 +99,7 @@ function ContattiPage() {
                   info@maya-project.it
                 </a>
               </li>
-              <li className="text-muted-foreground">Portici (NA)</li>
+              <li className="text-muted-foreground">Napoli</li>
               <li>
                 <a
                   href="https://www.instagram.com/_maya_project_/"

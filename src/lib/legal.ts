@@ -10,7 +10,7 @@ export const TITOLARE = {
   nome: "Maya Project",
   ragioneSociale: "",
   partitaIva: "",
-  indirizzo: "Portici (NA), Italia",
+  indirizzo: "Napoli, Italia",
   email: "info@maya-project.it",
   emailPreventivi: "preventivi@maya-project.it",
   instagram: "https://www.instagram.com/_maya_project_/",

@@ -51,7 +51,7 @@ export const Route = createFileRoute("/")({
               email: "info@maya-project.it",
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "Portici",
+                addressLocality: "Napoli",
                 addressRegion: "NA",
                 addressCountry: "IT",
               },
