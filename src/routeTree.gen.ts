@@ -11,11 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as GraziePreventivoRouteImport } from './routes/grazie-preventivo'
 import { Route as MayaAppRouteImport } from './routes/maya-app'
 import { Route as MayaConnectRouteImport } from './routes/maya-connect'
 import { Route as MayaWebRouteImport } from './routes/maya-web'
+import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as PreventivoRouteImport } from './routes/preventivo'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ApiPreventivoRouteImport } from './routes/api.preventivo'
 
 const IndexRoute = IndexRouteImport.update({
@@ -26,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const ContattiRoute = ContattiRouteImport.update({
   id: '/contatti',
   path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GraziePreventivoRoute = GraziePreventivoRouteImport.update({
@@ -48,9 +56,19 @@ const MayaWebRoute = MayaWebRouteImport.update({
   path: '/maya-web',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NoteLegaliRoute = NoteLegaliRouteImport.update({
+  id: '/note-legali',
+  path: '/note-legali',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PreventivoRoute = PreventivoRouteImport.update({
   id: '/preventivo',
   path: '/preventivo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPreventivoRoute = ApiPreventivoRouteImport.update({
@@ -62,32 +80,41 @@ const ApiPreventivoRoute = ApiPreventivoRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contatti': typeof ContattiRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/grazie-preventivo': typeof GraziePreventivoRoute
   '/maya-app': typeof MayaAppRoute
   '/maya-connect': typeof MayaConnectRoute
   '/maya-web': typeof MayaWebRoute
+  '/note-legali': typeof NoteLegaliRoute
   '/preventivo': typeof PreventivoRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/api/preventivo': typeof ApiPreventivoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contatti': typeof ContattiRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/grazie-preventivo': typeof GraziePreventivoRoute
   '/maya-app': typeof MayaAppRoute
   '/maya-connect': typeof MayaConnectRoute
   '/maya-web': typeof MayaWebRoute
+  '/note-legali': typeof NoteLegaliRoute
   '/preventivo': typeof PreventivoRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/api/preventivo': typeof ApiPreventivoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contatti': typeof ContattiRoute
+  '/cookie-policy': typeof CookiePolicyRoute
   '/grazie-preventivo': typeof GraziePreventivoRoute
   '/maya-app': typeof MayaAppRoute
   '/maya-connect': typeof MayaConnectRoute
   '/maya-web': typeof MayaWebRoute
+  '/note-legali': typeof NoteLegaliRoute
   '/preventivo': typeof PreventivoRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/api/preventivo': typeof ApiPreventivoRoute
 }
 export interface FileRouteTypes {
@@ -95,42 +122,54 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contatti'
+    | '/cookie-policy'
     | '/grazie-preventivo'
     | '/maya-app'
     | '/maya-connect'
     | '/maya-web'
+    | '/note-legali'
     | '/preventivo'
+    | '/privacy-policy'
     | '/api/preventivo'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contatti'
+    | '/cookie-policy'
     | '/grazie-preventivo'
     | '/maya-app'
     | '/maya-connect'
     | '/maya-web'
+    | '/note-legali'
     | '/preventivo'
+    | '/privacy-policy'
     | '/api/preventivo'
   id:
     | '__root__'
     | '/'
     | '/contatti'
+    | '/cookie-policy'
     | '/grazie-preventivo'
     | '/maya-app'
     | '/maya-connect'
     | '/maya-web'
+    | '/note-legali'
     | '/preventivo'
+    | '/privacy-policy'
     | '/api/preventivo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContattiRoute: typeof ContattiRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
   GraziePreventivoRoute: typeof GraziePreventivoRoute
   MayaAppRoute: typeof MayaAppRoute
   MayaConnectRoute: typeof MayaConnectRoute
   MayaWebRoute: typeof MayaWebRoute
+  NoteLegaliRoute: typeof NoteLegaliRoute
   PreventivoRoute: typeof PreventivoRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ApiPreventivoRoute: typeof ApiPreventivoRoute
 }
 
@@ -148,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/contatti'
       fullPath: '/contatti'
       preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/grazie-preventivo': {
@@ -178,11 +224,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MayaWebRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/note-legali': {
+      id: '/note-legali'
+      path: '/note-legali'
+      fullPath: '/note-legali'
+      preLoaderRoute: typeof NoteLegaliRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/preventivo': {
       id: '/preventivo'
       path: '/preventivo'
       fullPath: '/preventivo'
       preLoaderRoute: typeof PreventivoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/preventivo': {
@@ -198,11 +258,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContattiRoute: ContattiRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
   GraziePreventivoRoute: GraziePreventivoRoute,
   MayaAppRoute: MayaAppRoute,
   MayaConnectRoute: MayaConnectRoute,
   MayaWebRoute: MayaWebRoute,
+  NoteLegaliRoute: NoteLegaliRoute,
   PreventivoRoute: PreventivoRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   ApiPreventivoRoute: ApiPreventivoRoute,
 }
 export const routeTree = rootRouteImport

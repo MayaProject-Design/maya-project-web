@@ -7,6 +7,7 @@ import barber from "@/assets/concept-barber.jpg";
 import medical from "@/assets/concept-medical.jpg";
 import beauty from "@/assets/concept-beauty.jpg";
 import corporate from "@/assets/concept-corporate.jpg";
+import { LegalLinks } from "@/components/maya/legal-links";
 
 const TITLE = "Maya Web | Realizzazione siti web su misura";
 const URL_CANONICAL = "https://maya-project.it/maya-web";
@@ -306,6 +307,7 @@ function MayaWebPage() {
           © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
           tuo brand
         </p>
+        <LegalLinks />
       </section>
     </main>
   );

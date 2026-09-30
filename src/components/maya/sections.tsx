@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
+import { LegalLinks } from "./legal-links";
 
 const QUOTE = "/preventivo";
 
@@ -393,6 +394,7 @@ export function FinalCta() {
         © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
         tuo brand
       </p>
+      <LegalLinks />
     </section>
   );
 }

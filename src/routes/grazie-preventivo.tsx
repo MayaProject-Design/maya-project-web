@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/maya/page-kit";
+import { LegalLinks } from "@/components/maya/legal-links";
 
 export const Route = createFileRoute("/grazie-preventivo")({
   head: () => ({
@@ -54,6 +55,14 @@ function GraziePreventivoPage() {
           className="absolute bottom-0 left-1/2 h-px w-[min(82vw,820px)] -translate-x-1/2 thread-line opacity-70"
         />
       </section>
+      <footer className="px-6 pb-14 md:px-12 lg:px-16">
+        <div aria-hidden="true" className="mx-auto h-px w-[min(82vw,820px)] thread-line opacity-70" />
+        <p className="mt-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
+          tuo brand
+        </p>
+        <LegalLinks />
+      </footer>
     </main>
   );
 }

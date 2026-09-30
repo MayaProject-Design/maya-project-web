@@ -1,5 +1,5 @@
 import { useRef, useState, type FormEvent } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 
 type Step = 0 | 1 | 2;
@@ -526,20 +526,38 @@ export function QuoteForm() {
                     onChange={(event) => updateField("website", event.target.value)}
                   />
                 </div>
-                <label className="mt-8 flex cursor-pointer items-start gap-3 border-t border-border pt-5 text-sm leading-[1.7] text-muted-foreground">
-                  <input
-                    type="checkbox"
-                    checked={values.privacy}
-                    onChange={(event) => updateField("privacy", event.target.checked)}
-                    aria-invalid={Boolean(errors.privacy)}
-                    aria-describedby={errors.privacy ? "privacy-error" : undefined}
-                    className="mt-1 size-4 shrink-0 accent-primary"
-                  />
-                  <span>
-                    Ho letto l'informativa privacy e acconsento al trattamento dei dati necessari
-                    per essere ricontattato. *
-                  </span>
-                </label>
+                {/* Il rimando all'informativa sta fuori dalla label: un link
+                    annidato dentro una label fa scattare anche la spunta. */}
+                <div className="mt-8 border-t border-border pt-5">
+                  <label className="flex cursor-pointer items-start gap-3 text-sm leading-[1.7] text-muted-foreground">
+                    <input
+                      type="checkbox"
+                      checked={values.privacy}
+                      onChange={(event) => updateField("privacy", event.target.checked)}
+                      aria-invalid={Boolean(errors.privacy)}
+                      aria-describedby={
+                        errors.privacy ? "privacy-error privacy-note" : "privacy-note"
+                      }
+                      className="mt-1 size-4 shrink-0 accent-primary"
+                    />
+                    <span>
+                      Ho letto l'informativa privacy e acconsento al trattamento dei dati
+                      necessari per essere ricontattato. *
+                    </span>
+                  </label>
+                  <p id="privacy-note" className="mt-3 pl-7 text-xs leading-[1.7] text-muted-foreground/80">
+                    Usiamo questi dati solo per risponderti.{" "}
+                    <Link
+                      to="/privacy-policy"
+                      target="_blank"
+                      rel="noopener"
+                      className="text-foreground underline underline-offset-4 transition-colors hover:text-primary"
+                    >
+                      Leggi l'informativa
+                    </Link>
+                    .
+                  </p>
+                </div>
                 <FieldError id="privacy-error" message={errors.privacy} />
               </section>
             )}

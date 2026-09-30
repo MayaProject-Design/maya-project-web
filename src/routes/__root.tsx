@@ -86,13 +86,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale", content: "it_IT" },
       { property: "og:site_name", content: "Maya Project" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#000101" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      /* ?v=2: il file ha lo stesso nome del vecchio logo e i browser tengono
+         in cache le icone a lungo. La query forza il ricaricamento. */
+      { rel: "icon", href: "/favicon.ico?v=2", sizes: "48x48" },
+      { rel: "icon", href: "/favicon.png?v=2", type: "image/png", sizes: "64x64" },
+      { rel: "icon", href: "/favicon-512.png?v=2", type: "image/png", sizes: "512x512" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png?v=2", sizes: "180x180" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

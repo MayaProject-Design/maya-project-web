@@ -7,6 +7,7 @@ import barber from "@/assets/concept-barber.jpg";
 import medical from "@/assets/concept-medical.jpg";
 import beauty from "@/assets/concept-beauty.jpg";
 import corporate from "@/assets/concept-corporate.jpg";
+import { LegalLinks } from "./legal-links";
 
 const EASE = "cubic-bezier(.45,0,.55,1)";
 
@@ -394,6 +395,7 @@ export function FinalCta() {
         © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
         tuo brand
       </p>
+      <LegalLinks />
     </section>
   );
 }

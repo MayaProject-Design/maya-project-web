@@ -3,9 +3,12 @@ import { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThreadConnector } from "./sections";
+import { LegalLinks } from "./legal-links";
 
 export const CONTACT = "/contatti";
 export const QUOTE = "/preventivo" as const;
+
+export { LegalLinks };
 
 export function SiteHeader({ home = false }: { home?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -280,6 +283,7 @@ export function Closing({
           © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
           tuo brand
         </p>
+        <LegalLinks />
       </section>
     </>
   );
