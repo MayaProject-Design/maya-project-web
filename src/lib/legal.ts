@@ -1,10 +1,10 @@
 /* Dati anagrafici usati nelle pagine legali.
  *
- * ⚠️ DA COMPLETARE PRIMA DI ANDARE ONLINE
- * Il Regolamento (UE) 2016/679, art. 13, richiede che il titolare del
- * trattamento sia identificabile. Finché `ragioneSociale` e `partitaIva`
- * restano vuote le pagine mostrano il solo nome commerciale: sufficiente per
- * pubblicare, da completare con i dati fiscali reali appena disponibili.
+ * Ragione sociale e partita IVA restano vuote per scelta: verranno inserite
+ * dopo la prima vendita. Finché lo sono, le pagine identificano il titolare
+ * con nome commerciale, sede ed email — sufficiente per l'art. 13 del
+ * Regolamento (UE) 2016/679, che chiede l'identità e i recapiti del titolare,
+ * non i dati fiscali. Compilare i due campi qui sotto li propaga ovunque.
  */
 export const TITOLARE = {
   nome: "Maya Project",
