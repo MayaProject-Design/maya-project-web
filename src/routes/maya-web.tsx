@@ -163,7 +163,10 @@ function MayaWebPage() {
       {/* 4. Il metodo Maya Web */}
       <section className="px-6 pb-28 md:px-12 md:pb-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
-          <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+            Processo Maya Web
+          </p>
+          <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
             Dal brand <span className="text-chrome">all'esperienza digitale.</span>
           </h2>
           <ol className="mt-16 grid gap-12 md:mt-20 md:grid-cols-3 md:gap-12">
