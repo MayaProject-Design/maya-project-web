@@ -76,7 +76,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <section className="relative isolate flex min-h-[97svh] flex-col overflow-hidden border-b border-border bg-background max-md:min-h-[min(710px,80svh)]">
+      <section className="relative isolate flex min-h-svh flex-col overflow-hidden border-b border-border bg-background max-md:min-h-[min(710px,80svh)]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 hero-ambient [animation:none]"
@@ -97,12 +97,12 @@ function Index() {
           </p>
           <div className="reveal-in mt-8 max-w-[1180px] [animation-delay:210ms]">
             <h1 className="font-display text-[clamp(2.15rem,4.6vw,5.25rem)] font-medium leading-[1.08] text-foreground">
-              Trasformiamo la tua attività
-              <br className="hidden sm:block" /> in un{" "}
-              <span className="text-primary">ecosistema digitale.</span>
+              Cuciamo il digitale
+              <br className="hidden sm:block" /> intorno al{" "}
+              <span className="text-primary">tuo brand.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-[760px] font-sans text-sm leading-[1.85] text-muted-foreground md:mt-5 md:text-lg">
-              Siti web, applicazioni e sistemi connessi progettati intorno al tuo business.
+              Siti web, applicazioni e sistemi connessi, progettati su misura per la tua attività.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:mt-7">
               <Button

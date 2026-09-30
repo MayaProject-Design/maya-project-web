@@ -239,8 +239,13 @@ const STEPS = [
   },
   {
     n: "03",
-    t: "Costruiamo",
-    d: "Sviluppiamo e colleghiamo ogni elemento in un sistema pronto a crescere.",
+    t: "Cuciamo",
+    d: "Sviluppiamo e colleghiamo ogni elemento intorno al modo in cui lavori.",
+  },
+  {
+    n: "04",
+    t: "Evolviamo",
+    d: "Il sistema non si ferma alla consegna: cresce insieme alla tua attività.",
   },
 ];
 
@@ -252,7 +257,7 @@ export function MetodoSection() {
         <h2 className="mt-8 font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">
           Il nostro <span className="text-chrome">metodo</span>
         </h2>
-        <ol className="mt-16 grid gap-12 md:mt-20 md:grid-cols-3 md:gap-12">
+        <ol className="mt-16 grid gap-12 md:mt-20 md:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:gap-10">
           {STEPS.map((s) => (
             <li key={s.n} className="border-t border-border pt-8">
               <span className="font-display text-sm text-primary">{s.n}</span>
