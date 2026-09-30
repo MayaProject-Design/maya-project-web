@@ -10,6 +10,27 @@ import corporate from "@/assets/concept-corporate.jpg";
 import { LegalLinks } from "@/components/maya/legal-links";
 
 const TITLE = "Maya Web | Realizzazione siti web su misura";
+const LIVELLI = [
+  {
+    n: "01",
+    t: "Maya Start",
+    s: "L'ingresso",
+    d: "Una base professionale personalizzata, per dare all'attività una presenza credibile e coerente senza costruire subito un ecosistema completo.",
+  },
+  {
+    n: "02",
+    t: "Maya Web",
+    s: "Il progetto",
+    d: "Una presenza digitale progettata intorno al brand: identità, percorso cliente, contenuti e integrazioni con gli strumenti già in uso.",
+  },
+  {
+    n: "03",
+    t: "Maya Web Business",
+    s: "L'azienda",
+    d: "La presenza digitale di un'azienda, non di una singola attività: più pagine, più servizi o sedi, contenuti strutturati e integrazioni più articolate.",
+  },
+];
+
 const URL_CANONICAL = "https://maya-project.it/maya-web";
 const DESC =
   "Siti web progettati per raccontare il valore del tuo brand. Un percorso di progettazione digitale su misura, primo filo del tuo ecosistema.";
@@ -180,6 +201,46 @@ function MayaWebPage() {
               </li>
             ))}
           </ol>
+        </Reveal>
+      </section>
+
+      {/* 4bis. I tre livelli */}
+      <section className="bg-deep px-6 py-28 md:px-12 md:py-40 lg:px-16">
+        <Reveal className="mx-auto max-w-[1390px]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+            Tre livelli
+          </p>
+          <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+            Stessa cura, <span className="text-chrome">ampiezza diversa.</span>
+          </h2>
+          <p className="mt-7 max-w-2xl text-base leading-[1.9] text-muted-foreground md:text-lg">
+            Non tutte le attività partono dallo stesso punto. Il livello si sceglie insieme, in
+            base a quanto c'è da raccontare e a quanto deve crescere nel tempo.
+          </p>
+          <ol className="mt-16 grid gap-10 md:mt-20 md:grid-cols-3 md:gap-8 lg:gap-12">
+            {LIVELLI.map((l) => (
+              <li key={l.n} className="border-t border-primary/40 pt-8">
+                <span className="font-display text-sm text-primary">{l.n}</span>
+                <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  {l.s}
+                </p>
+                <h3 className="mt-2 font-display text-2xl font-medium md:text-[1.7rem]">{l.t}</h3>
+                <p className="mt-4 text-base leading-[1.9] text-muted-foreground md:text-[17px]">
+                  {l.d}
+                </p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-14 max-w-2xl text-base leading-[1.9] text-muted-foreground md:text-lg">
+            Ogni livello può collegarsi in seguito agli strumenti che usi già attraverso{" "}
+            <Link
+              to="/maya-connect"
+              className="text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+            >
+              Maya Connect
+            </Link>
+            : il punto di partenza non chiude nessuna porta.
+          </p>
         </Reveal>
       </section>
 

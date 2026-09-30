@@ -323,6 +323,18 @@ export function EcosistemaSection() {
         <p className="mt-10 text-base leading-[1.95] text-muted-foreground md:text-lg">
           Maya Connect collega presenza digitale, strumenti operativi e nuovi servizi.
         </p>
+
+        <div className="mx-auto mt-16 max-w-2xl border-t border-primary/40 pt-10">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+            Maya Suite
+          </p>
+          <p className="mt-5 text-base leading-[1.95] text-muted-foreground md:text-lg">
+            Quando i tre elementi nascono insieme invece di aggiungersi nel tempo, il sistema è
+            uno solo dal primo giorno: sito, app, accessi, prenotazioni, clienti, notifiche e
+            pannello di gestione.{" "}
+            <span className="text-foreground">È l'intero ecosistema digitale del brand.</span>
+          </p>
+        </div>
       </Reveal>
     </section>
   );
