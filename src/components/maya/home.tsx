@@ -104,7 +104,13 @@ export function ShowroomSection() {
             Alcune possibili forme del tuo <span className="text-chrome">futuro digitale.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">
-            Concept progettati per mostrare possibili evoluzioni digitali.
+            Concept progettati per mostrare possibili evoluzioni digitali.{" "}
+            <Link
+              to="/portfolio"
+              className="text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+            >
+              Scopri come ragioniamo.
+            </Link>
           </p>
         </Reveal>
 
