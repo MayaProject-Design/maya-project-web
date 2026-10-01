@@ -308,17 +308,20 @@ function MayaConnectPage() {
           ))}
         </ul>
         <p className="mt-12 max-w-2xl border-l border-primary pl-5 text-base leading-[1.9] text-foreground md:text-lg">
-          Maya Connect si aggancia a qualsiasi livello: a una base{" "}
-          <Link
-            to="/maya-web"
-            hash="livelli"
-            className="text-primary underline underline-offset-4 transition-colors hover:text-foreground"
-          >
-            Maya Start
-          </Link>
-          , a un sito Maya Web o Maya Web Business, a un'app. Chi parte in piccolo non deve
-          rifare nulla per collegarsi dopo agli strumenti che usa già.
+          Maya Connect si aggancia a qualsiasi livello: a una base Maya Start, a un sito Maya Web
+          o Maya Web Business, a un'app. Chi parte in piccolo non deve rifare nulla per collegarsi
+          dopo agli strumenti che usa già.
         </p>
+        <Button
+          asChild
+          variant="mayaOutline"
+          size="lg"
+          className="mt-8 h-12 px-7 text-xs font-bold uppercase tracking-[0.1em]"
+        >
+          <Link to="/maya-web" hash="livelli">
+            Scopri i livelli <ArrowUpRight aria-hidden="true" />
+          </Link>
+        </Button>
       </Section>
 
       <Section
