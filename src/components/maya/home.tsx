@@ -436,7 +436,7 @@ export function FinalCta() {
             className="relative h-16 px-10 text-sm font-bold uppercase tracking-[0.14em] md:h-[4.5rem] md:px-14 md:text-base"
           >
             <Link to={QUOTE}>
-              Inizia il progetto <ArrowUpRight aria-hidden="true" />
+              Richiedi un preventivo <ArrowUpRight aria-hidden="true" />
             </Link>
           </Button>
         </div>

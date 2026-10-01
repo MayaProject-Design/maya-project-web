@@ -232,7 +232,7 @@ function MayaConnectPage() {
           className="reveal-in mt-12 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em] [animation-delay:300ms]"
         >
           <Link to={QUOTE}>
-            Inizia il progetto <ArrowUpRight aria-hidden="true" />
+            Richiedi un preventivo <ArrowUpRight aria-hidden="true" />
           </Link>
         </Button>
       </PageHero>
@@ -434,8 +434,8 @@ function MayaConnectPage() {
       <Closing
         title={
           <>
-            Costruiamo connessioni che fanno crescere{" "}
-            <span className="text-primary">il tuo business.</span>
+            Costruiamo i collegamenti giusti per{" "}
+            <span className="text-primary">la tua attività.</span>
           </>
         }
         text={
@@ -446,7 +446,7 @@ function MayaConnectPage() {
             </p>
           </>
         }
-        cta="Inizia il progetto"
+        cta="Richiedi un preventivo"
         to={QUOTE}
       />
     </main>

@@ -251,8 +251,8 @@ function MayaWebPage() {
       >
         <Reveal className="mx-auto max-w-[1390px]">
           <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
-            Una stessa tecnologia.{" "}
-            <span className="text-chrome">Identità completamente diverse.</span>
+            Stesso metodo,{" "}
+            <span className="text-chrome">stili completamente diversi.</span>
           </h2>
           <ul className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-10 lg:gap-12">
             {CONCEPTS.map((c) => (
@@ -269,7 +269,7 @@ function MayaWebPage() {
                 </div>
                 <div className="mt-5">
                   <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
-                    Direzioni progettuali
+                    Esempi di stile
                   </p>
                   <h3 className="mt-2 font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">{c.name}</h3>
                 </div>
@@ -363,7 +363,7 @@ function MayaWebPage() {
             className="mt-12 h-13 px-8 text-xs font-bold uppercase tracking-[0.1em]"
           >
             <Link to={QUOTE}>
-              Inizia il progetto <ArrowUpRight aria-hidden="true" />
+              Richiedi un preventivo <ArrowUpRight aria-hidden="true" />
             </Link>
           </Button>
         </Reveal>

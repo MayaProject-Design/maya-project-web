@@ -66,14 +66,14 @@ const TOUCHPOINTS = [
 
 const SCENARIOS = [
   {
-    title: "Beauty & Wellness",
+    title: "Estetica e benessere",
     services: "Prenotazioni · servizi · spostamenti · conferme · profilo cliente",
   },
   {
-    title: "Professionisti & Studi",
-    services: "Appuntamenti · documenti · comunicazioni · area personale",
+    title: "Studi e professionisti",
+    services: "Appuntamenti · spostamenti · conferme · area personale",
   },
-  { title: "Servizi & Retail", services: "Catalogo · richieste · acquisti · notifiche · storico" },
+  { title: "Servizi e negozi", services: "Servizi · richieste · conferme · storico" },
 ];
 
 function MayaAppPage() {
@@ -124,7 +124,7 @@ function MayaAppPage() {
             </div>
           </div>
           <div className="reveal-in relative mx-auto w-full max-w-[350px] [animation-delay:180ms] lg:max-w-none">
-            <AppPhone screen="home" caption="CONCEPT INTERFACE" />
+            <AppPhone screen="home" caption="ESEMPIO DI SCHERMATA" />
           </div>
         </div>
         <div
