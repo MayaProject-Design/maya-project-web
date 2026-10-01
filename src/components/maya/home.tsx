@@ -232,51 +232,29 @@ export function ManifestoSection() {
   );
 }
 
-/* 4. Metodo: solo tipografia */
-const STEPS = [
-  {
-    n: "01",
-    t: "Analizziamo",
-    d: "Capiamo come lavori, chi sono i tuoi clienti e cosa vuoi ottenere.",
-  },
-  {
-    n: "02",
-    t: "Progettiamo",
-    d: "Disegniamo la soluzione giusta per te, prima di costruire qualsiasi cosa.",
-  },
-  {
-    n: "03",
-    t: "Cuciamo",
-    d: "Costruiamo e colleghiamo tutto, partendo dagli strumenti che usi già.",
-  },
-  {
-    n: "04",
-    t: "Evolviamo",
-    d: "Dopo la consegna restiamo al tuo fianco e il sistema cresce con la tua attività.",
-  },
-];
-
+/* 4. Metodo: il "come lavoriamo" vive nella sua pagina, qui solo il rimando */
 export function MetodoSection() {
   return (
     <section id="metodo" className="px-6 py-24 md:px-12 md:py-36 lg:px-16">
-      <Reveal className="mx-auto max-w-[1390px]">
-        <Kicker>Metodo</Kicker>
-        <h2 className="mt-8 font-display text-[clamp(2.4rem,5vw,4.75rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
-          Come <span className="text-chrome">lavoriamo</span>
+      <Reveal className="mx-auto max-w-3xl text-center">
+        <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-semibold tracking-[-0.02em] leading-[1.1]">
+          Dal primo messaggio <span className="text-chrome">al sistema online.</span>
         </h2>
-        <ol className="mt-16 grid gap-5 md:mt-20 md:grid-cols-2 lg:grid-cols-4">
-          {STEPS.map((s) => (
-            <li key={s.n} className="rounded-[28px] bg-card p-8 md:p-9">
-              <span className="font-display text-sm text-primary">{s.n}</span>
-              <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">
-                {s.t}
-              </h3>
-              <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">
-                {s.d}
-              </p>
-            </li>
-          ))}
-        </ol>
+        <p className="mx-auto mt-8 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">
+          Ti spieghiamo come lavoriamo, passo dopo passo, prima ancora di iniziare.
+        </p>
+        <div className="mt-10 flex justify-center">
+          <Button
+            asChild
+            variant="mayaOutline"
+            size="lg"
+            className="h-12 px-7 text-xs font-bold uppercase tracking-[0.1em]"
+          >
+            <Link to="/come-lavoriamo">
+              Scopri come lavoriamo <ArrowUpRight aria-hidden="true" />
+            </Link>
+          </Button>
+        </div>
       </Reveal>
     </section>
   );

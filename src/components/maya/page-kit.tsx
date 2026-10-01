@@ -16,6 +16,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
     { to: "/maya-web", label: "MAYA WEB" },
     { to: "/maya-connect", label: "MAYA CONNECT" },
     { to: "/maya-app", label: "MAYA APP" },
+    { to: "/come-lavoriamo", label: "COME LAVORIAMO" },
   ] as const;
   const brandContents = (
     <>
@@ -234,6 +235,34 @@ export function ThreadRow({ items }: { items: { t: string; d: string }[] }) {
         ))}
       </ol>
     </div>
+  );
+}
+
+/* Rimando alla pagina del metodo: il "come lavoriamo" vive solo lì */
+export function HowWeWorkLink() {
+  return (
+    <section className="px-6 py-16 md:px-12 md:py-24 lg:px-16">
+      <div className="mx-auto flex max-w-[1390px] flex-col gap-6 border-t border-border pt-12 md:flex-row md:items-center md:justify-between">
+        <div className="max-w-xl">
+          <p className="font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">
+            E dopo il primo contatto?
+          </p>
+          <p className="mt-3 text-base leading-[1.9] text-muted-foreground md:text-lg">
+            Ti spieghiamo passo dopo passo cosa succede, dall'ascolto alla consegna.
+          </p>
+        </div>
+        <Button
+          asChild
+          variant="mayaOutline"
+          size="lg"
+          className="h-12 px-7 text-xs font-bold uppercase tracking-[0.1em]"
+        >
+          <Link to="/come-lavoriamo">
+            Scopri come lavoriamo <ArrowUpRight aria-hidden="true" />
+          </Link>
+        </Button>
+      </div>
+    </section>
   );
 }
 

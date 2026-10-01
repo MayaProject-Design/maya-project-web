@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as ComeLavoriamoRouteImport } from './routes/come-lavoriamo'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as GraziePreventivoRouteImport } from './routes/grazie-preventivo'
 import { Route as MayaAppRouteImport } from './routes/maya-app'
@@ -26,6 +27,11 @@ import { Route as ApiPreventivoRouteImport } from './routes/api.preventivo'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComeLavoriamoRoute = ComeLavoriamoRouteImport.update({
+  id: '/come-lavoriamo',
+  path: '/come-lavoriamo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContattiRoute = ContattiRouteImport.update({
@@ -92,6 +98,7 @@ const ApiPreventivoRoute = ApiPreventivoRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contatti': typeof ContattiRoute
+  '/come-lavoriamo': typeof ComeLavoriamoRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/grazie-preventivo': typeof GraziePreventivoRoute
   '/maya-app': typeof MayaAppRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contatti': typeof ContattiRoute
+  '/come-lavoriamo': typeof ComeLavoriamoRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/grazie-preventivo': typeof GraziePreventivoRoute
   '/maya-app': typeof MayaAppRoute
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contatti': typeof ContattiRoute
+  '/come-lavoriamo': typeof ComeLavoriamoRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/grazie-preventivo': typeof GraziePreventivoRoute
   '/maya-app': typeof MayaAppRoute
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contatti'
+    | '/come-lavoriamo'
     | '/cookie-policy'
     | '/grazie-preventivo'
     | '/maya-app'
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contatti'
+    | '/come-lavoriamo'
     | '/cookie-policy'
     | '/grazie-preventivo'
     | '/maya-app'
@@ -170,6 +181,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contatti'
+    | '/come-lavoriamo'
     | '/cookie-policy'
     | '/grazie-preventivo'
     | '/maya-app'
@@ -186,6 +198,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContattiRoute: typeof ContattiRoute
+  ComeLavoriamoRoute: typeof ComeLavoriamoRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
   GraziePreventivoRoute: typeof GraziePreventivoRoute
   MayaAppRoute: typeof MayaAppRoute
@@ -206,6 +219,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/come-lavoriamo': {
+      id: '/come-lavoriamo'
+      path: '/come-lavoriamo'
+      fullPath: '/come-lavoriamo'
+      preLoaderRoute: typeof ComeLavoriamoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contatti': {
@@ -298,6 +318,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContattiRoute: ContattiRoute,
+  ComeLavoriamoRoute: ComeLavoriamoRoute,
   CookiePolicyRoute: CookiePolicyRoute,
   GraziePreventivoRoute: GraziePreventivoRoute,
   MayaAppRoute: MayaAppRoute,

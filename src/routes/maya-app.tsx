@@ -9,7 +9,7 @@ import {
   QUOTE,
   Section,
   SiteHeader,
-  ThreadRow,
+  HowWeWorkLink,
 } from "@/components/maya/page-kit";
 
 const TITLE = "Maya App | Il tuo brand nelle mani dei clienti";
@@ -265,33 +265,11 @@ function MayaAppPage() {
         </div>
       </section>
 
-      <Section
-        label="04 / Come lavoriamo"
-        title={
-          <>
-            Dall'idea <span className="text-chrome">all'app sul telefono.</span>
-          </>
-        }
-      >
-        <ThreadRow
-          items={[
-            { t: "Idea", d: "Partiamo dai tuoi servizi, dai tuoi clienti e da cosa vuoi ottenere." },
-            {
-              t: "Progetto",
-              d: "Disegniamo le schermate e il percorso del cliente, prima di costruire.",
-            },
-            { t: "Sviluppo", d: "Costruiamo un'app solida e veloce, pronta a crescere con te." },
-            {
-              t: "Collegamento",
-              d: "Colleghiamo l'app agli strumenti che usi già.",
-            },
-          ]}
-        />
-      </Section>
+      <HowWeWorkLink />
 
       <Section
         deep
-        label="05 / ECOSISTEMA"
+        label="04 / ECOSISTEMA"
         title={
           <>
             Un'app serve davvero quando{" "}

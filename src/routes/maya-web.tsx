@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CONTACT, QUOTE, SiteHeader } from "@/components/maya/page-kit";
+import { CONTACT, HowWeWorkLink, QUOTE, SiteHeader } from "@/components/maya/page-kit";
 import { Reveal } from "@/components/maya/home";
 import barber from "@/assets/concept-barber.jpg";
 import medical from "@/assets/concept-medical.jpg";
@@ -67,12 +67,6 @@ const WHATS = [
     t: "Collegato a ciò che usi",
     d: "Il sito può dialogare con gli strumenti che usi già, dove lo strumento lo permette.",
   },
-];
-
-const STEPS = [
-  { n: "01", t: "Ascoltiamo", d: "Capiamo chi sei, a chi ti rivolgi e cosa vuoi ottenere." },
-  { n: "02", t: "Disegniamo", d: "Decidiamo struttura, stile e percorso del visitatore prima di costruire." },
-  { n: "03", t: "Costruiamo", d: "Realizziamo il sito e lo mettiamo online." },
 ];
 
 function scrollToConcepts() {
@@ -178,29 +172,6 @@ function MayaWebPage() {
               ))}
             </div>
           </div>
-        </Reveal>
-      </section>
-
-      {/* 4. Il metodo Maya Web */}
-      <section className="px-6 pb-28 md:px-12 md:pb-40 lg:px-16">
-        <Reveal className="mx-auto max-w-[1390px]">
-          <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
-            Come lavoriamo
-          </p>
-          <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
-            Dal tuo brand <span className="text-chrome">al sito online.</span>
-          </h2>
-          <ol className="mt-16 grid gap-5 md:mt-20 lg:grid-cols-3">
-            {STEPS.map((s) => (
-              <li key={s.n} className="rounded-[28px] bg-card p-8 md:p-9">
-                <span className="font-display text-sm text-primary">{s.n}</span>
-                <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">{s.t}</h3>
-                <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">
-                  {s.d}
-                </p>
-              </li>
-            ))}
-          </ol>
         </Reveal>
       </section>
 
@@ -340,6 +311,8 @@ function MayaWebPage() {
           </div>
         </Reveal>
       </section>
+
+      <HowWeWorkLink />
 
       {/* 7. Chiusura */}
       <section className="relative isolate overflow-hidden px-6 pb-16 pt-24 text-center md:px-12 md:pt-36 lg:px-16">

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Closing, PageHero, QUOTE, Section, ThreadRow } from "@/components/maya/page-kit";
+import { Closing, HowWeWorkLink, PageHero, QUOTE, Section } from "@/components/maya/page-kit";
 
 const TITLE = "Maya Connect | Costruiamo intorno a ciò che usi già";
 const URL_CANONICAL = "https://maya-project.it/maya-connect";
@@ -322,33 +322,13 @@ function MayaConnectPage() {
         </Button>
       </Section>
 
-      <Section
-        label="03 / Come funziona"
-        title={
-          <>
-            Dagli strumenti sparsi{" "}
-            <span className="text-chrome">a un unico percorso.</span>
-          </>
-        }
-      >
-        <ThreadRow
-          items={[
-            { t: "Ascoltiamo", d: "Capiamo quali strumenti usi, come lavori e cosa vuoi ottenere." },
-            {
-              t: "Progettiamo",
-              d: "Decidiamo cosa deve parlare con cosa, e come.",
-            },
-            { t: "Colleghiamo", d: "Facciamo i collegamenti tra le piattaforme e li proviamo." },
-            { t: "Consegniamo", d: "Un sistema che funziona e può crescere con te." },
-          ]}
-        />
-      </Section>
+      <HowWeWorkLink />
 
       <section className="relative overflow-hidden bg-deep px-6 py-20 text-center md:px-12 md:py-32 lg:px-16">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 solutions-glow" />
         <div className="relative mx-auto max-w-[1390px]">
           <p className="font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
-            04 / Cosa collega
+            03 / Cosa collega
           </p>
           <h2 className="mx-auto mt-8 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             Ogni attività ha i suoi strumenti.{" "}
@@ -366,7 +346,7 @@ function MayaConnectPage() {
       </section>
 
       <Section
-        label="05 / L'ecosistema Maya"
+        label="04 / L'ecosistema Maya"
         title={
           <>
             Tre strumenti. <span className="text-primary">Un unico sistema.</span>
