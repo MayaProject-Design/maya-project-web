@@ -367,7 +367,7 @@ export function SoluzioniSection() {
         <h2 className="mt-8 max-w-3xl font-display text-[clamp(2.4rem,5vw,4.75rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
           Costruiamo strumenti digitali <span className="text-chrome">su misura.</span>
         </h2>
-        <div className="mt-16 grid gap-5 md:mt-20 md:grid-cols-3">
+        <div className="mt-16 grid gap-5 md:mt-20 lg:grid-cols-3">
           {SOLUTIONS.map((s) => (
             <Link
               key={s.k}

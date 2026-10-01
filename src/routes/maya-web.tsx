@@ -190,7 +190,7 @@ function MayaWebPage() {
           <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             Dal brand <span className="text-chrome">all'esperienza digitale.</span>
           </h2>
-          <ol className="mt-16 grid gap-5 md:mt-20 md:grid-cols-3">
+          <ol className="mt-16 grid gap-5 md:mt-20 lg:grid-cols-3">
             {STEPS.map((s) => (
               <li key={s.n} className="rounded-[28px] bg-card p-8 md:p-9">
                 <span className="font-display text-sm text-primary">{s.n}</span>
@@ -217,7 +217,7 @@ function MayaWebPage() {
             Non tutte le attività partono dallo stesso punto. Il livello si sceglie insieme, in
             base a quanto c'è da raccontare e a quanto deve crescere nel tempo.
           </p>
-          <ol className="mt-16 grid gap-5 md:mt-20 md:grid-cols-3">
+          <ol className="mt-16 grid gap-5 md:mt-20 lg:grid-cols-3">
             {LIVELLI.map((l) => (
               <li key={l.n} className="rounded-[28px] bg-card p-8 md:p-9 ring-1 ring-primary/30">
                 <span className="font-display text-sm text-primary">{l.n}</span>
