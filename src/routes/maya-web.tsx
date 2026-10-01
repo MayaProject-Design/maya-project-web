@@ -94,7 +94,7 @@ function MayaWebPage() {
         />
         <SiteHeader />
         <div className="mx-auto max-w-[1390px] px-6 pb-16 pt-8 md:px-12 md:pb-20 md:pt-10 lg:px-16">
-     <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+          <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             Maya Web
           </p>
           <h1 className="reveal-in mt-5 max-w-5xl font-display text-[clamp(2.4rem,5.4vw,5.1rem)] font-semibold tracking-[-0.02em] leading-[1.04] [animation-delay:100ms]">
@@ -184,7 +184,7 @@ function MayaWebPage() {
       {/* 4. Il metodo Maya Web */}
       <section className="px-6 pb-28 md:px-12 md:pb-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
-     <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+          <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             Processo Maya Web
           </p>
           <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
@@ -207,7 +207,7 @@ function MayaWebPage() {
       {/* 4bis. I tre livelli */}
       <section id="livelli" className="bg-deep px-6 py-28 md:px-12 md:py-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
-     <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+          <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             Tre livelli
           </p>
           <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
@@ -221,7 +221,7 @@ function MayaWebPage() {
             {LIVELLI.map((l) => (
               <li key={l.n} className="rounded-[28px] bg-card p-8 md:p-9 ring-1 ring-primary/30">
                 <span className="font-display text-sm text-primary">{l.n}</span>
-        <p className="mt-3 text-sm font-semibold text-muted-foreground">
+                <p className="mt-3 text-sm font-semibold text-muted-foreground">
                   {l.s}
                 </p>
                 <h3 className="mt-2 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">{l.t}</h3>
@@ -268,7 +268,7 @@ function MayaWebPage() {
                   />
                 </div>
                 <div className="mt-5">
-         <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+                  <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                     Direzioni progettuali
                   </p>
                   <h3 className="mt-2 font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">{c.name}</h3>
@@ -367,7 +367,7 @@ function MayaWebPage() {
           </Button>
         </Reveal>
         <div aria-hidden="true" className="mx-auto mt-24 h-0.5 w-[min(82vw,820px)] thread-line" />
-    <p className="relative mt-8 text-sm font-semibold text-muted-foreground">
+        <p className="relative mt-8 text-sm font-semibold text-muted-foreground">
           © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
           tuo brand
         </p>

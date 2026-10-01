@@ -187,7 +187,7 @@ export function ShowroomSection() {
 
         <div key={c.n} className="reveal-in mx-auto mt-12 max-w-2xl text-center">
           <h3 className="font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">{c.name}</h3>
-     <p className="mt-3 text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+          <p className="mt-3 text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             {c.cat}
           </p>
           <p className="mt-4 text-base leading-[1.95] text-muted-foreground md:text-lg">{c.d}</p>
@@ -430,7 +430,7 @@ export function FinalCta() {
         </div>
       </Reveal>
       <div aria-hidden="true" className="mx-auto mt-28 h-0.5 w-[min(82vw,820px)] thread-line" />
-   <p className="relative mt-8 text-sm font-semibold text-muted-foreground">
+      <p className="relative mt-8 text-sm font-semibold text-muted-foreground">
         © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
         tuo brand
       </p>

@@ -233,7 +233,7 @@ export function QuoteForm() {
       >
         {reviewing ? (
           <section aria-labelledby="quote-review-title">
-      <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+            <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
               RIEPILOGO
             </p>
             <h2
@@ -248,14 +248,14 @@ export function QuoteForm() {
                   key={label}
                   className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-4 border-t border-border py-4"
                 >
-         <dt className="text-sm font-semibold text-muted-foreground">
+                  <dt className="text-sm font-semibold text-muted-foreground">
                     {label}
                   </dt>
                   <dd className="break-words text-sm leading-[1.7] text-foreground">{value}</dd>
                 </div>
               ))}
               <div className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-4 border-t border-border py-4">
-        <dt className="text-sm font-semibold text-muted-foreground">
+                <dt className="text-sm font-semibold text-muted-foreground">
                   Privacy
                 </dt>
                 <dd className="flex items-center gap-2 text-sm text-foreground">
@@ -296,7 +296,7 @@ export function QuoteForm() {
           <>
             {step === 0 && (
               <section aria-labelledby="quote-project-title">
-        <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+                <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                   01 / PROGETTO
                 </p>
                 <h2
@@ -324,7 +324,7 @@ export function QuoteForm() {
                           className="mt-1 size-4 shrink-0 accent-primary"
                         />
                         <span>
-             <span className="block font-display text-base font-semibold text-foreground">
+                          <span className="block font-display text-base font-semibold text-foreground">
                             {project.value}
                           </span>
                           <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
@@ -341,7 +341,7 @@ export function QuoteForm() {
 
             {step === 1 && (
               <section aria-labelledby="quote-details-title">
-        <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+                <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                   02 / DETTAGLI
                 </p>
                 <h2
@@ -454,7 +454,7 @@ export function QuoteForm() {
 
             {step === 2 && (
               <section aria-labelledby="quote-contact-title">
-        <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+                <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                   03 / CONTATTI
                 </p>
                 <h2

@@ -91,7 +91,7 @@ function MayaAppPage() {
         <SiteHeader />
         <div className="mx-auto grid w-full max-w-[1390px] flex-1 items-center gap-12 px-6 pb-16 pt-10 md:px-12 md:pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(290px,0.9fr)] lg:gap-14 lg:px-16 lg:py-12">
           <div className="max-w-2xl">
-      <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+            <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
               MAYA APP
             </p>
             <h1 className="reveal-in mt-6 font-display text-[clamp(2.7rem,5.4vw,5rem)] font-semibold tracking-[-0.02em] leading-[1.03] [animation-delay:100ms]">
@@ -135,7 +135,7 @@ function MayaAppPage() {
 
       <section id="come-funziona" className="relative px-6 py-20 md:px-12 md:py-32 lg:px-16">
         <div className="mx-auto max-w-[1390px]">
-     <p className="font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+          <p className="font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             01 / CLIENTI
           </p>
           <h2 className="mt-7 max-w-5xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
@@ -207,8 +207,8 @@ function MayaAppPage() {
                 >
                   <span className="size-2 rounded-full bg-primary" />
                 </span>
-        <span className="font-display text-xl font-semibold tracking-[-0.01em] text-primary">
-                  MAYA APP
+                <span className="font-display text-xl font-semibold tracking-[-0.01em] text-primary md:absolute md:inset-x-0 md:top-1/2 md:mt-6">
+                  Maya App
                 </span>
               </li>
             </ul>
@@ -249,7 +249,7 @@ function MayaAppPage() {
 
       <section className="bg-deep px-6 py-20 md:px-12 md:py-32 lg:px-16">
         <div className="mx-auto max-w-[1390px]">
-     <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+          <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             03 / CONCEPT INTERFACE
           </p>
           <h2 className="mt-7 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
@@ -361,7 +361,7 @@ function MayaAppPage() {
             ],
           ].map(([t, s, d]) => (
             <li key={t} className="rounded-[28px] bg-card p-8 md:p-9 ring-1 ring-primary/30">
-       <p className="text-sm font-semibold text-muted-foreground">
+              <p className="text-sm font-semibold text-muted-foreground">
                 {s}
               </p>
               <h3 className="mt-2 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">{t}</h3>

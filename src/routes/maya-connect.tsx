@@ -215,7 +215,7 @@ function MayaConnectPage() {
         }
         subtitle={
           <>
-      <p className="text-sm font-semibold text-chrome">
+            <p className="text-sm font-semibold text-chrome">
               Il cuore dell'ecosistema Maya
             </p>
             <p className="mt-6 font-display text-xl text-foreground md:text-2xl">
@@ -266,13 +266,13 @@ function MayaConnectPage() {
           </div>
           <div className="grid grid-cols-2 gap-8 border-t border-border pt-10 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
             <div>
-       <p className="mb-8 text-sm font-semibold text-muted-foreground">
+              <p className="mb-8 text-sm font-semibold text-muted-foreground">
                 Prima
               </p>
               <Nodes items={TOOLS} />
             </div>
             <div>
-       <p className="mb-8 text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+              <p className="mb-8 text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                 Dopo
               </p>
               <Nodes items={TOOLS} connected />
@@ -348,7 +348,7 @@ function MayaConnectPage() {
       <section className="relative overflow-hidden bg-deep px-6 py-20 text-center md:px-12 md:py-32 lg:px-16">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 solutions-glow" />
         <div className="relative mx-auto max-w-[1390px]">
-     <p className="font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+          <p className="font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             04 / Cosa collega
           </p>
           <h2 className="mx-auto mt-8 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">

@@ -183,7 +183,7 @@ function PortfolioPage() {
                       className="aspect-[16/10] w-full object-cover"
                     />
                   </div>
-         <p className="mt-4 text-sm font-semibold text-muted-foreground">
+                  <p className="mt-4 text-sm font-semibold text-muted-foreground">
                     Concept dimostrativo
                   </p>
                 </div>
@@ -198,7 +198,7 @@ function PortfolioPage() {
                   <dl className="mt-10 space-y-6">
                     {c.steps.map((s) => (
                       <div key={s.k} className="border-l border-border pl-5">
-            <dt className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
+                        <dt className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                           {s.k}
                         </dt>
                         <dd className="mt-2 text-base leading-[1.85] text-muted-foreground md:text-[17px]">
