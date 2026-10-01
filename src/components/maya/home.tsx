@@ -312,7 +312,7 @@ export function EcosistemaSection() {
             to="/maya-connect"
             className="absolute left-1/2 top-[34%] -translate-x-1/2 font-display text-lg font-semibold tracking-[-0.01em] text-primary transition-colors hover:text-primary/80 md:text-2xl"
           >
-            MAYA CONNECT
+            Maya Connect
           </Link>
           <Link
             to="/maya-web"
