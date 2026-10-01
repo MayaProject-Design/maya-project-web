@@ -15,25 +15,25 @@ const LIVELLI = [
     n: "01",
     t: "Maya Start",
     s: "L'ingresso",
-    d: "Una base professionale personalizzata, per dare all'attività una presenza credibile e coerente senza costruire subito un ecosistema completo.",
+    d: "Per iniziare bene: una base professionale su misura, che ti rende credibile online senza costruire subito un sistema completo.",
   },
   {
     n: "02",
     t: "Maya Web",
     s: "Il progetto",
-    d: "Una presenza digitale progettata intorno al brand: identità, percorso cliente, contenuti e integrazioni con gli strumenti già in uso.",
+    d: "Il sito completo del tuo brand: identità, percorso del cliente, contenuti e collegamento con gli strumenti che usi già.",
   },
   {
     n: "03",
     t: "Maya Web Business",
     s: "L'azienda",
-    d: "La presenza digitale di un'azienda, non di una singola attività: più pagine, più servizi o sedi, contenuti strutturati e integrazioni più articolate.",
+    d: "Per aziende con più servizi o più sedi: più pagine, contenuti ben organizzati e collegamenti più ampi.",
   },
 ];
 
 const URL_CANONICAL = "https://maya-project.it/maya-web";
 const DESC =
-  "Siti web progettati per raccontare il valore del tuo brand. Un percorso di progettazione digitale su misura, primo filo del tuo ecosistema.";
+  "Siti su misura che fanno capire subito chi sei e portano le persone a contattarti. Progettati intorno al tuo brand.";
 
 export const Route = createFileRoute("/maya-web")({
   head: () => ({
@@ -59,20 +59,20 @@ const CONCEPTS = [
 ];
 
 const WHATS = [
-  { n: "01", t: "Identità digitale", d: "Una direzione visiva coerente con il tuo brand." },
-  { n: "02", t: "Esperienza utente", d: "Percorsi semplici, chiari e progettati per le persone." },
-  { n: "03", t: "Performance", d: "Esperienze veloci, responsive e curate su ogni dispositivo." },
+  { n: "01", t: "Il tuo stile", d: "Colori, immagini e toni che somigliano al tuo brand, non a un modello." },
+  { n: "02", t: "Facile da usare", d: "Chi arriva trova subito cosa cerca e sa come contattarti." },
+  { n: "03", t: "Veloce, su ogni schermo", d: "Si apre in fretta e si legge bene da telefono, tablet e computer." },
   {
     n: "04",
-    t: "Integrazioni",
-    d: "Il sito può collegarsi agli strumenti e ai servizi che utilizzi già.",
+    t: "Collegato a ciò che usi",
+    d: "Il sito può dialogare con gli strumenti che usi già, dove lo strumento lo permette.",
   },
 ];
 
 const STEPS = [
-  { n: "01", t: "Analizziamo", d: "Comprendiamo identità, attività, pubblico e obiettivi." },
-  { n: "02", t: "Progettiamo", d: "Definiamo struttura, linguaggio visivo ed esperienza." },
-  { n: "03", t: "Sviluppiamo", d: "Trasformiamo il progetto in una presenza digitale reale." },
+  { n: "01", t: "Ascoltiamo", d: "Capiamo chi sei, a chi ti rivolgi e cosa vuoi ottenere." },
+  { n: "02", t: "Disegniamo", d: "Decidiamo struttura, stile e percorso del visitatore prima di costruire." },
+  { n: "03", t: "Costruiamo", d: "Realizziamo il sito e lo mettiamo online." },
 ];
 
 function scrollToConcepts() {
@@ -98,11 +98,11 @@ function MayaWebPage() {
             Maya Web
           </p>
           <h1 className="reveal-in mt-5 max-w-5xl font-display text-[clamp(2.4rem,5.4vw,5.1rem)] font-semibold tracking-[-0.02em] leading-[1.04] [animation-delay:100ms]">
-            Costruiamo la presenza digitale del <span className="text-primary">tuo brand.</span>
+            Un sito che ti somiglia <span className="text-primary">e ti fa contattare.</span>
           </h1>
           <p className="reveal-in mt-6 max-w-2xl text-lg leading-[1.85] text-muted-foreground [animation-delay:200ms] md:text-xl">
-            Progettiamo siti web su misura, costruiti per raccontare la tua identità e creare
-            connessioni reali con le persone.
+            Progettiamo siti su misura: chi arriva capisce subito chi sei, cosa offri e come
+            chiederti un appuntamento o un preventivo.
           </p>
           <div className="reveal-in mt-9 flex flex-wrap items-center gap-4 [animation-delay:300ms]">
             <Button
@@ -135,13 +135,13 @@ function MayaWebPage() {
       <section className="bg-deep px-6 py-28 md:px-12 md:py-44 lg:px-16">
         <Reveal className="mx-auto max-w-4xl text-center">
           <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-semibold tracking-[-0.02em] leading-[1.12]">
-            Ogni brand ha una propria identità.
+            Per molti clienti, il sito è
             <br />
-            <span className="text-chrome">Il digitale dovrebbe raccontarla.</span>
+            <span className="text-chrome">il primo incontro con te.</span>
           </h2>
           <p className="mx-auto mt-12 max-w-2xl text-base leading-[1.95] text-muted-foreground md:text-lg">
-            Un sito non dovrebbe essere soltanto bello. Deve rappresentare il brand, guidare le
-            persone e diventare il punto di partenza di un ecosistema digitale.
+            Deve far capire chi sei, accompagnare chi lo visita verso il contatto e crescere insieme
+            a te. Un sito bello non basta: deve funzionare.
           </p>
         </Reveal>
       </section>
@@ -150,8 +150,8 @@ function MayaWebPage() {
       <section className="px-6 py-28 md:px-12 md:py-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
           <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
-            Una presenza digitale costruita intorno{" "}
-            <span className="text-chrome">alla tua attività.</span>
+            Cosa trovi in un sito{" "}
+            <span className="text-chrome">fatto da noi.</span>
           </h2>
           <div className="mt-16 grid gap-14 md:mt-20 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
             <div>
@@ -185,10 +185,10 @@ function MayaWebPage() {
       <section className="px-6 pb-28 md:px-12 md:pb-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
           <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
-            Processo Maya Web
+            Come lavoriamo
           </p>
           <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
-            Dal brand <span className="text-chrome">all'esperienza digitale.</span>
+            Dal tuo brand <span className="text-chrome">al sito online.</span>
           </h2>
           <ol className="mt-16 grid gap-5 md:mt-20 lg:grid-cols-3">
             {STEPS.map((s) => (
@@ -283,13 +283,13 @@ function MayaWebPage() {
       <section className="px-6 pb-28 pt-24 md:px-12 md:pb-40 md:pt-28 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
           <h2 className="max-w-3xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
-            Un sito può diventare <span className="text-primary">un sistema.</span>
+            Un sito può diventare molto più <span className="text-primary">di un sito.</span>
           </h2>
           <div className="mt-8 max-w-2xl space-y-5 text-base leading-[1.95] text-muted-foreground md:text-lg">
-            <p>Maya Web è il primo livello dell'ecosistema.</p>
+            <p>Maya Web è il primo passo.</p>
             <p>
-              Quando l'attività cresce, il sito può collegarsi a strumenti, dati, automazioni e
-              nuovi servizi attraverso Maya Connect.
+              Quando la tua attività cresce, il sito può collegarsi agli strumenti che usi già e
+              all'app dei tuoi clienti, con Maya Connect.
             </p>
           </div>
           <Button
@@ -349,11 +349,11 @@ function MayaWebPage() {
         />
         <Reveal className="relative mx-auto max-w-4xl">
           <h2 className="font-display text-[clamp(2.4rem,5.4vw,5rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
-            Costruiamo la tua <span className="text-chrome">presenza digitale.</span>
+            Costruiamo il sito che <span className="text-chrome">il tuo brand merita.</span>
           </h2>
           <div className="mx-auto mt-10 max-w-xl space-y-2 text-lg leading-[1.9] text-muted-foreground md:text-xl">
             <p className="text-foreground">Raccontaci la tua attività.</p>
-            <p>Progettiamo insieme uno spazio digitale costruito intorno al tuo brand.</p>
+            <p>Ti diciamo da dove conviene partire.</p>
           </div>
           <Button
             asChild

@@ -32,7 +32,7 @@ const STEPS = [
     n: "01",
     t: "Analizziamo",
     d: [
-      "Studiamo il tuo business, i tuoi clienti, gli strumenti che utilizzi e gli obiettivi che vuoi raggiungere.",
+      "Studiamo il tuo business, i tuoi clienti, gli strumenti che usi e gli obiettivi che vuoi raggiungere.",
     ],
   },
   {
@@ -220,7 +220,7 @@ export function SoluzioniSection() {
                 </p>
                 {s.core && (
                   <blockquote className="mt-8 border-l border-primary pl-5 font-display text-lg leading-relaxed text-foreground md:text-xl">
-                    Non sostituiamo necessariamente gli strumenti che utilizzi.
+                    Non sostituiamo necessariamente gli strumenti che usi.
                     <br />
                     <span className="text-primary">Costruiamo connessioni intorno ad essi.</span>
                   </blockquote>

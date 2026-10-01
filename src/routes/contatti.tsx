@@ -43,11 +43,11 @@ function ContattiPage() {
             CONTATTI
           </p>
           <h1 className="reveal-in mt-6 max-w-5xl font-display text-[clamp(2.7rem,5.6vw,5.25rem)] font-semibold tracking-[-0.02em] leading-[1.03] [animation-delay:100ms]">
-            Parliamo del tuo <span className="text-primary">prossimo progetto.</span>
+            Raccontaci la tua attività. <span className="text-primary">Ti rispondiamo noi.</span>
           </h1>
           <p className="reveal-in mt-7 max-w-2xl text-base leading-[1.9] text-muted-foreground [animation-delay:200ms] md:text-lg">
-            Che tu abbia già un'idea precisa o voglia capire da dove partire, raccontaci la tua
-            attività.
+            Che tu abbia un'idea precisa o voglia solo capire da dove partire, scrivici: ti
+            diciamo cosa conviene fare.
           </p>
         </div>
         <div
@@ -66,7 +66,7 @@ function ContattiPage() {
               Richiedi un preventivo
             </h2>
             <p className="mt-4 max-w-md text-base leading-[1.9] text-muted-foreground md:text-lg">
-              Raccontaci cosa vuoi realizzare attraverso il nostro percorso guidato.
+              Rispondi a poche domande guidate: ci bastano pochi minuti per capire cosa ti serve.
             </p>
             <Button
               asChild

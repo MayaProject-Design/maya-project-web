@@ -43,7 +43,7 @@ const CASI: Caso[] = [
   {
     n: "01",
     name: "Barber Noir",
-    cat: "Luxury Barber Experience",
+    cat: "Barber di alto livello",
     img: barber,
     url: "https://barbernoir.maya-project.it",
     steps: [
@@ -72,7 +72,7 @@ const CASI: Caso[] = [
   {
     n: "02",
     name: "Medical Premium",
-    cat: "Professional & Healthcare",
+    cat: "Studi e professionisti",
     img: medical,
     url: "/concept/medical",
     steps: [
@@ -101,7 +101,7 @@ const CASI: Caso[] = [
   {
     n: "03",
     name: "Beauty Luxury",
-    cat: "Beauty & Wellness",
+    cat: "Estetica e benessere",
     img: beauty,
     steps: [
       {
@@ -129,7 +129,7 @@ const CASI: Caso[] = [
   {
     n: "04",
     name: "Corporate System",
-    cat: "Business & Companies",
+    cat: "Aziende",
     img: corporate,
     steps: [
       {

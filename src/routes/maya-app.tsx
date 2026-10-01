@@ -15,7 +15,7 @@ import {
 const TITLE = "Maya App | Il tuo brand nelle mani dei clienti";
 const URL_CANONICAL = "https://maya-project.it/maya-app";
 const DESC =
-  "La tua esperienza digitale proprietaria. Applicazioni dedicate per offrire servizi più semplici, veloci e personalizzati.";
+  "Un'app con il tuo nome: i clienti prenotano, ricevono promemoria e restano in contatto con te.";
 
 export const Route = createFileRoute("/maya-app")({
   head: () => ({
@@ -40,20 +40,20 @@ const MODULES = [
   },
   {
     title: "Area cliente",
-    description: "Uno spazio personale per servizi, dati, appuntamenti e comunicazioni.",
+    description: "Uno spazio personale dove il cliente trova appuntamenti, servizi e messaggi.",
   },
-  { title: "Notifiche", description: "Aggiornamenti, promemoria e messaggi nel momento giusto." },
+  { title: "Notifiche", description: "Promemoria e aggiornamenti che arrivano al momento giusto." },
   {
     title: "Servizi e acquisti",
-    description: "Permetti ai clienti di scoprire, richiedere o acquistare i tuoi servizi.",
+    description: "I clienti scoprono, richiedono o acquistano i tuoi servizi.",
   },
   {
     title: "Storico e preferenze",
-    description: "Mantieni continuità tra cliente, servizi e interazioni.",
+    description: "Ricordi cosa ha scelto ogni cliente e lo accogli come si deve.",
   },
   {
-    title: "Fidelizzazione",
-    description: "Costruisci un rapporto digitale che continua anche dopo il servizio.",
+    title: "Fedeltà",
+    description: "Il rapporto con il cliente continua anche dopo il servizio.",
   },
 ];
 
@@ -66,14 +66,14 @@ const TOUCHPOINTS = [
 
 const SCENARIOS = [
   {
-    title: "Beauty & Wellness",
-    services: "Prenotazioni · servizi · promemoria · fidelity · profilo cliente",
+    title: "Estetica e benessere",
+    services: "Prenotazioni · servizi · promemoria · fedeltà · profilo cliente",
   },
   {
-    title: "Professionisti & Studi",
+    title: "Professionisti e studi",
     services: "Appuntamenti · documenti · comunicazioni · area personale",
   },
-  { title: "Servizi & Retail", services: "Catalogo · richieste · acquisti · notifiche · storico" },
+  { title: "Servizi e negozi", services: "Catalogo · richieste · acquisti · notifiche · storico" },
 ];
 
 function MayaAppPage() {
@@ -95,10 +95,10 @@ function MayaAppPage() {
               MAYA APP
             </p>
             <h1 className="reveal-in mt-6 font-display text-[clamp(2.7rem,5.4vw,5rem)] font-semibold tracking-[-0.02em] leading-[1.03] [animation-delay:100ms]">
-              La tua esperienza digitale <span className="text-primary">proprietaria.</span>
+              La tua app, <span className="text-primary">con il tuo nome.</span>
             </h1>
             <p className="reveal-in mt-7 max-w-xl text-base leading-[1.9] text-muted-foreground [animation-delay:200ms] md:text-lg">
-              Un'app progettata intorno ai tuoi servizi, ai tuoi clienti e al modo in cui lavori.
+              I tuoi clienti prenotano, ricevono promemoria e restano in contatto con te da un'app che porta il tuo brand.
             </p>
             <div className="reveal-in mt-9 flex flex-wrap gap-3 [animation-delay:300ms]">
               <Button
@@ -124,7 +124,7 @@ function MayaAppPage() {
             </div>
           </div>
           <div className="reveal-in relative mx-auto w-full max-w-[350px] [animation-delay:180ms] lg:max-w-none">
-            <AppPhone screen="home" caption="CONCEPT INTERFACE" />
+            <AppPhone screen="home" caption="ESEMPIO DI SCHERMATA" />
           </div>
         </div>
         <div
@@ -250,14 +250,14 @@ function MayaAppPage() {
       <section className="bg-deep px-6 py-20 md:px-12 md:py-32 lg:px-16">
         <div className="mx-auto max-w-[1390px]">
           <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
-            03 / CONCEPT INTERFACE
+            03 / Esempi di schermate
           </p>
           <h2 className="mt-7 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
-            Un'esperienza costruita <span className="text-chrome">intorno al cliente.</span>
+            Un'app pensata <span className="text-chrome">per chi la usa.</span>
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-[1.9] text-muted-foreground md:text-lg">
-            Tre schermate concept dello stesso prodotto, pensate per accompagnare i diversi momenti
-            del servizio.
+            Tre schermate di esempio della stessa app: sono concept dimostrativi, non un'app già
+            consegnata a un cliente.
           </p>
           <div className="mt-14 md:mt-20">
             <AppShowcase />
@@ -266,24 +266,24 @@ function MayaAppPage() {
       </section>
 
       <Section
-        label="04 / PROCESSO"
+        label="04 / Come lavoriamo"
         title={
           <>
-            Dall'idea <span className="text-chrome">all'esperienza.</span>
+            Dall'idea <span className="text-chrome">all'app sul telefono.</span>
           </>
         }
       >
         <ThreadRow
           items={[
-            { t: "IDEA", d: "Partiamo dai servizi, dai clienti e dagli obiettivi del progetto." },
+            { t: "Idea", d: "Partiamo dai tuoi servizi, dai tuoi clienti e da cosa vuoi ottenere." },
             {
-              t: "PROGETTAZIONE",
-              d: "Disegniamo flussi, interazioni e interfaccia intorno al tuo business.",
+              t: "Progetto",
+              d: "Disegniamo le schermate e il percorso del cliente, prima di costruire.",
             },
-            { t: "SVILUPPO", d: "Costruiamo un'applicazione solida, veloce e pronta a evolvere." },
+            { t: "Sviluppo", d: "Costruiamo un'app solida e veloce, pronta a crescere con te." },
             {
-              t: "CONNESSIONE",
-              d: "Colleghiamo l'app agli strumenti e ai sistemi che utilizzi già.",
+              t: "Collegamento",
+              d: "Colleghiamo l'app agli strumenti che usi già.",
             },
           ]}
         />
@@ -294,8 +294,8 @@ function MayaAppPage() {
         label="05 / ECOSISTEMA"
         title={
           <>
-            Un'app diventa realmente utile quando{" "}
-            <span className="text-chrome">comunica con il resto del sistema.</span>
+            Un'app serve davvero quando{" "}
+            <span className="text-chrome">parla con il resto.</span>
           </>
         }
       >
@@ -322,8 +322,8 @@ function MayaAppPage() {
           </Link>
         </div>
         <p className="mx-auto mt-8 max-w-2xl text-center text-base leading-[1.9] text-muted-foreground md:text-lg">
-          Maya Connect collega l'app ai servizi, ai dati e agli strumenti che fanno già parte del
-          tuo lavoro.
+          Maya Connect collega l'app al sito e agli strumenti che usi già, così non devi
+          ricominciare da zero.
         </p>
         <div className="mt-8 flex justify-center">
           <Button
@@ -343,7 +343,7 @@ function MayaAppPage() {
         label="DUE LIVELLI"
         title={
           <>
-            Un'attività, <span className="text-chrome">o più persone da coordinare.</span>
+            Una sede, <span className="text-chrome">o più persone da coordinare.</span>
           </>
         }
       >
@@ -352,12 +352,12 @@ function MayaAppPage() {
             [
               "Maya App Booking",
               "Per un'attività",
-              "Prenotazione, area cliente, notifiche e gestione dei servizi, intorno a una sede.",
+              "Prenotazioni, area cliente, notifiche e gestione dei servizi, per un'attività con una sede.",
             ],
             [
               "Maya App Business",
               "Per più persone o più sedi",
-              "Tutto ciò che c'è in Booking, per un'attività con più persone o più sedi da coordinare.",
+              "Tutto ciò che c'è in Booking, per chi ha più persone o più sedi da coordinare.",
             ],
           ].map(([t, s, d]) => (
             <li key={t} className="rounded-[28px] bg-card p-8 md:p-9 ring-1 ring-primary/30">
@@ -372,10 +372,10 @@ function MayaAppPage() {
       </Section>
 
       <Section
-        label="ESEMPI DI APPLICAZIONE"
+        label="Per chi può servire"
         title={
           <>
-            Un'app può adattarsi a <span className="text-chrome">business molto diversi.</span>
+            Un'app adatta a <span className="text-chrome">attività molto diverse.</span>
           </>
         }
       >
@@ -403,13 +403,12 @@ function MayaAppPage() {
       <Closing
         title={
           <>
-            Costruiamo l'esperienza digitale <span className="text-primary">del tuo business.</span>
+            Costruiamo l'app che <span className="text-primary">porta il tuo nome.</span>
           </>
         }
         text={
           <>
-            Raccontaci come lavori oggi. Progettiamo un'app costruita intorno ai tuoi servizi e ai
-            tuoi clienti.
+            Raccontaci come lavori oggi: ti diciamo se un'app ti serve e da dove conviene partire.
           </>
         }
         cta="Parliamo del progetto"

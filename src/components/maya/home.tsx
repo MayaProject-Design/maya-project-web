@@ -57,9 +57,9 @@ const CONCEPTS = [
   {
     n: "01",
     name: "Barber Noir",
-    cat: "Luxury Barber Experience",
+    cat: "Barber di alto livello",
     img: barber,
-    d: "Un concept digitale progettato per trasformare un servizio premium in un'esperienza online.",
+    d: "Prenotare diventa l'ultimo gesto del rito, con il tuo stile e non quello di una piattaforma.",
     /* Unico concept già navigabile. Gli altri sono anteprime: senza `url` il
        pulsante cambia parola e porta ai contatti, invece di promettere una
        demo che non esiste. */
@@ -68,24 +68,24 @@ const CONCEPTS = [
   {
     n: "02",
     name: "Medical Premium",
-    cat: "Professional & Healthcare",
+    cat: "Studi e professionisti",
     img: medical,
     url: "/concept/medical",
-    d: "Un concept digitale progettato per trasformare competenza e fiducia in un'esperienza online.",
+    d: "Uno studio che ispira fiducia prima ancora della prima visita.",
   },
   {
     n: "03",
     name: "Beauty Luxury",
-    cat: "Beauty & Wellness",
+    cat: "Estetica e benessere",
     img: beauty,
-    d: "Un concept digitale progettato per trasformare cura e bellezza in un'esperienza online.",
+    d: "Pochi percorsi, molto spazio e un solo passo chiaro: chiedere una consulenza.",
   },
   {
     n: "04",
     name: "Corporate System",
-    cat: "Business & Companies",
+    cat: "Aziende",
     img: corporate,
-    d: "Un concept digitale progettato per trasformare una realtà aziendale complessa in una presenza digitale organizzata.",
+    d: "Tanti servizi, un unico posto dove trovare tutto.",
   },
 ];
 
@@ -102,10 +102,10 @@ export function ShowroomSection() {
       <div className="relative mx-auto max-w-[1390px]">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-display text-[clamp(2.4rem,5vw,4.75rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
-            Alcune possibili forme del tuo <span className="text-chrome">futuro digitale.</span>
+            Guarda come potrebbe diventare <span className="text-chrome">il tuo brand online.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">
-            Concept progettati per mostrare possibili evoluzioni digitali.{" "}
+            Sono concept dimostrativi, non lavori per clienti: servono a farti vedere che aspetto può avere il tuo digitale.{" "}
             <Link
               to="/portfolio"
               className="text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
@@ -220,12 +220,12 @@ export function ManifestoSection() {
     <section id="manifesto" className="bg-deep px-6 py-32 md:px-12 md:py-52 lg:px-16">
       <Reveal className="mx-auto max-w-4xl text-center">
         <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-semibold tracking-[-0.02em] leading-[1.12]">
-          Ogni attività ha una propria identità.
+          Ogni attività ha la sua identità.
           <br />
-          <span className="text-chrome">Il digitale dovrebbe raccontarla.</span>
+          <span className="text-chrome">Il digitale dovrebbe farla vedere.</span>
         </h2>
         <p className="mx-auto mt-10 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">
-          Costruiamo esperienze digitali progettate intorno al tuo brand.
+          Siti e app che somigliano a te, non a un modello uguale per tutti.
         </p>
       </Reveal>
     </section>
@@ -237,22 +237,22 @@ const STEPS = [
   {
     n: "01",
     t: "Analizziamo",
-    d: "Studiamo la tua attività, i tuoi clienti e gli obiettivi da raggiungere.",
+    d: "Capiamo come lavori, chi sono i tuoi clienti e cosa vuoi ottenere.",
   },
   {
     n: "02",
     t: "Progettiamo",
-    d: "Trasformiamo le esigenze in una soluzione digitale concreta e su misura.",
+    d: "Disegniamo la soluzione giusta per te, prima di costruire qualsiasi cosa.",
   },
   {
     n: "03",
     t: "Cuciamo",
-    d: "Sviluppiamo e colleghiamo ogni elemento intorno al modo in cui lavori.",
+    d: "Costruiamo e colleghiamo tutto, partendo dagli strumenti che usi già.",
   },
   {
     n: "04",
     t: "Evolviamo",
-    d: "Il sistema non si ferma alla consegna: cresce insieme alla tua attività.",
+    d: "Dopo la consegna restiamo al tuo fianco e il sistema cresce con la tua attività.",
   },
 ];
 
@@ -262,7 +262,7 @@ export function MetodoSection() {
       <Reveal className="mx-auto max-w-[1390px]">
         <Kicker>Metodo</Kicker>
         <h2 className="mt-8 font-display text-[clamp(2.4rem,5vw,4.75rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
-          Il nostro <span className="text-chrome">metodo</span>
+          Come <span className="text-chrome">lavoriamo</span>
         </h2>
         <ol className="mt-16 grid gap-5 md:mt-20 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s) => (
@@ -292,7 +292,7 @@ export function EcosistemaSection() {
           <Kicker>Ecosistema Maya</Kicker>
         </div>
         <h2 className="mt-8 font-display text-[clamp(2.2rem,4.4vw,4rem)] font-semibold tracking-[-0.02em] leading-[1.08]">
-          Un unico sistema, <span className="text-chrome">tre elementi connessi.</span>
+          Tre strumenti che <span className="text-chrome">funzionano meglio insieme.</span>
         </h2>
         <div className="relative mx-auto mt-16 w-full max-w-[900px]">
           <svg viewBox="0 0 1000 380" className="w-full" aria-hidden="true">
@@ -328,7 +328,7 @@ export function EcosistemaSection() {
           </Link>
         </div>
         <p className="mt-10 text-base leading-[1.95] text-muted-foreground md:text-lg">
-          Maya Connect collega presenza digitale, strumenti operativi e nuovi servizi.
+          Maya Connect fa parlare tra loro il sito, gli strumenti che usi ogni giorno e l'app dei tuoi clienti.
         </p>
 
         <div className="mx-auto mt-16 max-w-2xl border-t border-primary/40 pt-10">
@@ -336,10 +336,8 @@ export function EcosistemaSection() {
             Maya Suite
           </p>
           <p className="mt-5 text-base leading-[1.95] text-muted-foreground md:text-lg">
-            Quando i tre elementi nascono insieme invece di aggiungersi nel tempo, il sistema è
-            uno solo dal primo giorno: sito, app, accessi, prenotazioni, clienti, notifiche e
-            pannello di gestione.{" "}
-            <span className="text-foreground">È l'intero ecosistema digitale del brand.</span>
+            È tutto insieme dal primo giorno: sito, app, accessi, prenotazioni, clienti, notifiche e
+            pannello di gestione, pensati per lavorare come un unico sistema.
           </p>
         </div>
       </Reveal>
@@ -349,14 +347,14 @@ export function EcosistemaSection() {
 
 /* 6. Soluzioni */
 const SOLUTIONS = [
-  { to: "/maya-web" as const, k: "Maya Web", d: "Siti web premium." },
+  { to: "/maya-web" as const, k: "Maya Web", d: "Il tuo sito, fatto su misura. Per farti trovare, farti capire e far partire i contatti." },
   {
     to: "/maya-connect" as const,
     k: "Maya Connect",
-    d: "Connessioni tra strumenti e processi.",
+    d: "Gli strumenti che usi già, collegati. La piattaforma resta dov'è, davanti c'è il tuo brand.",
     core: true,
   },
-  { to: "/maya-app" as const, k: "Maya App", d: "Applicazioni proprietarie." },
+  { to: "/maya-app" as const, k: "Maya App", d: "L'app con il tuo nome. I clienti prenotano, ricevono promemoria e restano in contatto." },
 ];
 
 export function SoluzioniSection() {
@@ -365,7 +363,7 @@ export function SoluzioniSection() {
       <Reveal className="mx-auto max-w-[1390px]">
         <Kicker>Soluzioni</Kicker>
         <h2 className="mt-8 max-w-3xl font-display text-[clamp(2.4rem,5vw,4.75rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
-          Costruiamo strumenti digitali <span className="text-chrome">su misura.</span>
+          Cosa possiamo <span className="text-chrome">costruire per te.</span>
         </h2>
         <div className="mt-16 grid gap-5 md:mt-20 lg:grid-cols-3">
           {SOLUTIONS.map((s) => (
@@ -383,7 +381,7 @@ export function SoluzioniSection() {
                 {s.d}
               </p>
               <span className="mt-8 inline-flex items-center gap-2 text-base font-semibold text-foreground transition-colors group-hover:text-primary">
-                Scopri <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                Scopri {s.k} <ArrowUpRight aria-hidden="true" className="size-3.5" />
               </span>
             </Link>
           ))}
@@ -406,11 +404,11 @@ export function FinalCta() {
       />
       <Reveal className="relative mx-auto max-w-5xl">
         <h2 className="font-display text-[clamp(2.6rem,6.4vw,6rem)] font-semibold tracking-[-0.02em] leading-[1.04]">
-          Costruiamo insieme il tuo prossimo <span className="text-chrome">spazio digitale.</span>
+          Costruiamo insieme il tuo <span className="text-chrome">spazio digitale.</span>
         </h2>
         <div className="mx-auto mt-10 max-w-xl space-y-2 text-lg leading-[1.9] text-muted-foreground md:text-xl">
-          <p className="text-foreground">Raccontaci la tua idea.</p>
-          <p>Creiamo una soluzione digitale costruita intorno alla tua crescita.</p>
+          <p className="text-foreground">Raccontaci la tua attività.</p>
+          <p>Ti diciamo da dove conviene partire.</p>
         </div>
         <div className="relative mt-14 inline-block">
           <div

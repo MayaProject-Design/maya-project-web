@@ -291,9 +291,9 @@ export function Closing({
 
 export function EcosystemNav({ current }: { current: "web" | "connect" | "app" }) {
   const all = [
-    { k: "web", to: "/maya-web", n: "Maya Web", d: "La tua identità digitale." },
-    { k: "connect", to: "/maya-connect", n: "Maya Connect", d: "Il digitale che lavora insieme." },
-    { k: "app", to: "/maya-app", n: "Maya App", d: "La tua esperienza digitale proprietaria." },
+    { k: "web", to: "/maya-web", n: "Maya Web", d: "Il sito che ti fa trovare." },
+    { k: "connect", to: "/maya-connect", n: "Maya Connect", d: "Collega gli strumenti che usi già." },
+    { k: "app", to: "/maya-app", n: "Maya App", d: "L'app con il tuo nome." },
   ] as const;
   return (
     <section className="border-t border-border px-6 py-14 md:px-12 lg:px-16">
