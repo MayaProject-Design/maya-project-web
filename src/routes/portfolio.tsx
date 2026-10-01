@@ -183,7 +183,7 @@ function PortfolioPage() {
                       className="aspect-[16/10] w-full object-cover"
                     />
                   </div>
-                  <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+         <p className="mt-4 text-sm font-semibold text-muted-foreground">
                     Concept dimostrativo
                   </p>
                 </div>
@@ -192,13 +192,13 @@ function PortfolioPage() {
                   <Label>
                     {c.n} · {c.cat}
                   </Label>
-                  <h2 className="mt-6 font-display text-[clamp(2rem,3.6vw,3.25rem)] font-medium leading-[1.06]">
+                  <h2 className="mt-6 font-display text-[clamp(2rem,3.6vw,3.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
                     {c.name}
                   </h2>
                   <dl className="mt-10 space-y-6">
                     {c.steps.map((s) => (
                       <div key={s.k} className="border-l border-border pl-5">
-                        <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+            <dt className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                           {s.k}
                         </dt>
                         <dd className="mt-2 text-base leading-[1.85] text-muted-foreground md:text-[17px]">
@@ -210,7 +210,7 @@ function PortfolioPage() {
                   <Button
                     asChild
                     variant="link"
-                    className="group mt-10 h-auto rounded-none border-b border-border p-0 pb-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-foreground no-underline hover:border-primary hover:text-primary hover:no-underline"
+                    className="group mt-10 h-auto rounded-none border-b border-border p-0 pb-1 text-base md:text-lg font-semibold tracking-[-0.01em] text-foreground no-underline hover:border-primary hover:text-primary hover:no-underline"
                   >
                     {c.url ? (
                       <a href={c.url} target="_blank" rel="noopener noreferrer">

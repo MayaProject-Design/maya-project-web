@@ -81,7 +81,7 @@ function Progress({ activeStep }: { activeStep: Step }) {
                 />
               </span>
               <span
-                className={`text-[10px] font-semibold uppercase tracking-[0.12em] sm:text-xs ${current ? "text-foreground" : "text-muted-foreground"}`}
+                className={`text-sm font-semibold sm:text-xs ${current ? "text-foreground" : "text-muted-foreground"}`}
               >
                 <span className={current || complete ? "text-primary" : ""}>0{index + 1}</span> —{" "}
                 {label}
@@ -233,12 +233,12 @@ export function QuoteForm() {
       >
         {reviewing ? (
           <section aria-labelledby="quote-review-title">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+      <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
               RIEPILOGO
             </p>
             <h2
               id="quote-review-title"
-              className="mt-4 font-display text-3xl font-medium leading-tight md:text-4xl"
+              className="mt-4 font-display text-3xl font-semibold tracking-[-0.015em] leading-tight md:text-4xl"
             >
               Il progetto è pronto per essere inviato.
             </h2>
@@ -248,14 +248,14 @@ export function QuoteForm() {
                   key={label}
                   className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-4 border-t border-border py-4"
                 >
-                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+         <dt className="text-sm font-semibold text-muted-foreground">
                     {label}
                   </dt>
                   <dd className="break-words text-sm leading-[1.7] text-foreground">{value}</dd>
                 </div>
               ))}
               <div className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-4 border-t border-border py-4">
-                <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+        <dt className="text-sm font-semibold text-muted-foreground">
                   Privacy
                 </dt>
                 <dd className="flex items-center gap-2 text-sm text-foreground">
@@ -267,7 +267,7 @@ export function QuoteForm() {
               <button
                 type="button"
                 onClick={handleBack}
-                className="inline-flex min-h-12 items-center justify-center gap-2 border border-border px-6 text-xs font-bold uppercase tracking-[0.1em] text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-border px-6 text-xs font-bold uppercase tracking-[0.1em] text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <ArrowLeft aria-hidden="true" className="size-4" /> Modifica i dati
               </button>
@@ -276,7 +276,7 @@ export function QuoteForm() {
                   type="button"
                   onClick={handleSendRequest}
                   disabled={submitting}
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-primary px-6 text-xs font-bold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-wait disabled:opacity-50 sm:w-auto"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-xs font-bold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-wait disabled:opacity-50 sm:w-auto"
                 >
                   {submitting ? "Invio in corso..." : "Invia la richiesta"}{" "}
                   <ArrowRight aria-hidden="true" className="size-4" />
@@ -296,12 +296,12 @@ export function QuoteForm() {
           <>
             {step === 0 && (
               <section aria-labelledby="quote-project-title">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+        <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                   01 / PROGETTO
                 </p>
                 <h2
                   id="quote-project-title"
-                  className="mt-4 font-display text-3xl font-medium md:text-4xl"
+                  className="mt-4 font-display text-3xl font-semibold tracking-[-0.015em] md:text-4xl"
                 >
                   Da dove vuoi partire?
                 </h2>
@@ -324,7 +324,7 @@ export function QuoteForm() {
                           className="mt-1 size-4 shrink-0 accent-primary"
                         />
                         <span>
-                          <span className="block font-display text-base font-semibold uppercase tracking-[0.08em] text-foreground">
+             <span className="block font-display text-base font-semibold text-foreground">
                             {project.value}
                           </span>
                           <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
@@ -341,12 +341,12 @@ export function QuoteForm() {
 
             {step === 1 && (
               <section aria-labelledby="quote-details-title">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+        <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                   02 / DETTAGLI
                 </p>
                 <h2
                   id="quote-details-title"
-                  className="mt-4 font-display text-3xl font-medium md:text-4xl"
+                  className="mt-4 font-display text-3xl font-semibold tracking-[-0.015em] md:text-4xl"
                 >
                   Il tuo progetto
                 </h2>
@@ -454,12 +454,12 @@ export function QuoteForm() {
 
             {step === 2 && (
               <section aria-labelledby="quote-contact-title">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+        <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                   03 / CONTATTI
                 </p>
                 <h2
                   id="quote-contact-title"
-                  className="mt-4 font-display text-3xl font-medium md:text-4xl"
+                  className="mt-4 font-display text-3xl font-semibold tracking-[-0.015em] md:text-4xl"
                 >
                   Dove possiamo ricontattarti?
                 </h2>
@@ -567,7 +567,7 @@ export function QuoteForm() {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 border border-border px-6 text-xs font-bold uppercase tracking-[0.1em] text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-border px-6 text-xs font-bold uppercase tracking-[0.1em] text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   <ArrowLeft aria-hidden="true" className="size-4" /> Indietro
                 </button>
@@ -576,7 +576,7 @@ export function QuoteForm() {
               )}
               <button
                 type="submit"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 bg-primary px-7 text-xs font-bold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-7 text-xs font-bold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
               >
                 {step === 2 ? "Prepara riepilogo" : "Continua"}
                 <ArrowRight aria-hidden="true" className="size-4" />

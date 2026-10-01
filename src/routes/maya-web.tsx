@@ -94,10 +94,10 @@ function MayaWebPage() {
         />
         <SiteHeader />
         <div className="mx-auto max-w-[1390px] px-6 pb-16 pt-8 md:px-12 md:pb-20 md:pt-10 lg:px-16">
-          <p className="reveal-in font-display text-sm font-semibold uppercase tracking-[0.4em] text-primary">
+     <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             Maya Web
           </p>
-          <h1 className="reveal-in mt-5 max-w-5xl font-display text-[clamp(2.4rem,5.4vw,5.1rem)] font-medium leading-[1.04] [animation-delay:100ms]">
+          <h1 className="reveal-in mt-5 max-w-5xl font-display text-[clamp(2.4rem,5.4vw,5.1rem)] font-semibold tracking-[-0.02em] leading-[1.04] [animation-delay:100ms]">
             Costruiamo la presenza digitale del <span className="text-primary">tuo brand.</span>
           </h1>
           <p className="reveal-in mt-6 max-w-2xl text-lg leading-[1.85] text-muted-foreground [animation-delay:200ms] md:text-xl">
@@ -134,7 +134,7 @@ function MayaWebPage() {
       {/* 2. Manifesto */}
       <section className="bg-deep px-6 py-28 md:px-12 md:py-44 lg:px-16">
         <Reveal className="mx-auto max-w-4xl text-center">
-          <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-medium leading-[1.12]">
+          <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-semibold tracking-[-0.02em] leading-[1.12]">
             Ogni brand ha una propria identità.
             <br />
             <span className="text-chrome">Il digitale dovrebbe raccontarla.</span>
@@ -149,14 +149,14 @@ function MayaWebPage() {
       {/* 3. Cosa costruiamo */}
       <section className="px-6 py-28 md:px-12 md:py-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
-          <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             Una presenza digitale costruita intorno{" "}
             <span className="text-chrome">alla tua attività.</span>
           </h2>
           <div className="mt-16 grid gap-14 md:mt-20 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
             <div>
               <span className="font-display text-sm text-primary">{WHATS[0]!.n}</span>
-              <h3 className="mt-4 font-display text-[clamp(2rem,3.2vw,3rem)] font-medium leading-[1.08]">
+              <h3 className="mt-4 font-display text-[clamp(2rem,3.2vw,3rem)] font-semibold tracking-[-0.02em] leading-[1.08]">
                 {WHATS[0]!.t}
               </h3>
               <p className="mt-5 max-w-md text-base leading-[1.95] text-muted-foreground md:text-lg">
@@ -170,7 +170,7 @@ function MayaWebPage() {
                   className={`border-t border-border py-9 md:py-10 ${i === 0 ? "pt-0 md:border-t-0" : ""}`}
                 >
                   <span className="font-display text-sm text-primary">{w.n}</span>
-                  <h3 className="mt-3 font-display text-2xl font-medium md:text-[1.7rem]">{w.t}</h3>
+                  <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">{w.t}</h3>
                   <p className="mt-3 max-w-md text-base leading-[1.9] text-muted-foreground md:text-[17px]">
                     {w.d}
                   </p>
@@ -184,17 +184,17 @@ function MayaWebPage() {
       {/* 4. Il metodo Maya Web */}
       <section className="px-6 pb-28 md:px-12 md:pb-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+     <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             Processo Maya Web
           </p>
-          <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             Dal brand <span className="text-chrome">all'esperienza digitale.</span>
           </h2>
-          <ol className="mt-16 grid gap-12 md:mt-20 md:grid-cols-3 md:gap-12">
+          <ol className="mt-16 grid gap-5 md:mt-20 md:grid-cols-3">
             {STEPS.map((s) => (
-              <li key={s.n} className="border-t border-border pt-8">
+              <li key={s.n} className="rounded-[28px] bg-card p-8 md:p-9">
                 <span className="font-display text-sm text-primary">{s.n}</span>
-                <h3 className="mt-3 font-display text-2xl font-medium md:text-[1.7rem]">{s.t}</h3>
+                <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">{s.t}</h3>
                 <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">
                   {s.d}
                 </p>
@@ -207,24 +207,24 @@ function MayaWebPage() {
       {/* 4bis. I tre livelli */}
       <section id="livelli" className="bg-deep px-6 py-28 md:px-12 md:py-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+     <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             Tre livelli
           </p>
-          <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             Stessa cura, <span className="text-chrome">ampiezza diversa.</span>
           </h2>
           <p className="mt-7 max-w-2xl text-base leading-[1.9] text-muted-foreground md:text-lg">
             Non tutte le attività partono dallo stesso punto. Il livello si sceglie insieme, in
             base a quanto c'è da raccontare e a quanto deve crescere nel tempo.
           </p>
-          <ol className="mt-16 grid gap-10 md:mt-20 md:grid-cols-3 md:gap-8 lg:gap-12">
+          <ol className="mt-16 grid gap-5 md:mt-20 md:grid-cols-3">
             {LIVELLI.map((l) => (
-              <li key={l.n} className="border-t border-primary/40 pt-8">
+              <li key={l.n} className="rounded-[28px] bg-card p-8 md:p-9 ring-1 ring-primary/30">
                 <span className="font-display text-sm text-primary">{l.n}</span>
-                <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        <p className="mt-3 text-sm font-semibold text-muted-foreground">
                   {l.s}
                 </p>
-                <h3 className="mt-2 font-display text-2xl font-medium md:text-[1.7rem]">{l.t}</h3>
+                <h3 className="mt-2 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">{l.t}</h3>
                 <p className="mt-4 text-base leading-[1.9] text-muted-foreground md:text-[17px]">
                   {l.d}
                 </p>
@@ -250,7 +250,7 @@ function MayaWebPage() {
         className="bg-deep px-6 pb-24 pt-28 md:px-12 md:pb-32 md:pt-40 lg:px-16"
       >
         <Reveal className="mx-auto max-w-[1390px]">
-          <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             Una stessa tecnologia.{" "}
             <span className="text-chrome">Identità completamente diverse.</span>
           </h2>
@@ -268,10 +268,10 @@ function MayaWebPage() {
                   />
                 </div>
                 <div className="mt-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+         <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                     Direzioni progettuali
                   </p>
-                  <h3 className="mt-2 font-display text-2xl font-medium md:text-3xl">{c.name}</h3>
+                  <h3 className="mt-2 font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">{c.name}</h3>
                 </div>
               </li>
             ))}
@@ -282,7 +282,7 @@ function MayaWebPage() {
       {/* 6. Ponte verso Maya Connect */}
       <section className="px-6 pb-28 pt-24 md:px-12 md:pb-40 md:pt-28 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
-          <h2 className="max-w-3xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <h2 className="max-w-3xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             Un sito può diventare <span className="text-primary">un sistema.</span>
           </h2>
           <div className="mt-8 max-w-2xl space-y-5 text-base leading-[1.95] text-muted-foreground md:text-lg">
@@ -348,7 +348,7 @@ function MayaWebPage() {
           className="pointer-events-none absolute inset-0 -z-10 hero-ambient"
         />
         <Reveal className="relative mx-auto max-w-4xl">
-          <h2 className="font-display text-[clamp(2.4rem,5.4vw,5rem)] font-medium leading-[1.05]">
+          <h2 className="font-display text-[clamp(2.4rem,5.4vw,5rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
             Costruiamo la tua <span className="text-chrome">presenza digitale.</span>
           </h2>
           <div className="mx-auto mt-10 max-w-xl space-y-2 text-lg leading-[1.9] text-muted-foreground md:text-xl">
@@ -367,7 +367,7 @@ function MayaWebPage() {
           </Button>
         </Reveal>
         <div aria-hidden="true" className="mx-auto mt-24 h-0.5 w-[min(82vw,820px)] thread-line" />
-        <p className="relative mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+    <p className="relative mt-8 text-sm font-semibold text-muted-foreground">
           © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
           tuo brand
         </p>

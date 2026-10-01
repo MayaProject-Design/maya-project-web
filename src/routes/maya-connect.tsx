@@ -215,7 +215,7 @@ function MayaConnectPage() {
         }
         subtitle={
           <>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-chrome">
+      <p className="text-sm font-semibold text-chrome">
               Il cuore dell'ecosistema Maya
             </p>
             <p className="mt-6 font-display text-xl text-foreground md:text-2xl">
@@ -266,13 +266,13 @@ function MayaConnectPage() {
           </div>
           <div className="grid grid-cols-2 gap-8 border-t border-border pt-10 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
             <div>
-              <p className="mb-8 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+       <p className="mb-8 text-sm font-semibold text-muted-foreground">
                 Prima
               </p>
               <Nodes items={TOOLS} />
             </div>
             <div>
-              <p className="mb-8 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+       <p className="mb-8 text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                 Dopo
               </p>
               <Nodes items={TOOLS} connected />
@@ -294,15 +294,15 @@ function MayaConnectPage() {
           Costruiamo connessioni intorno agli strumenti che già utilizzi, creando un ecosistema
           digitale più ordinato e intelligente.
         </p>
-        <ul className="mt-14 grid gap-x-16 md:grid-cols-2">
+        <ul className="mt-14 grid gap-5 md:grid-cols-2">
           {[
             ["Integrazioni", "Colleghiamo servizi e piattaforme già presenti."],
             ["Automazioni", "Riduciamo attività ripetitive attraverso flussi personalizzati."],
             ["Dati", "Organizziamo informazioni per renderle più utili."],
             ["Esperienza cliente", "Creiamo percorsi digitali più semplici per i tuoi clienti."],
           ].map(([t, d]) => (
-            <li key={t} className="border-t border-border py-8">
-              <h3 className="font-display text-2xl font-medium md:text-3xl">{t}</h3>
+            <li key={t} className="rounded-[28px] bg-card p-8 md:p-9">
+              <h3 className="font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">{t}</h3>
               <p className="mt-3 text-base leading-[1.9] text-muted-foreground md:text-lg">{d}</p>
             </li>
           ))}
@@ -348,10 +348,10 @@ function MayaConnectPage() {
       <section className="relative overflow-hidden bg-deep px-6 py-20 text-center md:px-12 md:py-32 lg:px-16">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 solutions-glow" />
         <div className="relative mx-auto max-w-[1390px]">
-          <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+     <p className="font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             04 / Cosa collega
           </p>
-          <h2 className="mx-auto mt-8 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <h2 className="mx-auto mt-8 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             Un ecosistema costruito intorno{" "}
             <span className="text-chrome">al tuo modo di lavorare.</span>
           </h2>

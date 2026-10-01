@@ -39,10 +39,10 @@ function ContattiPage() {
         />
         <SiteHeader />
         <div className="mx-auto max-w-[1390px] px-6 pb-20 pt-12 md:px-12 md:pb-28 md:pt-16 lg:px-16 lg:pb-32">
-          <p className="reveal-in font-display text-xs font-semibold uppercase tracking-[0.4em] text-primary">
+     <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             CONTATTI
           </p>
-          <h1 className="reveal-in mt-6 max-w-5xl font-display text-[clamp(2.7rem,5.6vw,5.25rem)] font-medium leading-[1.03] [animation-delay:100ms]">
+          <h1 className="reveal-in mt-6 max-w-5xl font-display text-[clamp(2.7rem,5.6vw,5.25rem)] font-semibold tracking-[-0.02em] leading-[1.03] [animation-delay:100ms]">
             Parliamo del tuo <span className="text-primary">prossimo progetto.</span>
           </h1>
           <p className="reveal-in mt-7 max-w-2xl text-base leading-[1.9] text-muted-foreground [animation-delay:200ms] md:text-lg">
@@ -59,10 +59,10 @@ function ContattiPage() {
       <section className="px-6 py-16 md:px-12 md:py-24 lg:px-16">
         <div className="mx-auto grid max-w-[1200px] gap-12 md:grid-cols-2 md:gap-16">
           <article className="border-t border-primary/60 pt-6 md:pt-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+      <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
               01 / HAI UN PROGETTO?
             </p>
-            <h2 className="mt-5 font-display text-2xl font-medium md:text-3xl">
+            <h2 className="mt-5 font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">
               Richiedi un preventivo
             </h2>
             <p className="mt-4 max-w-md text-base leading-[1.9] text-muted-foreground md:text-lg">
@@ -81,10 +81,10 @@ function ContattiPage() {
           </article>
 
           <article className="border-t border-border pt-6 md:pt-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+      <p className="text-sm font-semibold text-muted-foreground">
               02 / VUOI PARLARCI?
             </p>
-            <h2 className="mt-5 font-display text-2xl font-medium md:text-3xl">
+            <h2 className="mt-5 font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">
               Contattaci direttamente
             </h2>
             <p className="mt-4 max-w-md text-base leading-[1.9] text-muted-foreground md:text-lg">
@@ -116,7 +116,7 @@ function ContattiPage() {
       </section>
       <footer className="px-6 pb-14 md:px-12 lg:px-16">
         <div aria-hidden="true" className="mx-auto h-0.5 w-[min(82vw,820px)] thread-line opacity-70" />
-        <p className="mt-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+    <p className="mt-8 text-center text-sm font-semibold text-muted-foreground">
           © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
           tuo brand
         </p>

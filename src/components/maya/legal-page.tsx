@@ -32,10 +32,10 @@ export function LegalPage({
         />
         <SiteHeader />
         <div className="mx-auto max-w-[1390px] px-6 pb-16 pt-12 md:px-12 md:pb-24 md:pt-16 lg:px-16">
-          <p className="reveal-in font-display text-xs font-semibold uppercase tracking-[0.4em] text-primary">
+     <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             {kicker}
           </p>
-          <h1 className="reveal-in mt-6 max-w-4xl font-display text-[clamp(2.4rem,5vw,4.5rem)] font-medium leading-[1.04] [animation-delay:100ms]">
+          <h1 className="reveal-in mt-6 max-w-4xl font-display text-[clamp(2.4rem,5vw,4.5rem)] font-semibold tracking-[-0.02em] leading-[1.04] [animation-delay:100ms]">
             {title}
           </h1>
           <p className="reveal-in mt-7 max-w-2xl text-base leading-[1.9] text-muted-foreground [animation-delay:200ms] md:text-lg">
@@ -50,7 +50,7 @@ export function LegalPage({
 
       <section className="px-6 py-16 md:px-12 md:py-24 lg:px-16">
         <div className="mx-auto max-w-[760px]">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+     <p className="text-sm font-semibold text-muted-foreground">
             Ultimo aggiornamento: {updated}
           </p>
           <div className="mt-12 space-y-12">{children}</div>
@@ -60,7 +60,7 @@ export function LegalPage({
             className="mt-20 h-0.5 w-full thread-line opacity-70"
           />
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+     <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm font-semibold text-muted-foreground">
             <Link to="/privacy-policy" className="transition-colors hover:text-primary">
               Privacy
             </Link>
@@ -75,7 +75,7 @@ export function LegalPage({
             </Link>
           </div>
 
-          <p className="mt-10 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+     <p className="mt-10 text-sm font-semibold text-muted-foreground">
             © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il
             digitale intorno al tuo brand
           </p>
@@ -94,7 +94,7 @@ export function LegalBlock({
 }) {
   return (
     <section>
-      <h2 className="font-display text-xl font-medium md:text-2xl">{title}</h2>
+      <h2 className="font-display text-xl font-semibold tracking-[-0.015em] md:text-2xl">{title}</h2>
       <div className="mt-4 space-y-4 text-base leading-[1.9] text-muted-foreground">
         {children}
       </div>

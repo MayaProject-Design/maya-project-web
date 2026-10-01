@@ -13,7 +13,7 @@ export function LegalLinks({ className = "" }: { className?: string }) {
   return (
     <nav
       aria-label="Informazioni legali"
-      className={`relative mt-5 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground/70 ${className}`}
+      className={`relative mt-5 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-sm font-semibold text-muted-foreground/70 ${className}`}
     >
       {links.map((l) => (
         <Link key={l.to} to={l.to} className="transition-colors hover:text-primary">

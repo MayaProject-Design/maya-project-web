@@ -178,7 +178,7 @@ export function ShowroomSection() {
               type="button"
               onClick={() => setActive(i)}
               aria-pressed={i === active}
-              className={`py-1 font-display text-sm uppercase tracking-[0.1em] transition-colors duration-700 md:text-base ${i === active ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+              className={`py-1 font-display text-sm transition-colors duration-700 md:text-base ${i === active ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
             >
               <span className={i === active ? "text-primary" : ""}>{k.n}</span> {k.name}
             </button>
@@ -186,8 +186,8 @@ export function ShowroomSection() {
         </div>
 
         <div key={c.n} className="reveal-in mx-auto mt-12 max-w-2xl text-center">
-          <h3 className="font-display text-2xl font-medium md:text-3xl">{c.name}</h3>
-          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+          <h3 className="font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">{c.name}</h3>
+     <p className="mt-3 text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             {c.cat}
           </p>
           <p className="mt-4 text-base leading-[1.95] text-muted-foreground md:text-lg">{c.d}</p>
@@ -196,14 +196,14 @@ export function ShowroomSection() {
               href={c.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground"
+              className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-base md:text-lg font-semibold tracking-[-0.01em] text-primary transition-colors hover:text-foreground"
             >
               Apri il concept <ArrowUpRight aria-hidden="true" className="size-3.5" />
             </a>
           ) : (
             <Link
               to={CONTACT}
-              className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary transition-colors hover:text-foreground"
+              className="mt-6 inline-flex items-center gap-2 border-b border-primary pb-1 text-base md:text-lg font-semibold tracking-[-0.01em] text-primary transition-colors hover:text-foreground"
             >
               Parlane con noi <ArrowUpRight aria-hidden="true" className="size-3.5" />
             </Link>
@@ -310,19 +310,19 @@ export function EcosistemaSection() {
           </svg>
           <Link
             to="/maya-connect"
-            className="absolute left-1/2 top-[34%] -translate-x-1/2 font-display text-lg font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:text-primary/80 md:text-2xl"
+            className="absolute left-1/2 top-[34%] -translate-x-1/2 font-display text-lg font-semibold tracking-[-0.01em] text-primary transition-colors hover:text-primary/80 md:text-2xl"
           >
             MAYA CONNECT
           </Link>
           <Link
             to="/maya-web"
-            className="absolute left-[16%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg"
+            className="absolute left-[16%] top-[88%] -translate-x-1/2 font-display text-base md:text-lg tracking-[-0.01em] text-foreground hover:text-primary md:text-lg"
           >
             Maya Web
           </Link>
           <Link
             to="/maya-app"
-            className="absolute left-[84%] top-[88%] -translate-x-1/2 font-display text-sm uppercase tracking-[0.18em] text-foreground hover:text-primary md:text-lg"
+            className="absolute left-[84%] top-[88%] -translate-x-1/2 font-display text-base md:text-lg tracking-[-0.01em] text-foreground hover:text-primary md:text-lg"
           >
             Maya App
           </Link>
@@ -430,7 +430,7 @@ export function FinalCta() {
         </div>
       </Reveal>
       <div aria-hidden="true" className="mx-auto mt-28 h-0.5 w-[min(82vw,820px)] thread-line" />
-      <p className="relative mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+   <p className="relative mt-8 text-sm font-semibold text-muted-foreground">
         © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
         tuo brand
       </p>

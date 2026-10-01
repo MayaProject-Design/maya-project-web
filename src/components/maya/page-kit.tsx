@@ -122,7 +122,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
 
 export function Label({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-3 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+  <div className="flex items-center gap-3 font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
       <span className="relative flex size-2.5 items-center justify-center">
         <span className="absolute inset-0 rounded-full bg-primary/30 node-pulse" />
         <span className="size-1.5 rounded-full bg-primary" />
@@ -153,10 +153,10 @@ export function PageHero({
       />
       <SiteHeader />
       <div className="mx-auto max-w-[1390px] px-6 pb-24 pt-14 md:px-12 md:pb-36 md:pt-24 lg:px-16">
-        <p className="reveal-in font-display text-sm font-semibold uppercase tracking-[0.4em] text-primary">
+    <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
           {kicker}
         </p>
-        <h1 className="reveal-in mt-6 max-w-5xl font-display text-[clamp(2.6rem,6.4vw,6rem)] font-medium leading-[1.02] [animation-delay:100ms]">
+        <h1 className="reveal-in mt-6 max-w-5xl font-display text-[clamp(2.6rem,6.4vw,6rem)] font-semibold tracking-[-0.02em] leading-[1.02] [animation-delay:100ms]">
           {title}
         </h1>
         <div className="reveal-in mt-8 max-w-2xl text-lg leading-[1.85] text-muted-foreground [animation-delay:200ms] md:text-xl">
@@ -188,7 +188,7 @@ export function Section({
       <div className="mx-auto max-w-[1390px]">
         <Label>{label}</Label>
         {title && (
-          <h2 className="mt-8 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <h2 className="mt-8 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             {title}
           </h2>
         )}
@@ -226,7 +226,7 @@ export function ThreadRow({ items }: { items: { t: string; d: string }[] }) {
             <span className="font-display text-sm text-muted-foreground">
               {String(i + 1).padStart(2, "0")}
             </span>
-            <h3 className="mt-3 font-display text-2xl font-medium md:text-[1.6rem]">{s.t}</h3>
+            <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.6rem]">{s.t}</h3>
             <p className="mt-4 max-w-xs text-base leading-[1.9] text-muted-foreground md:text-[17px]">
               {s.d}
             </p>
@@ -254,7 +254,7 @@ export function Closing({
       <section className="relative overflow-hidden px-6 pb-24 pt-8 text-center md:px-12 md:pb-36 lg:px-16">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 hero-ambient" />
         <div className="relative mx-auto max-w-4xl">
-          <h2 className="font-display text-[clamp(2.1rem,4.8vw,4.5rem)] font-medium leading-[1.08]">
+          <h2 className="font-display text-[clamp(2.1rem,4.8vw,4.5rem)] font-semibold tracking-[-0.02em] leading-[1.08]">
             {title}
           </h2>
           {text && (
@@ -279,7 +279,7 @@ export function Closing({
             )}
           </Button>
         </div>
-        <p className="relative mt-24 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+    <p className="relative mt-24 text-sm font-semibold text-muted-foreground">
           © Maya Project <span className="px-2 text-primary">·</span> Cuciamo il digitale intorno al
           tuo brand
         </p>
@@ -301,7 +301,7 @@ export function EcosystemNav({ current }: { current: "web" | "connect" | "app" }
         {all.map((p) =>
           p.k === current ? (
             <div key={p.k} className="border-l border-primary pl-5">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
+       <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
                 Sei qui
               </p>
               <p className="mt-2 font-display text-xl">{p.n}</p>
@@ -312,7 +312,7 @@ export function EcosystemNav({ current }: { current: "web" | "connect" | "app" }
               to={p.to}
               className="group border-l border-border pl-5 transition-colors hover:border-primary"
             >
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+       <p className="text-sm font-semibold text-muted-foreground">
                 Ecosistema
               </p>
               <p className="mt-2 flex items-center gap-2 font-display text-xl transition-colors group-hover:text-primary">

@@ -91,10 +91,10 @@ function MayaAppPage() {
         <SiteHeader />
         <div className="mx-auto grid w-full max-w-[1390px] flex-1 items-center gap-12 px-6 pb-16 pt-10 md:px-12 md:pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(290px,0.9fr)] lg:gap-14 lg:px-16 lg:py-12">
           <div className="max-w-2xl">
-            <p className="reveal-in font-display text-xs font-semibold uppercase tracking-[0.4em] text-primary">
+      <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
               MAYA APP
             </p>
-            <h1 className="reveal-in mt-6 font-display text-[clamp(2.7rem,5.4vw,5rem)] font-medium leading-[1.03] [animation-delay:100ms]">
+            <h1 className="reveal-in mt-6 font-display text-[clamp(2.7rem,5.4vw,5rem)] font-semibold tracking-[-0.02em] leading-[1.03] [animation-delay:100ms]">
               La tua esperienza digitale <span className="text-primary">proprietaria.</span>
             </h1>
             <p className="reveal-in mt-7 max-w-xl text-base leading-[1.9] text-muted-foreground [animation-delay:200ms] md:text-lg">
@@ -135,10 +135,10 @@ function MayaAppPage() {
 
       <section id="come-funziona" className="relative px-6 py-20 md:px-12 md:py-32 lg:px-16">
         <div className="mx-auto max-w-[1390px]">
-          <p className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+     <p className="font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             01 / CLIENTI
           </p>
-          <h2 className="mt-7 max-w-5xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <h2 className="mt-7 max-w-5xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             I tuoi clienti usano già il telefono.
             <br className="hidden md:block" />{" "}
             <span className="text-chrome">La domanda è: per fare cosa?</span>
@@ -207,7 +207,7 @@ function MayaAppPage() {
                 >
                   <span className="size-2 rounded-full bg-primary" />
                 </span>
-                <span className="font-display text-xl font-semibold uppercase tracking-[0.12em] text-primary">
+        <span className="font-display text-xl font-semibold tracking-[-0.01em] text-primary">
                   MAYA APP
                 </span>
               </li>
@@ -227,17 +227,17 @@ function MayaAppPage() {
           </>
         }
       >
-        <ol className="mt-12 grid gap-x-10 md:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {MODULES.map((module, index) => (
             <li
               key={module.title}
-              className="grid grid-cols-[2.25rem_1fr] gap-3 border-t border-border py-7 md:py-8"
+              className="grid grid-cols-[2.25rem_1fr] gap-3 rounded-[28px] bg-card p-7 md:p-8"
             >
               <span className="font-display text-sm text-primary">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div>
-                <h3 className="font-display text-xl font-medium md:text-2xl">{module.title}</h3>
+                <h3 className="font-display text-xl font-semibold tracking-[-0.015em] md:text-2xl">{module.title}</h3>
                 <p className="mt-3 max-w-sm text-[15px] leading-[1.85] text-muted-foreground md:text-base">
                   {module.description}
                 </p>
@@ -249,10 +249,10 @@ function MayaAppPage() {
 
       <section className="bg-deep px-6 py-20 md:px-12 md:py-32 lg:px-16">
         <div className="mx-auto max-w-[1390px]">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+     <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             03 / CONCEPT INTERFACE
           </p>
-          <h2 className="mt-7 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-medium leading-[1.06]">
+          <h2 className="mt-7 max-w-4xl font-display text-[clamp(2.2rem,4.6vw,4.25rem)] font-semibold tracking-[-0.02em] leading-[1.06]">
             Un'esperienza costruita <span className="text-chrome">intorno al cliente.</span>
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-[1.9] text-muted-foreground md:text-lg">
@@ -302,21 +302,21 @@ function MayaAppPage() {
         <div className="mt-12 grid items-center justify-items-center gap-5 md:grid-cols-[1fr_auto_1.2fr_auto_1fr] md:gap-4">
           <Link
             to="/maya-web"
-            className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-foreground/90 transition-colors hover:text-primary md:text-base"
+            className="font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-foreground/90 transition-colors hover:text-primary md:text-base"
           >
             MAYA WEB
           </Link>
           <ArrowRight aria-hidden="true" className="size-4 rotate-90 text-primary md:rotate-0" />
           <Link
             to="/maya-connect"
-            className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-foreground/90 transition-colors hover:text-primary md:text-base"
+            className="font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-foreground/90 transition-colors hover:text-primary md:text-base"
           >
             MAYA CONNECT
           </Link>
           <ArrowRight aria-hidden="true" className="size-4 rotate-90 text-primary md:rotate-0" />
           <Link
             to="/maya-app"
-            className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-foreground/90 transition-colors hover:text-primary md:text-base"
+            className="font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-foreground/90 transition-colors hover:text-primary md:text-base"
           >
             MAYA APP
           </Link>
@@ -347,7 +347,7 @@ function MayaAppPage() {
           </>
         }
       >
-        <ol className="mt-14 grid gap-10 md:grid-cols-2 md:gap-12">
+        <ol className="mt-14 grid gap-5 md:grid-cols-2">
           {[
             [
               "Maya App Booking",
@@ -360,11 +360,11 @@ function MayaAppPage() {
               "Tutto ciò che c'è in Booking, per un'attività con più persone o più sedi da coordinare.",
             ],
           ].map(([t, s, d]) => (
-            <li key={t} className="border-t border-primary/40 pt-8">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            <li key={t} className="rounded-[28px] bg-card p-8 md:p-9 ring-1 ring-primary/30">
+       <p className="text-sm font-semibold text-muted-foreground">
                 {s}
               </p>
-              <h3 className="mt-2 font-display text-2xl font-medium md:text-[1.7rem]">{t}</h3>
+              <h3 className="mt-2 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">{t}</h3>
               <p className="mt-4 text-base leading-[1.9] text-muted-foreground md:text-[17px]">{d}</p>
             </li>
           ))}
@@ -388,7 +388,7 @@ function MayaAppPage() {
               <span className="font-display text-sm text-primary">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="font-display text-xl font-medium uppercase tracking-[0.04em] md:text-2xl">
+              <h3 className="font-display text-xl font-semibold tracking-[-0.015em] md:text-2xl">
                 {scenario.title}
               </h3>
               <p className="text-[15px] leading-[1.8] text-muted-foreground md:text-base">
