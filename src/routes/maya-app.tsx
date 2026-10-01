@@ -340,6 +340,38 @@ function MayaAppPage() {
       </Section>
 
       <Section
+        label="DUE LIVELLI"
+        title={
+          <>
+            Un'attività, <span className="text-chrome">o più persone da coordinare.</span>
+          </>
+        }
+      >
+        <ol className="mt-14 grid gap-10 md:grid-cols-2 md:gap-12">
+          {[
+            [
+              "Maya App Booking",
+              "Per un'attività",
+              "Prenotazione, area cliente, notifiche e gestione dei servizi, intorno a una sede.",
+            ],
+            [
+              "Maya App Business",
+              "Per più persone o più sedi",
+              "Tutto ciò che c'è in Booking, per un'attività con più persone o più sedi da coordinare.",
+            ],
+          ].map(([t, s, d]) => (
+            <li key={t} className="border-t border-primary/40 pt-8">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                {s}
+              </p>
+              <h3 className="mt-2 font-display text-2xl font-medium md:text-[1.7rem]">{t}</h3>
+              <p className="mt-4 text-base leading-[1.9] text-muted-foreground md:text-[17px]">{d}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      <Section
         label="ESEMPI DI APPLICAZIONE"
         title={
           <>

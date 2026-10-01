@@ -205,7 +205,7 @@ function MayaWebPage() {
       </section>
 
       {/* 4bis. I tre livelli */}
-      <section className="bg-deep px-6 py-28 md:px-12 md:py-40 lg:px-16">
+      <section id="livelli" className="bg-deep px-6 py-28 md:px-12 md:py-40 lg:px-16">
         <Reveal className="mx-auto max-w-[1390px]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
             Tre livelli
