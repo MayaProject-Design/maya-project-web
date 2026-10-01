@@ -312,7 +312,7 @@ function MayaConnectPage() {
           <Link
             to="/maya-web"
             hash="livelli"
-            className="underline-offset-4 transition-colors hover:text-primary hover:underline"
+            className="text-primary underline underline-offset-4 transition-colors hover:text-foreground"
           >
             Maya Start
           </Link>
