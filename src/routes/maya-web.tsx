@@ -9,7 +9,7 @@ import beauty from "@/assets/concept-beauty.jpg";
 import corporate from "@/assets/concept-corporate.jpg";
 import { LegalLinks } from "@/components/maya/legal-links";
 
-const TITLE = "Maya Web | Realizzazione siti web su misura";
+const TITLE = "Maya Web | Presenza digitale su misura per il tuo brand";
 const LIVELLI = [
   {
     n: "01",

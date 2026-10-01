@@ -12,7 +12,7 @@ import {
   ThreadRow,
 } from "@/components/maya/page-kit";
 
-const TITLE = "Maya App | Applicazioni web e mobile su misura";
+const TITLE = "Maya App | Il tuo brand nelle mani dei clienti";
 const URL_CANONICAL = "https://maya-project.it/maya-app";
 const DESC =
   "La tua esperienza digitale proprietaria. Applicazioni dedicate per offrire servizi più semplici, veloci e personalizzati.";

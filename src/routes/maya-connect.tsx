@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Closing, PageHero, QUOTE, Section, ThreadRow } from "@/components/maya/page-kit";
 
-const TITLE = "Maya Connect | Integrazioni e automazioni digitali";
+const TITLE = "Maya Connect | Costruiamo intorno a ciò che usi già";
 const URL_CANONICAL = "https://maya-project.it/maya-connect";
 const DESC =
   "Colleghiamo strumenti, dati e processi per creare un sistema digitale unico intorno al tuo business.";
