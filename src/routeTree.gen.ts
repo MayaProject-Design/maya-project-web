@@ -18,6 +18,7 @@ import { Route as MayaConnectRouteImport } from './routes/maya-connect'
 import { Route as MayaWebRouteImport } from './routes/maya-web'
 import { Route as NoteLegaliRouteImport } from './routes/note-legali'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as ConceptMedicalRouteImport } from './routes/concept.medical'
 import { Route as PreventivoRouteImport } from './routes/preventivo'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ApiPreventivoRouteImport } from './routes/api.preventivo'
@@ -67,6 +68,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConceptMedicalRoute = ConceptMedicalRouteImport.update({
+  id: '/concept/medical',
+  path: '/concept/medical',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PreventivoRoute = PreventivoRouteImport.update({
   id: '/preventivo',
   path: '/preventivo',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/maya-web': typeof MayaWebRoute
   '/note-legali': typeof NoteLegaliRoute
   '/portfolio': typeof PortfolioRoute
+  '/concept/medical': typeof ConceptMedicalRoute
   '/preventivo': typeof PreventivoRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/api/preventivo': typeof ApiPreventivoRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/maya-web': typeof MayaWebRoute
   '/note-legali': typeof NoteLegaliRoute
   '/portfolio': typeof PortfolioRoute
+  '/concept/medical': typeof ConceptMedicalRoute
   '/preventivo': typeof PreventivoRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/api/preventivo': typeof ApiPreventivoRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/maya-web': typeof MayaWebRoute
   '/note-legali': typeof NoteLegaliRoute
   '/portfolio': typeof PortfolioRoute
+  '/concept/medical': typeof ConceptMedicalRoute
   '/preventivo': typeof PreventivoRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/api/preventivo': typeof ApiPreventivoRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/maya-web'
     | '/note-legali'
     | '/portfolio'
+    | '/concept/medical'
     | '/preventivo'
     | '/privacy-policy'
     | '/api/preventivo'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/maya-web'
     | '/note-legali'
     | '/portfolio'
+    | '/concept/medical'
     | '/preventivo'
     | '/privacy-policy'
     | '/api/preventivo'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/maya-web'
     | '/note-legali'
     | '/portfolio'
+    | '/concept/medical'
     | '/preventivo'
     | '/privacy-policy'
     | '/api/preventivo'
@@ -181,6 +193,7 @@ export interface RootRouteChildren {
   MayaWebRoute: typeof MayaWebRoute
   NoteLegaliRoute: typeof NoteLegaliRoute
   PortfolioRoute: typeof PortfolioRoute
+  ConceptMedicalRoute: typeof ConceptMedicalRoute
   PreventivoRoute: typeof PreventivoRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ApiPreventivoRoute: typeof ApiPreventivoRoute
@@ -251,6 +264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/concept/medical': {
+      id: '/concept/medical'
+      path: '/concept/medical'
+      fullPath: '/concept/medical'
+      preLoaderRoute: typeof ConceptMedicalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/preventivo': {
       id: '/preventivo'
       path: '/preventivo'
@@ -285,6 +305,7 @@ const rootRouteChildren: RootRouteChildren = {
   MayaWebRoute: MayaWebRoute,
   NoteLegaliRoute: NoteLegaliRoute,
   PortfolioRoute: PortfolioRoute,
+  ConceptMedicalRoute: ConceptMedicalRoute,
   PreventivoRoute: PreventivoRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   ApiPreventivoRoute: ApiPreventivoRoute,

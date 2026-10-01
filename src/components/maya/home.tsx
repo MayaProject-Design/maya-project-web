@@ -70,6 +70,7 @@ const CONCEPTS = [
     name: "Medical Premium",
     cat: "Professional & Healthcare",
     img: medical,
+    url: "https://maya-project.it/concept/medical",
     d: "Un concept digitale progettato per trasformare competenza e fiducia in un'esperienza online.",
   },
   {

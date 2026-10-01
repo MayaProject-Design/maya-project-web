@@ -74,6 +74,7 @@ const CASI: Caso[] = [
     name: "Medical Premium",
     cat: "Professional & Healthcare",
     img: medical,
+    url: "https://maya-project.it/concept/medical",
     steps: [
       {
         k: "Contesto",
