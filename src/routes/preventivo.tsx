@@ -6,7 +6,7 @@ import { LegalLinks } from "@/components/maya/legal-links";
 const URL_CANONICAL = "https://maya-project.it/preventivo";
 const TITLE = "Richiedi un preventivo | Maya Project";
 const DESCRIPTION =
-  "Raccontaci cosa vuoi costruire. Partiamo dalla tua attività, dai tuoi obiettivi e dagli strumenti che utilizzi già.";
+  "Raccontaci cosa vuoi costruire. Partiamo dalla tua attività, dai tuoi obiettivi e dagli strumenti che usi già.";
 
 export const Route = createFileRoute("/preventivo")({
   head: () => ({
@@ -46,8 +46,8 @@ function PreventivoPage() {
               Raccontaci cosa <span className="text-primary">vuoi costruire.</span>
             </h1>
             <p className="reveal-in mt-6 max-w-2xl text-base leading-[1.9] text-muted-foreground [animation-delay:200ms] md:text-lg">
-              Partiamo dalla tua attività, dai tuoi obiettivi e dagli strumenti che utilizzi già. Ti
-              ricontatteremo per costruire una proposta intorno al tuo progetto.
+              Partiamo dalla tua attività, dai tuoi obiettivi e dagli strumenti che usi già. Poi ti
+              ricontattiamo con una proposta pensata per il tuo progetto.
             </p>
           </div>
           <p className="reveal-in border-l border-primary pl-4 text-sm font-semibold text-muted-foreground [animation-delay:300ms] lg:mb-2 lg:whitespace-nowrap">

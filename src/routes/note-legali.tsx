@@ -53,7 +53,7 @@ function NoteLegaliPage() {
         </p>
         <p>
           I marchi, i nomi commerciali e i loghi eventualmente citati o rappresentati all'interno
-          dei progetti appartengono ai rispettivi titolari e sono utilizzati unicamente a fini
+          dei progetti appartengono ai rispettivi titolari e sono usati solo a fini
           descrittivi e illustrativi.
         </p>
       </LegalBlock>

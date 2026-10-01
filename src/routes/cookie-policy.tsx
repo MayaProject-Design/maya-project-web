@@ -5,7 +5,7 @@ import { LEGAL_UPDATED, titolareLabel } from "@/lib/legal";
 const URL_CANONICAL = "https://maya-project.it/cookie-policy";
 const TITLE = "Cookie Policy | Maya Project";
 const DESCRIPTION =
-  "Questo sito non usa cookie di profilazione né strumenti di analisi. Qui trovi cosa viene effettivamente utilizzato.";
+  "Questo sito non usa cookie di profilazione né strumenti di analisi. Qui trovi cosa viene effettivamente usato.";
 
 export const Route = createFileRoute("/cookie-policy")({
   head: () => ({

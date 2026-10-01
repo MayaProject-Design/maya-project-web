@@ -66,7 +66,7 @@ function ContattiPage() {
               Richiedi un preventivo
             </h2>
             <p className="mt-4 max-w-md text-base leading-[1.9] text-muted-foreground md:text-lg">
-              Raccontaci cosa vuoi realizzare attraverso il nostro percorso guidato.
+              Raccontaci cosa vuoi realizzare: ti accompagniamo passo per passo.
             </p>
             <Button
               asChild

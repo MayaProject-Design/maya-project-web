@@ -37,7 +37,7 @@ function GraziePreventivoPage() {
           </h1>
           <div className="mt-7 max-w-xl space-y-2 text-base leading-[1.9] text-muted-foreground md:text-lg">
             <p>Abbiamo ricevuto la tua richiesta.</p>
-            <p>L'analizzeremo e ti ricontatteremo utilizzando i dati che ci hai lasciato.</p>
+            <p>La leggiamo con attenzione e ti ricontattiamo ai recapiti che ci hai lasciato.</p>
           </div>
           <Button
             asChild

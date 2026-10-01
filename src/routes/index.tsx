@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Studio digitale indipendente a Napoli. Progettiamo esperienze e sistemi digitali su misura, costruiti intorno al tuo brand e agli strumenti che usi già.",
+          "Studio digitale a Napoli. Progettiamo siti, app e collegamenti su misura, partendo dal tuo brand e dagli strumenti che usi già.",
       },
       {
         property: "og:title",
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Progettiamo esperienze e sistemi digitali su misura, costruiti intorno al tuo brand e agli strumenti che usi già.",
+          "Progettiamo siti, app e collegamenti su misura, partendo dal tuo brand e dagli strumenti che usi già.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE },
@@ -102,7 +102,7 @@ function Index() {
               <span className="text-primary">tuo brand.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-[760px] font-sans text-sm leading-[1.85] text-muted-foreground md:mt-5 md:text-lg">
-              Siti web, applicazioni e sistemi connessi, progettati su misura per la tua attività.
+              Siti, app e collegamenti fatti su misura, così i tuoi clienti ti trovano, prenotano e tornano da te.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:mt-7">
               <Button
@@ -112,7 +112,7 @@ function Index() {
                 className="h-12 px-6 text-xs font-bold uppercase tracking-[0.1em] md:h-13 md:px-8"
               >
                 <a href="#concept">
-                  Esplora i concept <ArrowDownRight aria-hidden="true" />
+                  Guarda i concept <ArrowDownRight aria-hidden="true" />
                 </a>
               </Button>
               <Button

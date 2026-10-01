@@ -6,7 +6,7 @@ import { Closing, PageHero, QUOTE, Section, ThreadRow } from "@/components/maya/
 const TITLE = "Maya Connect | Costruiamo intorno a ciò che usi già";
 const URL_CANONICAL = "https://maya-project.it/maya-connect";
 const DESC =
-  "Colleghiamo strumenti, dati e processi per creare un sistema digitale unico intorno al tuo business.";
+  "La piattaforma con cui gestisci gli appuntamenti continua a lavorare dietro le quinte. Davanti, i tuoi clienti scoprono un'esperienza tutta tua.";
 
 export const Route = createFileRoute("/maya-connect")({
   head: () => ({
@@ -210,22 +210,17 @@ function MayaConnectPage() {
         kicker="MAYA CONNECT"
         title={
           <>
-            Il filo che unisce il tuo <span className="text-primary">ecosistema digitale.</span>
+            Il filo che collega gli strumenti che usi già <span className="text-primary">al tuo brand.</span>
           </>
         }
         subtitle={
           <>
             <p className="text-sm font-semibold text-chrome">
-              Il cuore dell'ecosistema Maya
+              Il cuore di Maya
             </p>
             <p className="mt-6 font-display text-xl text-foreground md:text-2xl">
-              Colleghiamo strumenti, dati e processi per creare un sistema digitale unico intorno al
-              tuo business.
-            </p>
-            <p className="mt-5">
-              Non un prodotto singolo, ma l'infrastruttura che permette ai tuoi elementi digitali di
-              comunicare tra loro: un sistema più semplice, efficiente e costruito intorno al tuo
-              modo di lavorare.
+              La piattaforma con cui gestisci gli appuntamenti continua a lavorare dietro le
+              quinte. Davanti, i tuoi clienti scoprono un'esperienza tutta tua.
             </p>
           </>
         }
@@ -246,22 +241,19 @@ function MayaConnectPage() {
         label="01 / Il problema"
         title={
           <>
-            Ogni attività cresce.{" "}
-            <span className="text-chrome">Anche il digitale dovrebbe farlo.</span>
+            Sito, agenda, prenotazioni, WhatsApp:{" "}
+            <span className="text-chrome">ognuno va per conto suo.</span>
           </>
         }
       >
         <div className="mt-14 grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
           <div className="space-y-5 text-base leading-[1.95] text-muted-foreground md:text-lg">
             <p className="font-display text-xl text-foreground md:text-2xl">
-              Molti strumenti lavorano separatamente.
-            </p>
-            <p>
-              Sito web, gestione clienti, prenotazioni e applicazioni spesso non comunicano tra
-              loro.
+              Così le stesse informazioni vanno ripetute in più posti, qualcosa si perde e i
+              clienti vedono un'esperienza a pezzi.
             </p>
             <p className="border-l border-primary pl-5 text-foreground">
-              Maya Connect nasce per creare un collegamento tra questi elementi.
+              Maya Connect li fa lavorare insieme.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8 border-t border-border pt-10 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
@@ -286,20 +278,25 @@ function MayaConnectPage() {
         label="02 / Cos'è Maya Connect"
         title={
           <>
-            Non sostituiamo <span className="text-primary">ciò che utilizzi.</span>
+            Non ti facciamo cambiare <span className="text-primary">ciò che usi già.</span>
           </>
         }
       >
         <p className="mt-8 max-w-2xl text-base leading-[1.95] text-muted-foreground md:text-lg">
-          Costruiamo connessioni intorno agli strumenti che già utilizzi, creando un ecosistema
-          digitale più ordinato e intelligente.
+          Se la piattaforma che usi funziona, resta dov'è e noi costruiamo intorno ad essa: meno
+          doppioni, più ordine.
+        </p>
+        <p className="mt-5 max-w-2xl text-base leading-[1.95] text-muted-foreground md:text-lg">
+          Su una piattaforma di prenotazione sei uno tra tanti, e le pagine finiscono per
+          assomigliarsi. Con Maya Connect il cliente vede il tuo brand, non quello della
+          piattaforma.
         </p>
         <ul className="mt-14 grid gap-5 md:grid-cols-2">
           {[
-            ["Integrazioni", "Colleghiamo servizi e piattaforme già presenti."],
-            ["Automazioni", "Riduciamo attività ripetitive attraverso flussi personalizzati."],
-            ["Dati", "Organizziamo informazioni per renderle più utili."],
-            ["Esperienza cliente", "Creiamo percorsi digitali più semplici per i tuoi clienti."],
+            ["Integrazioni", "Colleghiamo il tuo sito alla piattaforma che usi già: il cliente parte da te e prenota con gli strumenti di sempre."],
+            ["Automazioni", "Automatizziamo le cose che oggi ripeti a mano, dove gli strumenti lo permettono."],
+            ["Dati", "Mettiamo in ordine le informazioni, così le ritrovi quando servono."],
+            ["Esperienza cliente", "Rendiamo più semplice, per i tuoi clienti, prenotare e restare in contatto con te."],
           ].map(([t, d]) => (
             <li key={t} className="rounded-[28px] bg-card p-8 md:p-9">
               <h3 className="font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl">{t}</h3>
@@ -308,9 +305,9 @@ function MayaConnectPage() {
           ))}
         </ul>
         <p className="mt-12 max-w-2xl border-l border-primary pl-5 text-base leading-[1.9] text-foreground md:text-lg">
-          Maya Connect si aggancia a qualsiasi livello: a una base Maya Start, a un sito Maya Web
-          o Maya Web Business, a un'app. Chi parte in piccolo non deve rifare nulla per collegarsi
-          dopo agli strumenti che usa già.
+          Maya Connect funziona con ogni livello: Maya Start, Maya Web, Maya Web Business o
+          un'app. Se parti in piccolo, non devi ripartire da capo per collegare più avanti gli
+          strumenti che usi.
         </p>
         <Button
           asChild
@@ -334,13 +331,13 @@ function MayaConnectPage() {
       >
         <ThreadRow
           items={[
-            { t: "Analisi", d: "Comprendiamo strumenti, processi e obiettivi della tua attività." },
+            { t: "Ascoltiamo", d: "Quali strumenti usi, come lavori e cosa vuoi ottenere." },
             {
-              t: "Architettura",
-              d: "Definiamo come ogni elemento deve comunicare all'interno del sistema.",
+              t: "Decidiamo",
+              d: "Cosa deve parlare con cosa, e come.",
             },
-            { t: "Integrazione", d: "Colleghiamo piattaforme, strumenti e flussi digitali." },
-            { t: "Connessione", d: "Creiamo un ecosistema unico e pronto a evolvere." },
+            { t: "Colleghiamo", d: "Facciamo i collegamenti tra le piattaforme e li testiamo." },
+            { t: "Consegniamo", d: "Un sistema che funziona e può crescere con te." },
           ]}
         />
       </Section>
@@ -356,11 +353,10 @@ function MayaConnectPage() {
             <span className="text-chrome">al tuo modo di lavorare.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">
-            Ogni attività utilizza strumenti diversi.
+            Ogni attività ha i suoi strumenti.
             <br />
             <span className="text-foreground">
-              Maya Connect crea il collegamento tra questi elementi per renderli parte di un unico
-              sistema.
+              Maya Connect li collega, così lavorano come un unico sistema.
             </span>
           </p>
           <ConnectDiagram />
@@ -371,13 +367,13 @@ function MayaConnectPage() {
         label="05 / L'ecosistema Maya"
         title={
           <>
-            Tre elementi. <span className="text-primary">Un unico sistema digitale.</span>
+            Tre elementi, <span className="text-primary">un unico sistema.</span>
           </>
         }
       >
         <div className="mt-10 max-w-2xl space-y-5 text-base leading-[1.95] text-muted-foreground md:text-lg">
           <p className="text-foreground">Ogni elemento nasce per funzionare insieme agli altri.</p>
-          <p>Dalla presenza online fino all'esperienza quotidiana dei tuoi clienti.</p>
+          <p>Dal sito fino a ciò che i tuoi clienti usano ogni giorno.</p>
         </div>
         <div className="relative mt-16">
           <div
@@ -390,11 +386,11 @@ function MayaConnectPage() {
           />
           <ol className="grid gap-10 md:grid-cols-3">
             {[
-              { n: "Maya Web", d: "Crea la presenza digitale.", to: "/maya-web" as const },
-              { n: "Maya Connect", d: "Il cuore che collega tutto il sistema.", to: null },
+              { n: "Maya Web", d: "Il sito e la presenza online.", to: "/maya-web" as const },
+              { n: "Maya Connect", d: "Il collegamento che tiene tutto insieme.", to: null },
               {
                 n: "Maya App",
-                d: "Porta l'esperienza nelle mani dei clienti.",
+                d: "L'esperienza nelle mani dei clienti.",
                 to: "/maya-app" as const,
               },
             ].map((p) => (
@@ -444,8 +440,10 @@ function MayaConnectPage() {
         }
         text={
           <>
-            <p>Raccontaci come lavori oggi.</p>
-            <p>Progettiamo il sistema digitale più adatto alla tua realtà.</p>
+            <p>
+              Raccontaci come lavori oggi: ti diciamo cosa si può collegare e cosa conviene
+              collegare.
+            </p>
           </>
         }
         cta="Inizia il progetto"
