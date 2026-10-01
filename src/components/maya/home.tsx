@@ -47,7 +47,7 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
 
 function Kicker({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+    <div className="flex items-center gap-3 text-base font-semibold tracking-[-0.01em] text-primary md:text-lg">
       <span className="h-px w-7 bg-primary" /> {children}
     </div>
   );
@@ -101,7 +101,7 @@ export function ShowroomSection() {
     >
       <div className="relative mx-auto max-w-[1390px]">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">
+          <h2 className="font-display text-[clamp(2.4rem,5vw,4.75rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
             Alcune possibili forme del tuo <span className="text-chrome">futuro digitale.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-[1.95] text-muted-foreground md:text-lg">
@@ -219,7 +219,7 @@ export function ManifestoSection() {
   return (
     <section id="manifesto" className="bg-deep px-6 py-32 md:px-12 md:py-52 lg:px-16">
       <Reveal className="mx-auto max-w-4xl text-center">
-        <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-medium leading-[1.12]">
+        <h2 className="font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-semibold tracking-[-0.02em] leading-[1.12]">
           Ogni attività ha una propria identità.
           <br />
           <span className="text-chrome">Il digitale dovrebbe raccontarla.</span>
@@ -261,14 +261,14 @@ export function MetodoSection() {
     <section id="metodo" className="px-6 py-24 md:px-12 md:py-36 lg:px-16">
       <Reveal className="mx-auto max-w-[1390px]">
         <Kicker>Metodo</Kicker>
-        <h2 className="mt-8 font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">
+        <h2 className="mt-8 font-display text-[clamp(2.4rem,5vw,4.75rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
           Il nostro <span className="text-chrome">metodo</span>
         </h2>
-        <ol className="mt-16 grid gap-12 md:mt-20 md:grid-cols-2 md:gap-12 lg:grid-cols-4 lg:gap-10">
+        <ol className="mt-16 grid gap-5 md:mt-20 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s) => (
-            <li key={s.n} className="border-t border-border pt-8">
+            <li key={s.n} className="rounded-[28px] bg-card p-8 md:p-9">
               <span className="font-display text-sm text-primary">{s.n}</span>
-              <h3 className="mt-3 font-display text-2xl font-medium uppercase tracking-[0.04em] md:text-[1.7rem]">
+              <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">
                 {s.t}
               </h3>
               <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">
@@ -291,7 +291,7 @@ export function EcosistemaSection() {
         <div className="flex justify-center">
           <Kicker>Ecosistema Maya</Kicker>
         </div>
-        <h2 className="mt-8 font-display text-[clamp(2.2rem,4.4vw,4rem)] font-medium leading-[1.08]">
+        <h2 className="mt-8 font-display text-[clamp(2.2rem,4.4vw,4rem)] font-semibold tracking-[-0.02em] leading-[1.08]">
           Un unico sistema, <span className="text-chrome">tre elementi connessi.</span>
         </h2>
         <div className="relative mx-auto mt-16 w-full max-w-[900px]">
@@ -332,7 +332,7 @@ export function EcosistemaSection() {
         </p>
 
         <div className="mx-auto mt-16 max-w-2xl border-t border-primary/40 pt-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+          <p className="text-base font-semibold tracking-[-0.01em] text-primary md:text-lg">
             Maya Suite
           </p>
           <p className="mt-5 text-base leading-[1.95] text-muted-foreground md:text-lg">
@@ -364,25 +364,25 @@ export function SoluzioniSection() {
     <section id="soluzioni" className="px-6 py-24 md:px-12 md:py-36 lg:px-16">
       <Reveal className="mx-auto max-w-[1390px]">
         <Kicker>Soluzioni</Kicker>
-        <h2 className="mt-8 max-w-3xl font-display text-[clamp(2.4rem,5vw,4.75rem)] font-medium leading-[1.05]">
+        <h2 className="mt-8 max-w-3xl font-display text-[clamp(2.4rem,5vw,4.75rem)] font-semibold tracking-[-0.02em] leading-[1.05]">
           Costruiamo strumenti digitali <span className="text-chrome">su misura.</span>
         </h2>
-        <div className="mt-16 grid gap-0 md:mt-20 md:grid-cols-3">
+        <div className="mt-16 grid gap-5 md:mt-20 md:grid-cols-3">
           {SOLUTIONS.map((s) => (
             <Link
               key={s.k}
               to={s.to}
-              className={`group border-t py-10 md:px-8 md:first:pl-0 ${s.core ? "border-primary" : "border-border"}`}
+              className={`group rounded-[28px] bg-card p-8 transition-colors md:p-10 ${s.core ? "ring-1 ring-primary/40" : "hover:bg-secondary"}`}
             >
               <p
-                className={`font-display text-xl font-semibold uppercase tracking-[0.16em] md:text-2xl ${s.core ? "text-primary" : ""}`}
+                className={`font-display text-2xl font-semibold tracking-[-0.015em] md:text-3xl ${s.core ? "text-primary" : ""}`}
               >
                 {s.k}
               </p>
               <p className="mt-4 max-w-xs text-base leading-[1.9] text-muted-foreground md:text-lg">
                 {s.d}
               </p>
-              <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-colors group-hover:text-primary">
+              <span className="mt-8 inline-flex items-center gap-2 text-base font-semibold text-foreground transition-colors group-hover:text-primary">
                 Scopri <ArrowUpRight aria-hidden="true" className="size-3.5" />
               </span>
             </Link>
@@ -405,7 +405,7 @@ export function FinalCta() {
         className="pointer-events-none absolute inset-0 -z-10 hero-vignette"
       />
       <Reveal className="relative mx-auto max-w-5xl">
-        <h2 className="font-display text-[clamp(2.6rem,6.4vw,6rem)] font-medium leading-[1.04]">
+        <h2 className="font-display text-[clamp(2.6rem,6.4vw,6rem)] font-semibold tracking-[-0.02em] leading-[1.04]">
           Costruiamo insieme il tuo prossimo <span className="text-chrome">spazio digitale.</span>
         </h2>
         <div className="mx-auto mt-10 max-w-xl space-y-2 text-lg leading-[1.9] text-muted-foreground md:text-xl">

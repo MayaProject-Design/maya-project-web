@@ -96,7 +96,7 @@ function Index() {
             Italia
           </p>
           <div className="reveal-in mt-8 max-w-[1180px] [animation-delay:210ms]">
-            <h1 className="font-display text-[clamp(2.15rem,4.6vw,5.25rem)] font-medium leading-[1.08] text-foreground">
+            <h1 className="font-display text-[clamp(2.15rem,4.6vw,5.25rem)] font-semibold tracking-[-0.02em] leading-[1.08] text-foreground">
               Cuciamo il digitale
               <br className="hidden sm:block" /> intorno al{" "}
               <span className="text-primary">tuo brand.</span>
