@@ -241,46 +241,30 @@ const STEPS = [
   {
     n: "01",
     t: "Analizziamo",
-<<<<<<< HEAD
     d: "Capiamo come lavori, chi sono i tuoi clienti e cosa vuoi ottenere.",
-=======
-    d: "Studiamo la tua attività, i tuoi clienti e gli obiettivi da raggiungere.",
     img: metodoAnalizziamo,
     alt: "Metro da sarta e gesso su tessuto scuro, con linee luminose di misura",
->>>>>>> origin/main
   },
   {
     n: "02",
     t: "Progettiamo",
-<<<<<<< HEAD
     d: "Disegniamo la soluzione giusta per te, prima di costruire qualsiasi cosa.",
-=======
-    d: "Trasformiamo le esigenze in una soluzione digitale concreta e su misura.",
     img: metodoProgettiamo,
     alt: "Cartamodello fissato con spilli su tessuto scuro, con il disegno di un'interfaccia",
->>>>>>> origin/main
   },
   {
     n: "03",
     t: "Cuciamo",
-<<<<<<< HEAD
     d: "Costruiamo e colleghiamo tutto, partendo dagli strumenti che usi già.",
-=======
-    d: "Sviluppiamo e colleghiamo ogni elemento intorno al modo in cui lavori.",
     img: metodoCuciamo,
     alt: "Ago e filo luminoso che cuciono un'interfaccia digitale su un manichino",
->>>>>>> origin/main
   },
   {
     n: "04",
     t: "Evolviamo",
-<<<<<<< HEAD
     d: "Dopo la consegna restiamo al tuo fianco e il sistema cresce con la tua attività.",
-=======
-    d: "Il sistema non si ferma alla consegna: cresce insieme alla tua attività.",
     img: metodoEvolviamo,
     alt: "Nuovi moduli (profilo, calendario, notifica) collegati dal filo all'interfaccia principale",
->>>>>>> origin/main
   },
 ];
 

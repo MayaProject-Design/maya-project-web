@@ -155,13 +155,8 @@ function Index() {
               <br className="hidden sm:block" /> intorno al{" "}
               <span className="text-primary">tuo brand.</span>
             </h1>
-<<<<<<< HEAD
-            <p className="mx-auto mt-5 max-w-[760px] font-sans text-sm leading-[1.85] text-muted-foreground md:mt-5 md:text-lg">
-              Siti, app e collegamenti fatti su misura, così i tuoi clienti ti trovano, prenotano e tornano da te.
-=======
             <p className="mx-auto mt-5 max-w-[760px] font-sans text-sm leading-[1.85] text-muted-foreground md:mt-5 md:text-lg lg:mx-0">
-              Siti web, applicazioni e sistemi connessi, progettati su misura per la tua attività.
->>>>>>> origin/main
+              Siti, app e collegamenti fatti su misura, così i tuoi clienti ti trovano, prenotano e tornano da te.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:mt-7 lg:justify-start">
               <Button
