@@ -129,7 +129,7 @@ function HeroMedia() {
 function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <section className="relative isolate flex min-h-svh flex-col overflow-hidden border-b border-border bg-background max-md:min-h-[min(710px,80svh)]">
+      <section className="relative isolate flex min-h-svh flex-col overflow-hidden border-b border-border bg-background">
         <HeroMedia />
         <div
           aria-hidden="true"
