@@ -143,7 +143,7 @@ function Index() {
 
         <div
           id="inizio"
-          className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col items-center justify-center px-6 pb-16 pt-2 text-center md:px-12 md:pb-10 lg:items-start lg:text-left lg:px-16"
+          className="hero-block mx-auto flex w-full max-w-[1600px] flex-1 flex-col items-center justify-center px-6 pb-16 pt-2 text-center md:px-12 md:pb-10 lg:items-start lg:text-left lg:px-16"
         >
           <p className="reveal-in font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary md:text-xs">
             Studio digitale indipendente <span className="mx-2 text-muted-foreground">/</span>{" "}

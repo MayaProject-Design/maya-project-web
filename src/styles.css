@@ -452,3 +452,11 @@
     animation: none !important;
   }
 }
+
+/* Hero su telefono in orizzontale: stringe i margini così il blocco sta nella finestra e il filo cade sul bordo */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-block { padding-bottom: 0.5rem; }
+  .hero-block > div { margin-top: 0.75rem; }
+  .hero-block > div > p { margin-top: 0.75rem; }
+  .hero-block > div > div { margin-top: 1rem; }
+}
