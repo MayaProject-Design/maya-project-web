@@ -460,3 +460,14 @@
   .hero-block > div > p { margin-top: 0.75rem; }
   .hero-block > div > div { margin-top: 1rem; }
 }
+
+/* Hero su telefono in orizzontale con poco spazio (Safari con barre): meno margini e titolo più piccolo, così il filo cade sul bordo */
+@media (max-height: 420px) and (orientation: landscape) {
+  .hero-block > p { display: none; }
+  .hero-block > div { margin-top: 0; }
+  .hero-block > div h1 { font-size: 1.75rem; line-height: 1.1; }
+  .hero-block > div > p { font-size: 0.8125rem; line-height: 1.5; margin-top: 0.5rem; }
+  .hero-block > div > div { margin-top: 0.75rem; }
+  section:has(> .hero-block) > header { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  .hero-block + div { padding-bottom: 0.5rem; }
+}
