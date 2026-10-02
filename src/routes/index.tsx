@@ -78,20 +78,15 @@ const HERO_VIDEO = "/media/maya-hero.mp4";
 const HERO_POSTER = "/media/maya-hero-poster.webp";
 
 /* Sfondo dell'hero: l'immagine fissa c'è sempre (anche su mobile e con "riduci animazioni"),
-   il video parte solo da tablet in su e se l'utente non ha chiesto meno movimento. */
+   il video parte (anche su mobile, pesa 660 KB) se l'utente non ha chiesto meno movimento. */
 function HeroMedia() {
   const [playVideo, setPlayVideo] = useState(false);
   useEffect(() => {
-    const wide = window.matchMedia("(min-width: 768px)");
     const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setPlayVideo(wide.matches && !calm.matches);
+    const update = () => setPlayVideo(!calm.matches);
     update();
-    wide.addEventListener("change", update);
     calm.addEventListener("change", update);
-    return () => {
-      wide.removeEventListener("change", update);
-      calm.removeEventListener("change", update);
-    };
+    return () => calm.removeEventListener("change", update);
   }, []);
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20 overflow-hidden">
@@ -115,7 +110,7 @@ function HeroMedia() {
           preload="metadata"
           disablePictureInPicture
           tabIndex={-1}
-          className="absolute inset-0 h-full w-full object-cover object-right"
+          className="absolute inset-0 h-full w-full object-cover object-[75%_center] md:object-right"
         />
       )}
       {/* Schermo scuro per tenere leggibile il testo: uniforme su mobile, da sinistra su desktop */}
