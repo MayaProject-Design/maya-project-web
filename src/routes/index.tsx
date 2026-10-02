@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowUpRight, MoveDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -73,10 +74,63 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const HERO_VIDEO = "/media/maya-hero.mp4";
+const HERO_POSTER = "/media/maya-hero-poster.webp";
+
+/* Sfondo dell'hero: l'immagine fissa c'è sempre (anche su mobile e con "riduci animazioni"),
+   il video parte (anche su mobile, pesa 660 KB) se l'utente non ha chiesto meno movimento. */
+function HeroMedia() {
+  const [playVideo, setPlayVideo] = useState(false);
+  useEffect(() => {
+    const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setPlayVideo(!calm.matches);
+    update();
+    calm.addEventListener("change", update);
+    return () => calm.removeEventListener("change", update);
+  }, []);
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20 overflow-hidden">
+      <img
+        src={HERO_POSTER}
+        alt=""
+        width={1600}
+        height={900}
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover object-[75%_center] md:object-right"
+      />
+      {playVideo && (
+        <video
+          src={HERO_VIDEO}
+          poster={HERO_POSTER}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          disablePictureInPicture
+          tabIndex={-1}
+          className="absolute inset-0 h-full w-full object-cover object-[75%_center] md:object-right"
+        />
+      )}
+      {/* Schermo scuro per tenere leggibile il testo: uniforme su mobile, da sinistra su desktop */}
+      <div className="absolute inset-0 bg-background/60 lg:hidden" />
+      <div
+        className="absolute inset-0 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(90deg, var(--background) 0%, color-mix(in oklab, var(--background) 72%, transparent) 34%, transparent 68%)",
+        }}
+      />
+    </div>
+  );
+}
+
 function Index() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="relative isolate flex min-h-svh flex-col overflow-hidden border-b border-border bg-background max-md:min-h-[min(710px,80svh)]">
+        <HeroMedia />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 hero-ambient [animation:none]"
@@ -89,22 +143,27 @@ function Index() {
 
         <div
           id="inizio"
-          className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col items-center justify-center px-6 pb-16 pt-2 text-center md:px-12 md:pb-10 lg:px-16"
+          className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col items-center justify-center px-6 pb-16 pt-2 text-center md:px-12 md:pb-10 lg:items-start lg:text-left lg:px-16"
         >
           <p className="reveal-in font-sans text-base md:text-lg font-semibold tracking-[-0.01em] text-primary md:text-xs">
             Studio digitale indipendente <span className="mx-2 text-muted-foreground">/</span>{" "}
             Italia
           </p>
-          <div className="reveal-in mt-8 max-w-[1180px] [animation-delay:210ms]">
-            <h1 className="font-display text-[clamp(2.15rem,4.6vw,5.25rem)] font-semibold tracking-[-0.02em] leading-[1.08] text-foreground">
+          <div className="reveal-in mt-8 max-w-[1180px] [animation-delay:210ms] lg:max-w-[760px]">
+            <h1 className="font-display text-[clamp(2.15rem,4.6vw,5.25rem)] font-semibold tracking-[-0.02em] leading-[1.08] text-foreground lg:text-[clamp(2.15rem,3.9vw,4.4rem)]">
               Cuciamo il digitale
               <br className="hidden sm:block" /> intorno al{" "}
               <span className="text-primary">tuo brand.</span>
             </h1>
+<<<<<<< HEAD
             <p className="mx-auto mt-5 max-w-[760px] font-sans text-sm leading-[1.85] text-muted-foreground md:mt-5 md:text-lg">
               Siti, app e collegamenti fatti su misura, così i tuoi clienti ti trovano, prenotano e tornano da te.
+=======
+            <p className="mx-auto mt-5 max-w-[760px] font-sans text-sm leading-[1.85] text-muted-foreground md:mt-5 md:text-lg lg:mx-0">
+              Siti web, applicazioni e sistemi connessi, progettati su misura per la tua attività.
+>>>>>>> origin/main
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:mt-7">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:mt-7 lg:justify-start">
               <Button
                 asChild
                 variant="maya"

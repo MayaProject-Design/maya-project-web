@@ -7,6 +7,10 @@ import barber from "@/assets/concept-barber.jpg";
 import medical from "@/assets/concept-medical.jpg";
 import beauty from "@/assets/concept-beauty.jpg";
 import corporate from "@/assets/concept-corporate.jpg";
+import metodoAnalizziamo from "@/assets/metodo-1-analizziamo.webp";
+import metodoProgettiamo from "@/assets/metodo-2-progettiamo.webp";
+import metodoCuciamo from "@/assets/metodo-3-cuciamo.webp";
+import metodoEvolviamo from "@/assets/metodo-4-evolviamo.webp";
 import { LegalLinks } from "./legal-links";
 
 const EASE = "cubic-bezier(.45,0,.55,1)";
@@ -237,22 +241,46 @@ const STEPS = [
   {
     n: "01",
     t: "Analizziamo",
+<<<<<<< HEAD
     d: "Capiamo come lavori, chi sono i tuoi clienti e cosa vuoi ottenere.",
+=======
+    d: "Studiamo la tua attività, i tuoi clienti e gli obiettivi da raggiungere.",
+    img: metodoAnalizziamo,
+    alt: "Metro da sarta e gesso su tessuto scuro, con linee luminose di misura",
+>>>>>>> origin/main
   },
   {
     n: "02",
     t: "Progettiamo",
+<<<<<<< HEAD
     d: "Disegniamo la soluzione giusta per te, prima di costruire qualsiasi cosa.",
+=======
+    d: "Trasformiamo le esigenze in una soluzione digitale concreta e su misura.",
+    img: metodoProgettiamo,
+    alt: "Cartamodello fissato con spilli su tessuto scuro, con il disegno di un'interfaccia",
+>>>>>>> origin/main
   },
   {
     n: "03",
     t: "Cuciamo",
+<<<<<<< HEAD
     d: "Costruiamo e colleghiamo tutto, partendo dagli strumenti che usi già.",
+=======
+    d: "Sviluppiamo e colleghiamo ogni elemento intorno al modo in cui lavori.",
+    img: metodoCuciamo,
+    alt: "Ago e filo luminoso che cuciono un'interfaccia digitale su un manichino",
+>>>>>>> origin/main
   },
   {
     n: "04",
     t: "Evolviamo",
+<<<<<<< HEAD
     d: "Dopo la consegna restiamo al tuo fianco e il sistema cresce con la tua attività.",
+=======
+    d: "Il sistema non si ferma alla consegna: cresce insieme alla tua attività.",
+    img: metodoEvolviamo,
+    alt: "Nuovi moduli (profilo, calendario, notifica) collegati dal filo all'interfaccia principale",
+>>>>>>> origin/main
   },
 ];
 
@@ -266,14 +294,25 @@ export function MetodoSection() {
         </h2>
         <ol className="mt-16 grid gap-5 md:mt-20 md:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s) => (
-            <li key={s.n} className="rounded-[28px] bg-card p-8 md:p-9">
-              <span className="font-display text-sm text-primary">{s.n}</span>
-              <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">
-                {s.t}
-              </h3>
-              <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">
-                {s.d}
-              </p>
+            <li key={s.n} className="overflow-hidden rounded-[28px] bg-card">
+              <img
+                src={s.img}
+                alt={s.alt}
+                width={1600}
+                height={905}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[16/10] w-full object-cover"
+              />
+              <div className="p-8 md:p-9">
+                <span className="font-display text-sm text-primary">{s.n}</span>
+                <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.7rem]">
+                  {s.t}
+                </h3>
+                <p className="mt-4 max-w-sm text-base leading-[1.9] text-muted-foreground md:text-[17px]">
+                  {s.d}
+                </p>
+              </div>
             </li>
           ))}
         </ol>
