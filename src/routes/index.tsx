@@ -156,7 +156,7 @@ function Index() {
               <span className="text-primary">tuo brand.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-[760px] font-sans text-sm leading-[1.85] text-muted-foreground md:mt-5 md:text-lg lg:mx-0">
-              Siti, app e collegamenti fatti su misura, così i tuoi clienti ti trovano, prenotano e tornano da te.
+              Siti, app e collegamenti fatti su misura. I tuoi clienti ti trovano, prenotano, tornano da te.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:mt-7 lg:justify-start">
               <Button
