@@ -28,7 +28,7 @@ export const Route = createFileRoute("/contatti")({
 function ContattiPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <section className="relative isolate overflow-hidden border-b border-border">
+      <section className="relative isolate flex min-h-svh flex-col overflow-hidden border-b border-border">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 hero-ambient [animation:none]"
@@ -38,7 +38,7 @@ function ContattiPage() {
           className="pointer-events-none absolute inset-0 -z-10 hero-vignette"
         />
         <SiteHeader />
-        <div className="mx-auto max-w-[1390px] px-6 pb-20 pt-12 md:px-12 md:pb-28 md:pt-16 lg:px-16 lg:pb-32">
+        <div className="mx-auto flex w-full max-w-[1390px] flex-1 flex-col justify-center px-6 pb-20 pt-12 md:px-12 md:pb-28 md:pt-16 lg:px-16 lg:pb-32">
           <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
             CONTATTI
           </p>
