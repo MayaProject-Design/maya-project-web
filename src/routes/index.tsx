@@ -17,7 +17,7 @@ const SITE = "https://maya-project.it/";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Maya Project — Cuciamo il digitale intorno al tuo brand" },
+      { title: "Maya Project — Cuciamo la tua attività su un ecosistema digitale" },
       {
         name: "description",
         content:
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "Maya Project — Cuciamo il digitale intorno al tuo brand",
+        content: "Maya Project — Cuciamo la tua attività su un ecosistema digitale",
       },
       {
         property: "og:description",
