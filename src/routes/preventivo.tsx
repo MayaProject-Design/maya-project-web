@@ -51,7 +51,7 @@ function PreventivoPage() {
             </p>
           </div>
           <p className="reveal-in border-l border-primary pl-4 text-sm font-semibold text-muted-foreground [animation-delay:300ms] lg:mb-2 lg:whitespace-nowrap">
-            <span className="text-primary">3 PASSAGGI</span> · CIRCA 2 MINUTI
+            <span className="text-primary">UN SOLO MODULO</span> · CIRCA 2 MINUTI
           </p>
         </div>
         <div
@@ -60,7 +60,7 @@ function PreventivoPage() {
         />
       </section>
 
-      <section className="px-6 py-16 md:px-12 md:py-24 lg:px-16">
+      <section className="px-6 py-12 md:px-12 md:py-16 lg:px-16">
         <QuoteForm />
       </section>
       <footer className="px-6 pb-14 md:px-12 lg:px-16">

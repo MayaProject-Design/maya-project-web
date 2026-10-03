@@ -1,8 +1,6 @@
 import { useRef, useState, type FormEvent } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check } from "lucide-react";
-
-type Step = 0 | 1 | 2;
+import { ArrowRight } from "lucide-react";
 
 type QuoteValues = {
   projectType: string;
@@ -36,7 +34,6 @@ const BUDGETS = [
   "Oltre €5.000",
   "Da definire",
 ];
-const STEPS = ["Progetto", "Dettagli", "Contatti"];
 
 const INITIAL_VALUES: QuoteValues = {
   projectType: "",
@@ -54,43 +51,13 @@ const INITIAL_VALUES: QuoteValues = {
 };
 
 const CONTROL_CLASS =
-  "mt-2 w-full border-b border-border bg-transparent px-0 py-3 text-base text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70";
+  "mt-2 w-full border-b border-border bg-transparent px-0 py-2.5 text-base text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70";
 
-function Progress({ activeStep }: { activeStep: Step }) {
+function GroupLabel({ index, children }: { index: string; children: React.ReactNode }) {
   return (
-    <nav aria-label="Avanzamento richiesta preventivo" className="relative">
-      <div
-        aria-hidden="true"
-        className="absolute left-[8%] right-[8%] top-[9px] h-px thread-line opacity-50"
-      />
-      <ol className="relative grid grid-cols-3 gap-2">
-        {STEPS.map((label, index) => {
-          const current = index === activeStep;
-          const complete = index < activeStep;
-          return (
-            <li
-              key={label}
-              aria-current={current ? "step" : undefined}
-              className="flex flex-col items-center gap-2 text-center"
-            >
-              <span
-                className={`flex size-[19px] items-center justify-center rounded-full border bg-background ${current || complete ? "border-primary" : "border-border"}`}
-              >
-                <span
-                  className={`size-1.5 rounded-full ${current || complete ? "bg-primary" : "bg-muted-foreground/40"}`}
-                />
-              </span>
-              <span
-                className={`text-sm font-semibold sm:text-xs ${current ? "text-foreground" : "text-muted-foreground"}`}
-              >
-                <span className={current || complete ? "text-primary" : ""}>0{index + 1}</span> —{" "}
-                {label}
-              </span>
-            </li>
-          );
-        })}
-      </ol>
-    </nav>
+    <p className="font-sans text-sm font-semibold tracking-[-0.01em] text-primary">
+      <span>{index}</span> / {children}
+    </p>
   );
 }
 
@@ -105,13 +72,12 @@ function FieldError({ id, message }: { id: string; message?: string | undefined 
 
 export function QuoteForm() {
   const navigate = useNavigate();
-  const [step, setStep] = useState<Step>(0);
   const [values, setValues] = useState<QuoteValues>(INITIAL_VALUES);
   const [errors, setErrors] = useState<Partial<Record<keyof QuoteValues, string>>>({});
-  const [reviewing, setReviewing] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const submissionInFlight = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   function updateField<Key extends keyof QuoteValues>(field: Key, value: QuoteValues[Key]) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -122,58 +88,39 @@ export function QuoteForm() {
     });
   }
 
-  function validateCurrentStep() {
+  function validateAll() {
     const nextErrors: Partial<Record<keyof QuoteValues, string>> = {};
-
-    if (step === 0 && !values.projectType) {
-      nextErrors.projectType = "Seleziona da dove vuoi partire.";
+    if (!values.projectType) nextErrors.projectType = "Seleziona da dove vuoi partire.";
+    if (!values.activity.trim()) nextErrors.activity = "Indica di cosa si occupa la tua attività.";
+    if (!values.goals.trim()) nextErrors.goals = "Descrivi cosa vorresti migliorare o realizzare.";
+    if (!values.digitalTools) nextErrors.digitalTools = "Seleziona una risposta.";
+    if (!values.timeline) nextErrors.timeline = "Seleziona quando vorresti iniziare.";
+    if (!values.name.trim()) nextErrors.name = "Inserisci nome e cognome.";
+    if (!values.email.trim()) {
+      nextErrors.email = "Inserisci un indirizzo email.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+      nextErrors.email = "Controlla il formato dell'indirizzo email.";
     }
-
-    if (step === 1) {
-      if (!values.activity.trim())
-        nextErrors.activity = "Indica di cosa si occupa la tua attività.";
-      if (!values.goals.trim())
-        nextErrors.goals = "Descrivi cosa vorresti migliorare o realizzare.";
-      if (!values.digitalTools) nextErrors.digitalTools = "Seleziona una risposta.";
-      if (!values.timeline) nextErrors.timeline = "Seleziona quando vorresti iniziare.";
-    }
-
-    if (step === 2) {
-      if (!values.name.trim()) nextErrors.name = "Inserisci nome e cognome.";
-      if (!values.email.trim()) {
-        nextErrors.email = "Inserisci un indirizzo email.";
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-        nextErrors.email = "Controlla il formato dell'indirizzo email.";
-      }
-      if (!values.privacy) nextErrors.privacy = "Per proseguire è necessario il consenso privacy.";
-    }
-
+    if (!values.privacy) nextErrors.privacy = "Per proseguire è necessario il consenso privacy.";
     setErrors(nextErrors);
-    return Object.keys(nextErrors).length === 0;
+    return nextErrors;
   }
 
-  function handleContinue(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (reviewing || submitting || !validateCurrentStep()) return;
-    if (step < 2) {
-      setStep((current) => (current + 1) as Step);
-    } else {
-      setReviewing(true);
-    }
-  }
+    if (submitting || submissionInFlight.current) return;
 
-  function handleBack() {
-    setErrors({});
-    setSubmitError("");
-    if (reviewing) {
-      setReviewing(false);
-    } else if (step > 0) {
-      setStep((current) => (current - 1) as Step);
+    const nextErrors = validateAll();
+    if (Object.keys(nextErrors).length > 0) {
+      // Porta il primo campo con errore in vista.
+      window.requestAnimationFrame(() => {
+        const firstInvalid = formRef.current?.querySelector<HTMLElement>("[aria-invalid='true']");
+        firstInvalid?.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstInvalid?.focus?.();
+      });
+      return;
     }
-  }
 
-  async function handleSendRequest() {
-    if (!reviewing || submissionInFlight.current) return;
     submissionInFlight.current = true;
     setSubmitting(true);
     setSubmitError("");
@@ -208,383 +155,283 @@ export function QuoteForm() {
     }
   }
 
-  const selectedProject =
-    PROJECT_TYPES.find((project) => project.value === values.projectType)?.value ?? "";
-  const summaryRows = [
-    ["Progetto", selectedProject],
-    ["Attività", values.activity],
-    ["Obiettivo", values.goals],
-    ["Strumenti digitali", values.digitalTools],
-    ["Quando", values.timeline],
-    ["Budget indicativo", values.budget || "Non indicato"],
-    ["Nome", values.name],
-    ["Email", values.email],
-    ["Telefono", values.phone || "Non indicato"],
-    ["Nome attività", values.businessName || "Non indicato"],
-  ];
-
   return (
-    <div className="mx-auto w-full max-w-[960px]">
-      <Progress activeStep={step} />
-      <form
-        noValidate
-        onSubmit={handleContinue}
-        className="mt-10 border-t border-border pt-8 md:mt-14 md:pt-10"
-      >
-        {reviewing ? (
-          <section aria-labelledby="quote-review-title">
-            <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
-              RIEPILOGO
-            </p>
-            <h2
-              id="quote-review-title"
-              className="mt-4 font-display text-3xl font-semibold tracking-[-0.015em] leading-tight md:text-4xl"
+    <form
+      ref={formRef}
+      noValidate
+      onSubmit={handleSubmit}
+      className="mx-auto grid w-full max-w-[1100px] gap-10 md:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]"
+    >
+      {/* Colonna 1 — Progetto */}
+      <fieldset>
+        <GroupLabel index="01">PROGETTO</GroupLabel>
+        <legend className="sr-only">Seleziona il tipo di progetto</legend>
+        <h2 className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.6rem]">
+          Da dove vuoi partire?
+        </h2>
+        <div className="mt-5 grid gap-2.5">
+          {PROJECT_TYPES.map((project) => (
+            <label
+              key={project.value}
+              className={`flex cursor-pointer items-start gap-3 rounded-[18px] border p-3.5 transition-colors focus-within:ring-2 focus-within:ring-primary ${values.projectType === project.value ? "border-primary bg-primary/[0.04]" : "border-border hover:border-primary/50"}`}
             >
-              Il progetto è pronto per essere inviato.
-            </h2>
-            <dl className="mt-8 grid gap-x-12 md:grid-cols-2">
-              {summaryRows.map(([label, value]) => (
-                <div
-                  key={label}
-                  className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-4 border-t border-border py-4"
-                >
-                  <dt className="text-sm font-semibold text-muted-foreground">
-                    {label}
-                  </dt>
-                  <dd className="break-words text-sm leading-[1.7] text-foreground">{value}</dd>
-                </div>
-              ))}
-              <div className="grid grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] gap-4 border-t border-border py-4">
-                <dt className="text-sm font-semibold text-muted-foreground">
-                  Privacy
-                </dt>
-                <dd className="flex items-center gap-2 text-sm text-foreground">
-                  <Check aria-hidden="true" className="size-4 text-primary" /> Consenso registrato
-                </dd>
-              </div>
-            </dl>
-            <div className="mt-8 flex flex-col-reverse gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-              <button
-                type="button"
-                onClick={handleBack}
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-border px-6 text-xs font-bold uppercase tracking-[0.1em] text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              >
-                <ArrowLeft aria-hidden="true" className="size-4" /> Modifica i dati
-              </button>
-              <div className="flex flex-col gap-2 sm:items-end">
-                <button
-                  type="button"
-                  onClick={handleSendRequest}
-                  disabled={submitting}
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-xs font-bold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-wait disabled:opacity-50 sm:w-auto"
-                >
-                  {submitting ? "Invio in corso..." : "Invia la richiesta"}{" "}
-                  <ArrowRight aria-hidden="true" className="size-4" />
-                </button>
-                {submitError && (
-                  <p
-                    role="alert"
-                    className="max-w-sm text-center text-sm text-destructive sm:text-right"
+              <input
+                type="radio"
+                name="projectType"
+                value={project.value}
+                checked={values.projectType === project.value}
+                onChange={() => updateField("projectType", project.value)}
+                aria-invalid={Boolean(errors.projectType)}
+                aria-describedby={errors.projectType ? "projectType-error" : undefined}
+                className="mt-0.5 size-4 shrink-0 accent-primary"
+              />
+              <span>
+                <span className="block font-display text-[15px] font-semibold text-foreground">
+                  {project.value}
+                </span>
+                <span className="mt-0.5 block text-[13px] leading-relaxed text-muted-foreground">
+                  {project.description}
+                </span>
+              </span>
+            </label>
+          ))}
+        </div>
+        <FieldError id="projectType-error" message={errors.projectType} />
+      </fieldset>
+
+      {/* Colonna 2 — Dettagli + Contatti */}
+      <div className="grid gap-10">
+        <section aria-labelledby="quote-details-title">
+          <GroupLabel index="02">DETTAGLI</GroupLabel>
+          <h2
+            id="quote-details-title"
+            className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.6rem]"
+          >
+            Il tuo progetto
+          </h2>
+          <div className="mt-5 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+            <label className="block sm:col-span-2">
+              <span className="text-sm font-medium text-foreground">
+                Di cosa si occupa la tua attività? *
+              </span>
+              <textarea
+                value={values.activity}
+                onChange={(event) => updateField("activity", event.target.value)}
+                rows={2}
+                aria-invalid={Boolean(errors.activity)}
+                aria-describedby={errors.activity ? "activity-error" : undefined}
+                className={`${CONTROL_CLASS} resize-y`}
+              />
+              <FieldError id="activity-error" message={errors.activity} />
+            </label>
+            <label className="block sm:col-span-2">
+              <span className="text-sm font-medium text-foreground">
+                Cosa vorresti migliorare o realizzare? *
+              </span>
+              <textarea
+                value={values.goals}
+                onChange={(event) => updateField("goals", event.target.value)}
+                rows={2}
+                aria-invalid={Boolean(errors.goals)}
+                aria-describedby={errors.goals ? "goals-error" : undefined}
+                className={`${CONTROL_CLASS} resize-y`}
+              />
+              <FieldError id="goals-error" message={errors.goals} />
+            </label>
+            <fieldset className="sm:col-span-2">
+              <legend className="text-sm font-medium text-foreground">
+                Hai già un sito, un'app o strumenti digitali? *
+              </legend>
+              <div className="mt-2.5 flex flex-wrap gap-x-6 gap-y-2">
+                {DIGITAL_TOOLS.map((option) => (
+                  <label
+                    key={option}
+                    className="flex min-h-9 cursor-pointer items-center gap-2 text-sm text-foreground"
                   >
-                    {submitError}
-                  </p>
-                )}
+                    <input
+                      type="radio"
+                      name="digitalTools"
+                      value={option}
+                      checked={values.digitalTools === option}
+                      onChange={() => updateField("digitalTools", option)}
+                      aria-invalid={Boolean(errors.digitalTools)}
+                      aria-describedby={errors.digitalTools ? "digitalTools-error" : undefined}
+                      className="size-4 accent-primary"
+                    />
+                    {option}
+                  </label>
+                ))}
               </div>
-            </div>
-          </section>
-        ) : (
-          <>
-            {step === 0 && (
-              <section aria-labelledby="quote-project-title">
-                <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
-                  01 / PROGETTO
-                </p>
-                <h2
-                  id="quote-project-title"
-                  className="mt-4 font-display text-3xl font-semibold tracking-[-0.015em] md:text-4xl"
-                >
-                  Da dove vuoi partire?
-                </h2>
-                <fieldset className="mt-7">
-                  <legend className="sr-only">Seleziona il tipo di progetto</legend>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {PROJECT_TYPES.map((project) => (
-                      <label
-                        key={project.value}
-                        className={`flex min-h-[76px] cursor-pointer items-start gap-4 border p-4 transition-colors focus-within:ring-2 focus-within:ring-primary ${values.projectType === project.value ? "border-primary" : "border-border hover:border-primary/50"}`}
-                      >
-                        <input
-                          type="radio"
-                          name="projectType"
-                          value={project.value}
-                          checked={values.projectType === project.value}
-                          onChange={() => updateField("projectType", project.value)}
-                          aria-invalid={Boolean(errors.projectType)}
-                          aria-describedby={errors.projectType ? "projectType-error" : undefined}
-                          className="mt-1 size-4 shrink-0 accent-primary"
-                        />
-                        <span>
-                          <span className="block font-display text-base font-semibold text-foreground">
-                            {project.value}
-                          </span>
-                          <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
-                            {project.description}
-                          </span>
-                        </span>
-                      </label>
-                    ))}
-                  </div>
-                  <FieldError id="projectType-error" message={errors.projectType} />
-                </fieldset>
-              </section>
-            )}
-
-            {step === 1 && (
-              <section aria-labelledby="quote-details-title">
-                <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
-                  02 / DETTAGLI
-                </p>
-                <h2
-                  id="quote-details-title"
-                  className="mt-4 font-display text-3xl font-semibold tracking-[-0.015em] md:text-4xl"
-                >
-                  Il tuo progetto
-                </h2>
-                <div className="mt-7 grid gap-x-12 gap-y-7 md:grid-cols-2">
-                  <label className="block md:col-span-2">
-                    <span className="text-sm font-medium text-foreground">
-                      Di cosa si occupa la tua attività? *
-                    </span>
-                    <textarea
-                      value={values.activity}
-                      onChange={(event) => updateField("activity", event.target.value)}
-                      rows={2}
-                      aria-invalid={Boolean(errors.activity)}
-                      aria-describedby={errors.activity ? "activity-error" : undefined}
-                      className={`${CONTROL_CLASS} resize-y`}
-                    />
-                    <FieldError id="activity-error" message={errors.activity} />
-                  </label>
-                  <label className="block md:col-span-2">
-                    <span className="text-sm font-medium text-foreground">
-                      Cosa vorresti migliorare o realizzare? *
-                    </span>
-                    <textarea
-                      value={values.goals}
-                      onChange={(event) => updateField("goals", event.target.value)}
-                      rows={3}
-                      aria-invalid={Boolean(errors.goals)}
-                      aria-describedby={errors.goals ? "goals-error" : undefined}
-                      className={`${CONTROL_CLASS} resize-y`}
-                    />
-                    <FieldError id="goals-error" message={errors.goals} />
-                  </label>
-                  <fieldset>
-                    <legend className="text-sm font-medium text-foreground">
-                      Hai già un sito, un'app o strumenti digitali? *
-                    </legend>
-                    <div className="mt-3 flex flex-wrap gap-x-6 gap-y-3">
-                      {DIGITAL_TOOLS.map((option) => (
-                        <label
-                          key={option}
-                          className="flex min-h-10 cursor-pointer items-center gap-2 text-sm text-foreground"
-                        >
-                          <input
-                            type="radio"
-                            name="digitalTools"
-                            value={option}
-                            checked={values.digitalTools === option}
-                            onChange={() => updateField("digitalTools", option)}
-                            aria-invalid={Boolean(errors.digitalTools)}
-                            aria-describedby={
-                              errors.digitalTools ? "digitalTools-error" : undefined
-                            }
-                            className="size-4 accent-primary"
-                          />
-                          {option}
-                        </label>
-                      ))}
-                    </div>
-                    <FieldError id="digitalTools-error" message={errors.digitalTools} />
-                  </fieldset>
-                  <label className="block">
-                    <span className="text-sm font-medium text-foreground">
-                      Quando vorresti iniziare? *
-                    </span>
-                    <select
-                      value={values.timeline}
-                      onChange={(event) => updateField("timeline", event.target.value)}
-                      aria-invalid={Boolean(errors.timeline)}
-                      aria-describedby={errors.timeline ? "timeline-error" : undefined}
-                      className={CONTROL_CLASS}
-                    >
-                      <option value="" className="bg-background">
-                        Seleziona un periodo
-                      </option>
-                      {TIMELINES.map((option) => (
-                        <option key={option} value={option} className="bg-background">
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                    <FieldError id="timeline-error" message={errors.timeline} />
-                  </label>
-                  <label className="block md:col-span-2">
-                    <span className="text-sm font-medium text-foreground">
-                      Budget indicativo <span className="text-muted-foreground">(opzionale)</span>
-                    </span>
-                    <select
-                      value={values.budget}
-                      onChange={(event) => updateField("budget", event.target.value)}
-                      className={CONTROL_CLASS}
-                    >
-                      <option value="" className="bg-background">
-                        Preferisco non indicarlo
-                      </option>
-                      {BUDGETS.map((option) => (
-                        <option key={option} value={option} className="bg-background">
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                </div>
-              </section>
-            )}
-
-            {step === 2 && (
-              <section aria-labelledby="quote-contact-title">
-                <p className="text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
-                  03 / CONTATTI
-                </p>
-                <h2
-                  id="quote-contact-title"
-                  className="mt-4 font-display text-3xl font-semibold tracking-[-0.015em] md:text-4xl"
-                >
-                  Dove possiamo ricontattarti?
-                </h2>
-                <div className="mt-7 grid gap-x-12 gap-y-6 md:grid-cols-2">
-                  <label className="block">
-                    <span className="text-sm font-medium text-foreground">Nome e cognome *</span>
-                    <input
-                      type="text"
-                      autoComplete="name"
-                      value={values.name}
-                      onChange={(event) => updateField("name", event.target.value)}
-                      aria-invalid={Boolean(errors.name)}
-                      aria-describedby={errors.name ? "name-error" : undefined}
-                      className={CONTROL_CLASS}
-                    />
-                    <FieldError id="name-error" message={errors.name} />
-                  </label>
-                  <label className="block">
-                    <span className="text-sm font-medium text-foreground">Email *</span>
-                    <input
-                      type="email"
-                      autoComplete="email"
-                      value={values.email}
-                      onChange={(event) => updateField("email", event.target.value)}
-                      aria-invalid={Boolean(errors.email)}
-                      aria-describedby={errors.email ? "email-error" : undefined}
-                      className={CONTROL_CLASS}
-                    />
-                    <FieldError id="email-error" message={errors.email} />
-                  </label>
-                  <label className="block">
-                    <span className="text-sm font-medium text-foreground">Telefono</span>
-                    <input
-                      type="tel"
-                      autoComplete="tel"
-                      value={values.phone}
-                      onChange={(event) => updateField("phone", event.target.value)}
-                      className={CONTROL_CLASS}
-                    />
-                  </label>
-                  <label className="block">
-                    <span className="text-sm font-medium text-foreground">Nome attività</span>
-                    <input
-                      type="text"
-                      autoComplete="organization"
-                      value={values.businessName}
-                      onChange={(event) => updateField("businessName", event.target.value)}
-                      className={CONTROL_CLASS}
-                    />
-                  </label>
-                </div>
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -left-[10000px] top-auto h-px w-px overflow-hidden opacity-0"
-                >
-                  <label htmlFor="quote-website">Website</label>
-                  <input
-                    id="quote-website"
-                    name="website"
-                    type="text"
-                    autoComplete="off"
-                    tabIndex={-1}
-                    value={values.website}
-                    onChange={(event) => updateField("website", event.target.value)}
-                  />
-                </div>
-                {/* Il rimando all'informativa sta fuori dalla label: un link
-                    annidato dentro una label fa scattare anche la spunta. */}
-                <div className="mt-8 border-t border-border pt-5">
-                  <label className="flex cursor-pointer items-start gap-3 text-sm leading-[1.7] text-muted-foreground">
-                    <input
-                      type="checkbox"
-                      checked={values.privacy}
-                      onChange={(event) => updateField("privacy", event.target.checked)}
-                      aria-invalid={Boolean(errors.privacy)}
-                      aria-describedby={
-                        errors.privacy ? "privacy-error privacy-note" : "privacy-note"
-                      }
-                      className="mt-1 size-4 shrink-0 accent-primary"
-                    />
-                    <span>
-                      Ho letto l'informativa privacy e acconsento al trattamento dei dati
-                      necessari per essere ricontattato. *
-                    </span>
-                  </label>
-                  <p id="privacy-note" className="mt-3 pl-7 text-xs leading-[1.7] text-muted-foreground/80">
-                    Usiamo questi dati solo per risponderti.{" "}
-                    <Link
-                      to="/privacy-policy"
-                      target="_blank"
-                      rel="noopener"
-                      className="text-foreground underline underline-offset-4 transition-colors hover:text-primary"
-                    >
-                      Leggi l'informativa
-                    </Link>
-                    .
-                  </p>
-                </div>
-                <FieldError id="privacy-error" message={errors.privacy} />
-              </section>
-            )}
-
-            <div className="mt-9 flex flex-col-reverse gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-              {step > 0 ? (
-                <button
-                  type="button"
-                  onClick={handleBack}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-border px-6 text-xs font-bold uppercase tracking-[0.1em] text-foreground transition-colors hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                >
-                  <ArrowLeft aria-hidden="true" className="size-4" /> Indietro
-                </button>
-              ) : (
-                <span />
-              )}
-              <button
-                type="submit"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-7 text-xs font-bold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
+              <FieldError id="digitalTools-error" message={errors.digitalTools} />
+            </fieldset>
+            <label className="block">
+              <span className="text-sm font-medium text-foreground">Quando vorresti iniziare? *</span>
+              <select
+                value={values.timeline}
+                onChange={(event) => updateField("timeline", event.target.value)}
+                aria-invalid={Boolean(errors.timeline)}
+                aria-describedby={errors.timeline ? "timeline-error" : undefined}
+                className={CONTROL_CLASS}
               >
-                {step === 2 ? "Prepara riepilogo" : "Continua"}
-                <ArrowRight aria-hidden="true" className="size-4" />
-              </button>
-            </div>
-          </>
-        )}
-      </form>
-    </div>
+                <option value="" className="bg-background">
+                  Seleziona un periodo
+                </option>
+                {TIMELINES.map((option) => (
+                  <option key={option} value={option} className="bg-background">
+                    {option}
+                  </option>
+                ))}
+              </select>
+              <FieldError id="timeline-error" message={errors.timeline} />
+            </label>
+            <label className="block">
+              <span className="text-sm font-medium text-foreground">
+                Budget <span className="text-muted-foreground">(opzionale)</span>
+              </span>
+              <select
+                value={values.budget}
+                onChange={(event) => updateField("budget", event.target.value)}
+                className={CONTROL_CLASS}
+              >
+                <option value="" className="bg-background">
+                  Preferisco non indicarlo
+                </option>
+                {BUDGETS.map((option) => (
+                  <option key={option} value={option} className="bg-background">
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <section aria-labelledby="quote-contact-title" className="border-t border-border pt-8">
+          <GroupLabel index="03">CONTATTI</GroupLabel>
+          <h2
+            id="quote-contact-title"
+            className="mt-3 font-display text-2xl font-semibold tracking-[-0.015em] md:text-[1.6rem]"
+          >
+            Dove possiamo ricontattarti?
+          </h2>
+          <div className="mt-5 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+            <label className="block">
+              <span className="text-sm font-medium text-foreground">Nome e cognome *</span>
+              <input
+                type="text"
+                autoComplete="name"
+                value={values.name}
+                onChange={(event) => updateField("name", event.target.value)}
+                aria-invalid={Boolean(errors.name)}
+                aria-describedby={errors.name ? "name-error" : undefined}
+                className={CONTROL_CLASS}
+              />
+              <FieldError id="name-error" message={errors.name} />
+            </label>
+            <label className="block">
+              <span className="text-sm font-medium text-foreground">Email *</span>
+              <input
+                type="email"
+                autoComplete="email"
+                value={values.email}
+                onChange={(event) => updateField("email", event.target.value)}
+                aria-invalid={Boolean(errors.email)}
+                aria-describedby={errors.email ? "email-error" : undefined}
+                className={CONTROL_CLASS}
+              />
+              <FieldError id="email-error" message={errors.email} />
+            </label>
+            <label className="block">
+              <span className="text-sm font-medium text-foreground">Telefono</span>
+              <input
+                type="tel"
+                autoComplete="tel"
+                value={values.phone}
+                onChange={(event) => updateField("phone", event.target.value)}
+                className={CONTROL_CLASS}
+              />
+            </label>
+            <label className="block">
+              <span className="text-sm font-medium text-foreground">Nome attività</span>
+              <input
+                type="text"
+                autoComplete="organization"
+                value={values.businessName}
+                onChange={(event) => updateField("businessName", event.target.value)}
+                className={CONTROL_CLASS}
+              />
+            </label>
+          </div>
+
+          {/* Honeypot anti-spam: invisibile, fuori dal flusso. */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-[10000px] top-auto h-px w-px overflow-hidden opacity-0"
+          >
+            <label htmlFor="quote-website">Website</label>
+            <input
+              id="quote-website"
+              name="website"
+              type="text"
+              autoComplete="off"
+              tabIndex={-1}
+              value={values.website}
+              onChange={(event) => updateField("website", event.target.value)}
+            />
+          </div>
+
+          {/* Il rimando all'informativa sta fuori dalla label: un link
+              annidato dentro una label fa scattare anche la spunta. */}
+          <div className="mt-6">
+            <label className="flex cursor-pointer items-start gap-3 text-sm leading-[1.7] text-muted-foreground">
+              <input
+                type="checkbox"
+                checked={values.privacy}
+                onChange={(event) => updateField("privacy", event.target.checked)}
+                aria-invalid={Boolean(errors.privacy)}
+                aria-describedby={errors.privacy ? "privacy-error privacy-note" : "privacy-note"}
+                className="mt-1 size-4 shrink-0 accent-primary"
+              />
+              <span>
+                Ho letto l'informativa privacy e acconsento al trattamento dei dati necessari per
+                essere ricontattato. *
+              </span>
+            </label>
+            <p id="privacy-note" className="mt-2 pl-7 text-xs leading-[1.7] text-muted-foreground/80">
+              Usiamo questi dati solo per risponderti.{" "}
+              <Link
+                to="/privacy-policy"
+                target="_blank"
+                rel="noopener"
+                className="text-foreground underline underline-offset-4 transition-colors hover:text-primary"
+              >
+                Leggi l'informativa
+              </Link>
+              .
+            </p>
+            <FieldError id="privacy-error" message={errors.privacy} />
+          </div>
+
+          <div className="mt-8 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-muted-foreground">
+              Ti ricontattiamo con una proposta pensata per il tuo progetto.
+            </p>
+            <button
+              type="submit"
+              disabled={submitting}
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-7 text-xs font-bold uppercase tracking-[0.1em] text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-wait disabled:opacity-50 sm:w-auto sm:shrink-0"
+            >
+              {submitting ? "Invio in corso..." : "Invia la richiesta"}
+              <ArrowRight aria-hidden="true" className="size-4" />
+            </button>
+          </div>
+          {submitError && (
+            <p role="alert" className="mt-3 text-sm text-destructive sm:text-right">
+              {submitError}
+            </p>
+          )}
+        </section>
+      </div>
+    </form>
   );
 }
