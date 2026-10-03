@@ -93,12 +93,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      /* ?v=3: il file ha lo stesso nome del vecchio logo e i browser tengono
+      /* ?v=4: il file ha lo stesso nome del vecchio logo e i browser tengono
          in cache le icone a lungo. La query forza il ricaricamento. */
-      { rel: "icon", href: "/favicon.ico?v=3", sizes: "48x48" },
-      { rel: "icon", href: "/favicon.png?v=3", type: "image/png", sizes: "64x64" },
-      { rel: "icon", href: "/favicon-512.png?v=3", type: "image/png", sizes: "512x512" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png?v=3", sizes: "180x180" },
+      { rel: "icon", href: "/favicon.ico?v=4", sizes: "48x48" },
+      { rel: "icon", href: "/favicon.png?v=4", type: "image/png", sizes: "64x64" },
+      { rel: "icon", href: "/favicon-512.png?v=4", type: "image/png", sizes: "512x512" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png?v=4", sizes: "180x180" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
