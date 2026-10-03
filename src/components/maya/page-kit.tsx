@@ -68,7 +68,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
         <Button
           asChild
           variant="link"
-          className="group h-auto shrink-0 rounded-none border-b border-border p-0 pb-1 font-sans text-[10px] font-semibold uppercase text-foreground no-underline hover:border-primary hover:text-primary hover:no-underline xl:text-[11px]"
+          className="group h-auto shrink-0 rounded-none border-b border-border px-0 py-1 font-sans text-[10px] font-semibold uppercase leading-none text-foreground no-underline hover:border-primary hover:text-primary hover:no-underline xl:text-[11px]"
         >
           <Link to={QUOTE}>
             INIZIA UN PROGETTO{" "}
