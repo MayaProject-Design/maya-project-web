@@ -2,10 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { AppPhone, AppShowcase } from "@/components/maya/app-showcase";
+import { AppShowcase } from "@/components/maya/app-showcase";
 import {
   Closing,
   EcosystemNav,
+  HeroMedia,
   QUOTE,
   Section,
   SiteHeader,
@@ -80,6 +81,11 @@ function MayaAppPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="relative isolate flex min-h-[min(800px,94svh)] flex-col overflow-hidden border-b border-border bg-background max-md:min-h-[min(710px,80svh)]">
+        <HeroMedia
+          kind="image"
+          src="/media/maya-app-hero.webp"
+          position="object-[72%_center] md:object-right"
+        />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 hero-ambient [animation:none]"
@@ -89,7 +95,7 @@ function MayaAppPage() {
           className="pointer-events-none absolute inset-0 -z-10 hero-vignette"
         />
         <SiteHeader />
-        <div className="mx-auto grid w-full max-w-[1390px] flex-1 items-center gap-12 px-6 pb-16 pt-10 md:px-12 md:pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(290px,0.9fr)] lg:gap-14 lg:px-16 lg:py-12">
+        <div className="mx-auto flex w-full max-w-[1390px] flex-1 flex-col justify-center px-6 pb-16 pt-10 md:px-12 md:pb-20 lg:px-16 lg:py-12">
           <div className="max-w-2xl">
             <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
               MAYA APP
@@ -122,9 +128,6 @@ function MayaAppPage() {
                 </a>
               </Button>
             </div>
-          </div>
-          <div className="reveal-in relative mx-auto w-full max-w-[350px] [animation-delay:180ms] lg:max-w-none">
-            <AppPhone screen="home" caption="ESEMPIO DI SCHERMATA" />
           </div>
         </div>
         <div

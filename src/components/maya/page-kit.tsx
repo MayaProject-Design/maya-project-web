@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThreadConnector } from "./sections";
@@ -132,19 +132,93 @@ export function Label({ children }: { children: React.ReactNode }) {
   );
 }
 
+/* Sfondo multimediale condiviso dagli hero delle pagine prodotto.
+   - kind "video": poster sempre presente + video in loop che parte solo se l'utente
+     non ha chiesto "riduci animazioni" (stesso comportamento dell'hero home).
+   - kind "image": immagine fissa con uno zoom lentissimo in CSS (fermo con "riduci animazioni").
+   Uno schermo scuro tiene il testo leggibile: uniforme su mobile, sfumato da sinistra su desktop. */
+export type HeroMediaProps =
+  | { kind: "video"; src: string; poster: string; position?: string }
+  | { kind: "image"; src: string; position?: string };
+
+export function HeroMedia(props: HeroMediaProps) {
+  const [playVideo, setPlayVideo] = useState(false);
+  useEffect(() => {
+    if (props.kind !== "video") return;
+    const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setPlayVideo(!calm.matches);
+    update();
+    calm.addEventListener("change", update);
+    return () => calm.removeEventListener("change", update);
+  }, [props.kind]);
+  const pos = props.position ?? "object-[75%_center] md:object-right";
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20 overflow-hidden">
+      {props.kind === "image" ? (
+        <img
+          src={props.src}
+          alt=""
+          width={1600}
+          height={905}
+          fetchPriority="high"
+          decoding="async"
+          className={`absolute inset-0 h-full w-full object-cover hero-media-zoom ${pos}`}
+        />
+      ) : (
+        <>
+          <img
+            src={props.poster}
+            alt=""
+            width={1600}
+            height={900}
+            fetchPriority="high"
+            decoding="async"
+            className={`absolute inset-0 h-full w-full object-cover ${pos}`}
+          />
+          {playVideo && (
+            <video
+              src={props.src}
+              poster={props.poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              disablePictureInPicture
+              tabIndex={-1}
+              className={`absolute inset-0 h-full w-full object-cover ${pos}`}
+            />
+          )}
+        </>
+      )}
+      <div className="absolute inset-0 bg-background/60 lg:hidden" />
+      <div
+        className="absolute inset-0 hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(90deg, var(--background) 0%, color-mix(in oklab, var(--background) 72%, transparent) 34%, transparent 68%)",
+        }}
+      />
+    </div>
+  );
+}
+
 export function PageHero({
   kicker,
   title,
   subtitle,
+  media,
   children,
 }: {
   kicker: React.ReactNode;
   title: React.ReactNode;
   subtitle: React.ReactNode;
+  media?: HeroMediaProps;
   children?: React.ReactNode;
 }) {
   return (
     <section className="relative isolate overflow-hidden border-b border-border">
+      {media && <HeroMedia {...media} />}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hero-ambient" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 hero-grain" />
       <div

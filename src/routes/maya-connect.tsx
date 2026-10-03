@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Closing, PageHero, QUOTE, Section, ThreadRow } from "@/components/maya/page-kit";
+import connectBg from "@/assets/metodo-4-evolviamo.webp";
 
 const TITLE = "Maya Connect | Costruiamo intorno a ciò che usi già";
 const URL_CANONICAL = "https://maya-project.it/maya-connect";
@@ -208,6 +209,11 @@ function MayaConnectPage() {
     <main className="min-h-screen bg-background text-foreground">
       <PageHero
         kicker="MAYA CONNECT"
+        media={{
+          kind: "image",
+          src: connectBg,
+          position: "object-[72%_center] md:object-right",
+        }}
         title={
           <>
             Il filo che collega gli strumenti che usi già <span className="text-primary">al tuo brand.</span>

@@ -262,6 +262,23 @@
   animation: thread-glow 18s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
+/* Zoom lentissimo per gli sfondi-immagine degli hero (Maya App, Maya Connect).
+   Si ferma da solo con "riduci animazioni" grazie alla regola globale sotto. */
+@keyframes hero-zoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.045);
+  }
+}
+
+@utility hero-media-zoom {
+  animation: hero-zoom 28s ease-in-out infinite;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

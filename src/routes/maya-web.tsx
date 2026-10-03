@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CONTACT, QUOTE, SiteHeader } from "@/components/maya/page-kit";
+import { CONTACT, HeroMedia, QUOTE, SiteHeader } from "@/components/maya/page-kit";
 import { Reveal } from "@/components/maya/home";
 import barber from "@/assets/concept-barber.jpg";
 import medical from "@/assets/concept-medical.jpg";
@@ -84,6 +84,12 @@ function MayaWebPage() {
     <main className="min-h-screen bg-background text-foreground">
       {/* 1. Apertura */}
       <section className="relative isolate overflow-hidden border-b border-border">
+        <HeroMedia
+          kind="video"
+          src="/media/maya-hero.mp4"
+          poster="/media/maya-hero-poster.webp"
+          position="object-[30%_center] md:object-[38%_center]"
+        />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 hero-ambient"
