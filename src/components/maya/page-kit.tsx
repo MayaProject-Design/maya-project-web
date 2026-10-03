@@ -226,7 +226,7 @@ export function PageHero({
         className="pointer-events-none absolute inset-0 -z-10 hero-vignette"
       />
       <SiteHeader />
-      <div className="mx-auto flex w-full max-w-[1390px] flex-1 flex-col justify-center px-6 pb-24 pt-14 md:px-12 md:pb-36 md:pt-24 lg:px-16">
+      <div className="mx-auto flex w-full max-w-[1390px] flex-1 flex-col justify-center px-6 pb-16 pt-8 md:px-12 md:pb-20 md:pt-10 lg:px-16">
         <p className="reveal-in font-display text-base md:text-lg font-semibold tracking-[-0.01em] text-primary">
           {kicker}
         </p>
