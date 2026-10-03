@@ -4,6 +4,7 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThreadConnector } from "./sections";
 import { LegalLinks } from "./legal-links";
+import { MayaMark } from "./maya-mark";
 
 export const CONTACT = "/contatti";
 export const QUOTE = "/preventivo" as const;
@@ -19,12 +20,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
   ] as const;
   const brandContents = (
     <>
-      <span
-        aria-hidden="true"
-        className="relative inline-flex h-px w-4 shrink-0 bg-foreground/60 transition-colors duration-300 group-hover:bg-foreground/80 sm:w-5"
-      >
-        <span className="absolute -right-px top-1/2 size-[3px] -translate-y-1/2 rounded-full bg-primary" />
-      </span>
+      <MayaMark className="h-[7px] w-auto shrink-0 text-foreground/70 transition-colors duration-300 group-hover:text-foreground sm:h-2 md:h-[9px]" />
       <span className="font-display text-xs font-medium uppercase tracking-[0.18em] text-foreground md:text-[13px]">
         MAYA <span className="text-foreground/75">PROJECT</span>
       </span>

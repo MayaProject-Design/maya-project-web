@@ -85,7 +85,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "it_IT" },
       { property: "og:site_name", content: "Maya Project" },
+      { property: "og:image", content: "https://maya-project.it/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Maya Project — Cuciamo il digitale intorno al tuo brand." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://maya-project.it/og-image.png" },
       { name: "theme-color", content: "#000101" },
     ],
     links: [
@@ -93,12 +98,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      /* ?v=4: il file ha lo stesso nome del vecchio logo e i browser tengono
-         in cache le icone a lungo. La query forza il ricaricamento. */
-      { rel: "icon", href: "/favicon.ico?v=4", sizes: "48x48" },
-      { rel: "icon", href: "/favicon.png?v=4", type: "image/png", sizes: "64x64" },
-      { rel: "icon", href: "/favicon-512.png?v=4", type: "image/png", sizes: "512x512" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png?v=4", sizes: "180x180" },
+      /* ?v=5: nuovo segno (cucitura, punto, ago). I browser tengono in cache
+         le icone a lungo: la query forza il ricaricamento. */
+      { rel: "icon", href: "/favicon.ico?v=5", sizes: "48x48" },
+      { rel: "icon", href: "/favicon.svg?v=5", type: "image/svg+xml" },
+      { rel: "icon", href: "/favicon.png?v=5", type: "image/png", sizes: "64x64" },
+      { rel: "icon", href: "/favicon-512.png?v=5", type: "image/png", sizes: "512x512" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png?v=5", sizes: "180x180" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
