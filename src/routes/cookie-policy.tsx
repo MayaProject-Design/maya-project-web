@@ -60,6 +60,12 @@ function CookiePolicyPage() {
           preferenze che compili nel modulo di richiesta preventivo restano nella memoria
           temporanea del browser fino all'invio e non vengono salvate in alcun cookie.
         </p>
+        <p>
+          Nella stessa memoria temporanea, che il browser svuota alla chiusura della scheda, il
+          sito annota un unico dato tecnico: il punto della pagina in cui ti trovavi, per
+          riportarti dove eri se torni indietro. Non contiene identificativi e non viene mai
+          inviato a noi né a terzi.
+        </p>
       </LegalBlock>
 
       <LegalBlock title="3. Cookie tecnici dell'infrastruttura">
@@ -79,20 +85,10 @@ function CookiePolicyPage() {
 
       <LegalBlock title="4. Contenuti richiesti a terze parti">
         <p>
-          I caratteri tipografici del sito sono richiesti ai server di Google Fonts nel momento in
-          cui la pagina viene caricata. Google Fonts{" "}
-          <strong className="font-medium text-foreground">non installa cookie</strong>, ma per
-          consegnare il file riceve necessariamente l'indirizzo IP del visitatore, come qualsiasi
-          server contattato da un browser. Il trattamento è descritto nella{" "}
-          <a
-            href="https://policies.google.com/privacy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
-          >
-            privacy policy di Google
-          </a>
-          .
+          <strong className="font-medium text-foreground">Nessuno.</strong> I caratteri
+          tipografici sono ospitati sul nostro dominio e consegnati insieme al resto della pagina.
+          Non vengono richiesti a Google Fonts né ad altri servizi esterni, quindi il tuo
+          indirizzo IP non raggiunge nessun terzo per il solo fatto che hai aperto il sito.
         </p>
         <p>
           Se dalle pagine del sito apri un collegamento verso Instagram o verso un altro servizio

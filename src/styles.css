@@ -2,11 +2,17 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* Caratteri ospitati in proprio. I file arrivano con il pacchetto e vengono
+   serviti dal nostro dominio: nessuna richiesta ai server di Google, quindi
+   nessun indirizzo IP dei visitatori trasferito a terzi. */
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/space-grotesk";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Manrope", sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Manrope Variable", "Manrope", sans-serif;
+  --font-display: "Space Grotesk Variable", "Space Grotesk", sans-serif;
   --default-transition-duration: 500ms;
   --default-transition-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
   --color-background: var(--background);

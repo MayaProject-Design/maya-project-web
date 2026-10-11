@@ -105,12 +105,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.png?v=5", type: "image/png", sizes: "64x64" },
       { rel: "icon", href: "/favicon-512.png?v=5", type: "image/png", sizes: "512x512" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png?v=5", sizes: "180x180" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap",
-      },
+      /* I caratteri non si chiedono più a Google: sono serviti dal nostro dominio
+         (vedi gli @import in src/styles.css). Così nessun indirizzo IP dei
+         visitatori finisce a un terzo solo per caricare un font. */
     ],
   }),
   shellComponent: RootShell,
